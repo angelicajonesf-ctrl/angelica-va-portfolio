@@ -276,7 +276,7 @@ export default function HeroCanvasV2() {
     // version ran at a hard 20fps cap which felt laggy compared to Lando's
     // uncapped 60fps. The shader is cheap (~one fullscreen plane, two
     // simplex samples) so there is no need to throttle on desktop.
-    const DRIFT_PER_SECOND = 0.22 // slower, calmer pastel background animation
+    const DRIFT_PER_SECOND = 0.025 // slower, calmer pastel background animation
     const FOLLOW_PER_SECOND = 4.0   // cursor lerp rate (higher = snappier)
     const PACE_PER_SECOND   = 8.0   // velocity smoothing rate
     const DARK_PER_SECOND   = 7.0   // light/dark theme blend rate
