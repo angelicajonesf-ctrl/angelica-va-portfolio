@@ -46,31 +46,37 @@ export type Profile = {
 }
 
 export const profile: Profile = {
-  name: 'Your Name',
-  firstName: 'Your Name',
-  handle: '@yourhandle',
-  role: 'PLACEHOLDER - your title',
+  name: 'Angelica Jones Funelas',
+  firstName: 'Angelica',
+  handle: '@angelicajonesf',
+  role: 'Executive VA | Real Estate VA | Social Media Support',
   avatarSrc: '/avatar.svg',
-  verifiedLabel: 'PLACEHOLDER - what the tick means (e.g. a certification)',
-  email: 'you@example.com',
-  location: 'PLACEHOLDER - your city or timezone',
-  // Pick any icon from https://phosphoricons.com and import it above.
+  verifiedLabel: 'Virtual Assistant Portfolio',
+  email: 'angelicajonesf@gmail.com',
+  location: 'Philippines',
+
   stats: [
-    { value: '0 yrs', label: 'PLACEHOLDER', Icon: Briefcase },
-    { value: '#000', label: 'PLACEHOLDER', Icon: SealCheck },
-    { value: 'GMT+0', label: 'PLACEHOLDER', Icon: Clock },
+    { value: '3+', label: 'Years of Experience', Icon: Briefcase },
+    { value: '63+', label: 'Agreements Managed', Icon: SealCheck },
+    { value: 'PHT', label: 'Flexible US Hours', Icon: Clock },
   ],
-  // The intro types this line, then flies it into the Home headline.
-  // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Your headline here.', line2: 'Keep it short.' },
-  hero: {
-    body: 'PLACEHOLDER - one line on what you do and who you do it for.',
-    portraitSrc: '/avatar.svg',
-    portraitAlt: 'Portrait placeholder',
+
+  displayName: {
+    line1: 'Organized support.',
+    line2: 'Real results.',
   },
+
+  hero: {
+    body: 'Executive assistance, real estate support, and social media help to keep your business moving.',
+    portraitSrc: '/avatar.svg',
+    portraitAlt: 'Angelica Jones Funelas profile portrait',
+  },
+
   socials: [
-    { label: 'Facebook profile', href: '#', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href: '#', iconPath: '/icons/linkedin.svg' },
-    { label: 'Discord profile', href: '#', iconPath: '/icons/discord.svg' },
+    {
+      label: 'LinkedIn profile',
+      href: 'https://linkedin.com/in/angelicafunelas/',
+      iconPath: '/icons/linkedin.svg',
+    },
   ],
 }
