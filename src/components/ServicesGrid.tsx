@@ -89,7 +89,7 @@ const SERVICES: Service[] = [
     index: '01',
     title: 'Executive Virtual Assistance',
     description:
-      'Organized administrative and operational support to help business owners manage daily responsibilities efficiently.',
+      'Organized administrative and operational support to help business owners stay on top of daily responsibilities.',
     chip: 'ADMIN & OPERATIONS',
     logos: [],
     bullets: [
@@ -103,32 +103,60 @@ const SERVICES: Service[] = [
     index: '02',
     title: 'Real Estate Virtual Assistance',
     description:
-      'Reliable lead generation and administrative support to help real estate professionals manage prospects and opportunities.',
+      'Lead generation, prospect management, and administrative support for real estate professionals.',
     chip: 'REAL ESTATE SUPPORT',
     logos: [],
     bullets: [
-      'Cold calling and seller qualification',
-      'Skip tracing and lead generation',
-      'CRM updates and lead tracking',
-      'Appointment setting and follow-ups',
+      'Lead generation and skip tracing',
+      'Cold calling and appointment setting',
+      'CRM updates and lead qualification',
+      'Property research and follow-ups',
     ],
   },
   {
     index: '03',
-    title: 'Social Media Management Support',
+    title: 'Social Media Management & Support',
     description:
-      'Creative and organized support for maintaining an active, consistent, and engaging social media presence.',
-    chip: 'CONTENT & SOCIAL MEDIA',
+      'Practical support for maintaining an organized, active, and consistent social media presence.',
+    chip: 'CONTENT & ENGAGEMENT',
     logos: [],
     bullets: [
-      'Social media account handling',
-      'Basic graphic design and video editing',
-      'Content creation and caption writing',
+      'Basic graphic design using Canva',
+      'Content preparation and basic editing',
       'Post scheduling and publishing',
-      'Engagement and activity monitoring',
+      'Inbox, comments, and engagement support',
+    ],
+  },
+  {
+    index: '04',
+    title: 'Customer Service & Client Relations',
+    description:
+      'Responsive communication and reliable follow-through to support positive customer experiences.',
+    chip: 'CLIENT SUPPORT',
+    logos: [],
+    bullets: [
+      'Customer inquiries and follow-ups',
+      'Phone, email, and chat communication',
+      'Appointment and request coordination',
+      'Issue tracking and escalation',
+    ],
+  },
+  {
+    index: '05',
+    title: 'CRM & Operations Support',
+    description:
+      'Accurate records, organized databases, and dependable administrative processes for growing businesses.',
+    chip: 'SYSTEMS & DOCUMENTATION',
+    logos: [],
+    bullets: [
+      'CRM and database maintenance',
+      'Contract and document tracking',
+      'Invoice and collection monitoring',
+      'Spreadsheet trackers and reports',
     ],
   },
 ]
+
 
 
 /** The tool marks, stacked horizontally on white tiles (same as Projects). */
