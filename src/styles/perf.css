@@ -27,3 +27,25 @@
 :root[data-perf='low'] .hero-canvas {
   display: none;
 }
+
+
+/* =====================================
+   PASTEL PINK DARK MODE OVERRIDES
+   ===================================== */
+
+[data-theme='dark'] .home__glass {
+  background: linear-gradient(
+    110deg,
+    #543946 0%,
+    #694858 45%,
+    #C986A3 100%
+  ) !important;
+}
+
+[data-theme='dark'] .hero-canvas {
+  display: none !important;
+}
+
+[data-theme='dark'] .shell__panel {
+  background-color: #3D2935 !important;
+}
