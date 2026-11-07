@@ -39,11 +39,11 @@ type Tool = {
 
 export const tools: Tool[] = [
   { name: 'Google Workspace', iconPath: `${import.meta.env.BASE_URL}icons/googleworkspace.svg` },
-  { name: 'Microsoft 365', iconPath: `${import.meta.env.BASE_URL}icons/microsoft365.svg` },
+  { name: 'Microsoft 365', iconPath: `${import.meta.env.BASE_URL}icons/microsoft365.png` },
   { name: 'Notion', iconPath: `${import.meta.env.BASE_URL}icons/notion.svg` },
   { name: 'Odoo', iconPath: `${import.meta.env.BASE_URL}icons/odoo.svg` },
   { name: 'HubSpot', iconPath: `${import.meta.env.BASE_URL}icons/hubspot.svg` },
-  { name: 'Canva', iconPath: `${import.meta.env.BASE_URL}icons/canva.svg` },
+  { name: 'Canva', iconPath: `${import.meta.env.BASE_URL}icons/canva.png` },
   { name: 'ChatGPT', iconPath: `${import.meta.env.BASE_URL}icons/chatgpt.svg` },
   { name: 'Claude', iconPath: `${import.meta.env.BASE_URL}icons/claude.svg` },
 ]
