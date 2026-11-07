@@ -117,9 +117,9 @@ const frag = `
     vec3 bgLight   = vec3(1.0, 0.961, 0.973); 
     vec3 lineLight = vec3(0.867, 0.663, 0.745);
 
-    // Midnight Plum & Rose — dark mode
-    vec3 bgDark    = vec3(0.161, 0.122, 0.169);
-    vec3 lineDark  = vec3(0.941, 0.678, 0.773);
+   // Midnight Plum & Rose — dark mode
+   vec3 bgDark    = vec3(0.161, 0.122, 0.169);
+   vec3 lineDark  = vec3(0.941, 0.663, 0.773);
 
 
     vec3 bg      = mix(bgLight, bgDark, uDarkMix);
