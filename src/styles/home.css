@@ -41,16 +41,18 @@
 .home__title {
   display: flex;
   flex-direction: column;
-  font-size: clamp(30px, 3.5vw, 72px);
+  font-size: clamp(28px, 3vw, 44px);
   font-weight: 700;
-  letter-spacing: var(--ls-display);
-  line-height: 1.06;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
   color: var(--navy);
+  max-width: 100%;
 }
-.home__line { display: block; }
 
-@media (min-width: 1100px) {
-  .home__line { white-space: nowrap; }
+.home__line {
+  display: block;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .home__cta {
