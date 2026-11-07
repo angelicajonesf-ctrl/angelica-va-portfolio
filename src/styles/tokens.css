@@ -103,35 +103,38 @@
 
 /* MATCHING DARK MODE */
 
-/* PASTEL PINK DARK MODE */
+/* MIDNIGHT PLUM & ROSE — DARK MODE */
 [data-theme='dark'] {
-  --cream: #3D2935;
-  --paper: #49313F;
-  --white: #543946;
-  --navy: #FFF0F5;
-  --navy-ink: #2C1C27;
+  --cream: #291F2B;
+  --paper: #3A2B3A;
+  --white: #3A2B3A;
 
-  --orange: #F2A8C2;
+  --navy: #FFF0F6;
+  --navy-ink: #291F2B;
+  --muted: #E0C5D2;
+
+  --orange: #F0A9C5;
   --orange-hover: #F8C6D8;
-  --orange-ink: #F2C6D6;
+  --orange-ink: #F8C6D8;
 
-  --muted: #E2C3D0;
+  --plate: #4B3547;
+  --plate-ink: #FFF0F6;
+  --panel-dark: #4B3547;
+
   --divider: rgba(255, 224, 236, 0.16);
-  --line: rgba(255, 224, 236, 0.15);
+  --line: rgba(255, 224, 236, 0.16);
   --line-strong: rgba(255, 224, 236, 0.30);
 
-  --tint: rgba(242, 198, 214, 0.08);
-  --tint-strong: rgba(242, 198, 214, 0.16);
-  --glass: rgba(73, 49, 63, 0.85);
+  --tint: rgba(240, 169, 197, 0.08);
+  --tint-strong: rgba(240, 169, 197, 0.16);
+  --glass: rgba(75, 53, 71, 0.85);
 
-  --panel-dark: #3D2935;
+  --brands-chip-bg: #FFF0F6;
+  --brands-chip-border: rgba(240, 169, 197, 0.25);
 
-  --brands-chip-bg: #FFF0F5;
-  --brands-chip-border: rgba(242, 198, 214, 0.25);
-
-  --shadow-soft: 0 20px 60px -20px rgba(44, 28, 39, 0.35);
-  --shadow-card: 0 40px 100px -30px rgba(44, 28, 39, 0.5);
-  --shadow-btn: 0 8px 24px -8px rgba(44, 28, 39, 0.3);
+  --shadow-soft: 0 20px 60px -20px rgba(20, 10, 20, 0.35);
+  --shadow-card: 0 40px 100px -30px rgba(20, 10, 20, 0.50);
+  --shadow-btn: 0 8px 24px -8px rgba(20, 10, 20, 0.30);
 }
 
 
