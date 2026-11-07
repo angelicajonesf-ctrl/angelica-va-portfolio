@@ -62,15 +62,16 @@ export const profile: Profile = {
   ],
 
   displayName: {
-    line1: 'Organized support.',
-    line2: 'Real results.',
-  },
+  line1: 'Structure for your business.',
+  line2: 'Space for your growth.',
+},
 
-  hero: {
-    body: 'Executive assistance, real estate support, and social media help to keep your business moving.',
-    portraitSrc: '/avatar.svg',
-    portraitAlt: 'Angelica Jones Funelas profile portrait',
-  },
+hero: {
+  body: 'I help founders and real estate professionals stay organized, streamline operations, and focus on what matters most.',
+  portraitSrc: '/avatar.svg',
+  portraitAlt: 'Angelica Jones Funelas',
+},
+
 
   socials: [
     {
