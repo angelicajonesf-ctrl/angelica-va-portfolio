@@ -3,14 +3,20 @@ import { NavLink } from 'react-router-dom'
 import { SealCheck } from '@/components/slab'
 import ThemeGlyph from './ThemeGlyph'
 import {
+  
+import {
   HomeIcon,
   FolderIcon,
   StackIcon,
   CupIcon,
-  StarIcon,
   UserIcon,
   MessageIcon,
 } from './RailIcons'
+import {
+  Briefcase,
+  Clock,
+} from '@/components/slab'
+
 import { getTheme, toggleTheme, type Theme } from '@/lib/theme'
 import { profile } from '@/data/profile'
 
@@ -25,14 +31,15 @@ import { profile } from '@/data/profile'
  * instead. `NavLink` owns the active state, which is why there is no
  * IntersectionObserver here.
  */
+
 export const RAIL_LINKS = [
   { label: 'Home', to: '/', Icon: HomeIcon },
-  { label: 'Projects', to: '/projects', Icon: FolderIcon },
+  { label: 'About Me', to: '/about', Icon: UserIcon },
   { label: 'Services', to: '/services', Icon: StackIcon },
-  { label: 'Showcase', to: '/showcase', Icon: CupIcon },
-  { label: 'Testimonials', to: '/testimonials', Icon: StarIcon },
-  { label: 'About', to: '/about', Icon: UserIcon },
-  { label: 'FAQs / Contact', to: '/contact', Icon: MessageIcon },
+  { label: 'Experience', to: '/experience', Icon: Clock },
+  { label: 'Portfolio', to: '/projects', Icon: FolderIcon },
+  { label: 'Tools & Tech Stack', to: '/tools', Icon: CupIcon },
+  { label: 'Contact', to: '/contact', Icon: MessageIcon },
 ] as const
 
 export default function Rail() {
