@@ -58,9 +58,15 @@ export default function Rail() {
           {profile.name}
           <SealCheck size={19} weight="fill" aria-label={profile.verifiedLabel} />
         </h2>
-        <p className="rail__handle">
-          {profile.handle}
-        </p>
+        <a
+  className="rail__handle rail__whatsapp"
+  href="https://wa.me/639455819435"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Message me on WhatsApp"
+>
+  +63 945 581 9435
+</a>
 
         <div className="rail__actions">
           <ul className="rail__socials" role="list" aria-label="Social profiles">
