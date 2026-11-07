@@ -11,7 +11,6 @@ import {
   Gear,
   AddressBook,
 } from '@/components/slab'
-import { profile } from '@/data/profile'
 
 const base = import.meta.env.BASE_URL
 
