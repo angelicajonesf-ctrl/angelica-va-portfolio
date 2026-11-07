@@ -74,21 +74,23 @@ hero: {
 
 
   
+ 
   socials: [
     {
       label: 'LinkedIn',
       href: 'https://linkedin.com/in/angelicafunelas/',
-      iconPath: '/icons/linkedin.svg',
+      iconPath: `${import.meta.env.BASE_URL}icons/linkedin.svg`,
     },
     {
       label: 'OnlineJobs.ph',
       href: 'https://www.onlinejobs.ph/jobseekers/info/3109925',
-      iconPath: '/icons/onlinejobs.svg',
+      iconPath: `${import.meta.env.BASE_URL}icons/onlinejobs.svg`,
     },
     {
       label: 'Email',
       href: 'mailto:angelicajonesf@gmail.com',
-      iconPath: '/icons/email.svg',
+      iconPath: `${import.meta.env.BASE_URL}icons/email.svg`,
     },
   ],
 }
+
