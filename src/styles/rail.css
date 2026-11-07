@@ -60,16 +60,24 @@
   }
 
   .rail__name {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: 8px;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: var(--navy);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.rail__name svg {
+  color: var(--verified);
+  flex-shrink: 0;
+}
   /* Platform signal, not brand furniture: this one stays Facebook blue in
      both themes rather than following --orange. */
   .rail__name svg { color: var(--verified); flex-shrink: 0; }
