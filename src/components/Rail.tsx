@@ -45,14 +45,14 @@ export default function Rail() {
   return (
     <aside className="rail" aria-label="Profile and site navigation">
       <div className="rail__inner">
-        <span className="rail__avatar">
-          <img
-            src={profile.avatarSrc}
-            alt={profile.name}
-            width={120}
-            height={120}
-          />
-        </span>
+       <span className="rail__avatar">
+  <img
+    src={`${import.meta.env.BASE_URL}angelica_profile.png`}
+    alt={profile.name}
+    width={120}
+    height={120}
+  />
+</span>
 
         <h2 className="rail__name">
           {profile.name}
