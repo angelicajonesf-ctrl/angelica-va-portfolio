@@ -125,14 +125,42 @@ const frag = `
     vec3 bg      = mix(bgLight, bgDark, uDarkMix);
     vec3 lineCol = mix(lineLight, lineDark, uDarkMix);
 
-    // Tiny cursor-velocity highlight so flicks leave a faint glow.
+    
+    // Subtle cursor highlight
     lineCol += cursor * 0.04;
 
-    float lineAlpha = line * mix(0.32, 0.28, uDarkMix);
-    // the contours read as a warm beige tint rather than stark black. The lower
-    // contrast also hides most of the half-res upscale aliasing. Dark sections
-    // use white lines on navy, kept legible at a similar low alpha.
-    float lineAlpha = line * mix(0.55, 0.45, uDarkMix);
+    // Soft rose-colored flowing contours
+    float lineAlpha = line * mix(0.60, 0.42, uDarkMix);
+
+    // Floating blush glow
+    vec2 glowCenter1 = vec2(
+      uAspect * (0.30 + 0.08 * sin(uTime * 0.55)),
+      0.68 + 0.08 * cos(uTime * 0.40)
+    );
+
+    vec2 glowCenter2 = vec2(
+      uAspect * (0.78 + 0.06 * cos(uTime * 0.38)),
+      0.25 + 0.07 * sin(uTime * 0.50)
+    );
+
+    float glow1 = exp(
+      -dot(uv - glowCenter1, uv - glowCenter1) * 2.2
+    );
+
+    float glow2 = exp(
+      -dot(uv - glowCenter2, uv - glowCenter2) * 3.0
+    );
+
+    // Blush colors for both themes
+    vec3 blushLight = vec3(0.97, 0.72, 0.82);
+    vec3 blushDark = vec3(0.72, 0.39, 0.55);
+    vec3 blush = mix(blushLight, blushDark, uDarkMix);
+
+    // Blend floating glow into the background
+    float glowStrength = glow1 * 0.22 + glow2 * 0.16;
+    bg = mix(bg, blush, glowStrength);
+
+    // Draw contours over the blush glow
     vec3 color = mix(bg, lineCol, lineAlpha);
 
     gl_FragColor = vec4(color, 1.0);
