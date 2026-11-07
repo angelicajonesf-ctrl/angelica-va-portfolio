@@ -42,8 +42,9 @@
   ) !important;
 }
 
+
 [data-theme='dark'] .hero-canvas {
-  display: none !important;
+  display: block !important;
 }
 
 [data-theme='dark'] .shell__panel {
