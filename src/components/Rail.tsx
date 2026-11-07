@@ -1,9 +1,8 @@
+
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { SealCheck } from '@/components/slab'
+import { SealCheck, Clock } from '@/components/slab'
 import ThemeGlyph from './ThemeGlyph'
-import {
-  
 import {
   HomeIcon,
   FolderIcon,
@@ -12,13 +11,9 @@ import {
   UserIcon,
   MessageIcon,
 } from './RailIcons'
-import {
-  Briefcase,
-  Clock,
-} from '@/components/slab'
-
 import { getTheme, toggleTheme, type Theme } from '@/lib/theme'
 import { profile } from '@/data/profile'
+
 
 /**
  * The profile rail: the fixed left column of the shell. It carries identity,
