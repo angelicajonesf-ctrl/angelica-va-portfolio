@@ -119,7 +119,7 @@ const frag = `
 
    // Midnight Plum & Rose — dark mode
    vec3 bgDark    = vec3(0.161, 0.122, 0.169);
-   vec3 lineDark  = vec3(0.941, 0.663, 0.773);
+   vec3 lineDark = vec3(0.976, 0.745, 0.843);
 
 
     vec3 bg      = mix(bgLight, bgDark, uDarkMix);
@@ -130,7 +130,7 @@ const frag = `
     lineCol += cursor * 0.04;
 
     // Soft rose-colored flowing contours
-    float lineAlpha = line * mix(0.60, 0.42, uDarkMix);
+    float lineAlpha = line * mix(0.60, 0.72, uDarkMix);
 
     // Floating blush glow
     vec2 glowCenter1 = vec2(
@@ -153,11 +153,12 @@ const frag = `
 
     // Blush colors for both themes
     vec3 blushLight = vec3(0.97, 0.72, 0.82);
-    vec3 blushDark = vec3(0.72, 0.39, 0.55);
+    vec3 blushDark = vec3(0.82, 0.48, 0.64);
     vec3 blush = mix(blushLight, blushDark, uDarkMix);
 
     // Blend floating glow into the background
-    float glowStrength = glow1 * 0.22 + glow2 * 0.16;
+   float glowStrength = glow1 * mix(0.22, 0.38, uDarkMix)
+                   + glow2 * mix(0.16, 0.28, uDarkMix);
     bg = mix(bg, blush, glowStrength);
 
     // Draw contours over the blush glow
