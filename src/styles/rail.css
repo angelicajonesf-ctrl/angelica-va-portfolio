@@ -30,7 +30,7 @@
   .rail__avatar {
     position: relative;
     display: block;
-    width: clamp(180px, 27vh, 240px);
+    width: clamp(200px, 30vh, 260px);
     aspect-ratio: 1;
     /* The full cutout figure, no crop and no disc: it sits straight on the
        page the way About seats it, with only a soft orange glow behind. */
@@ -63,7 +63,7 @@
     display: flex;
     align-items: center;
     gap: 7px;
-    margin-top: 20px;
+    margin-top: 8px;
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.02em;
