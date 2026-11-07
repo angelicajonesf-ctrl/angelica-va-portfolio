@@ -47,6 +47,7 @@
   display: block !important;
 }
 
+/* Allow animated contours to show behind the main content */
 [data-theme='dark'] .shell__panel {
-  background-color: #3D2935 !important;
+  background: transparent !important;
 }
