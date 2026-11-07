@@ -47,7 +47,7 @@ export default function Rail() {
       <div className="rail__inner">
        <span className="rail__avatar">
   <img
-  src={`${import.meta.env.BASE_URL}angelica_profile.png`}
+  src={`${import.meta.env.BASE_URL}angelica new profile.png`}
   alt={profile.name}
   width={160}
   height={160}
