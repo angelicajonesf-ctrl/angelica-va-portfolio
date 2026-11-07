@@ -272,3 +272,17 @@
      the page keeps exactly one navigation surface. */
   .nav { display: none; }
 }
+
+.rail__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.rail__whatsapp:hover {
+  color: #D94B82;
+  text-decoration: underline;
+}
