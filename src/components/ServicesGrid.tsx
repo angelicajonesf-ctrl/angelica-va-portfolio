@@ -64,12 +64,6 @@ type Service = {
   bullets: string[]
 }
 
-const BULLETS = [
-  'Organized workflows',
-  'Accurate records',
-  'Reliable follow-through',
-]
-const SERVICE_DESC = 'Practical, detail-oriented support tailored to your daily business needs.'
 
 
 const SERVICES: Service[] = [
