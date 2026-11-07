@@ -65,13 +65,14 @@ const frag = `
   // Tuned from full-HD screenshots of landonorris.com - the contours are
   // BIG sweeping curves (only 2-4 visible across a 1920px viewport), not
   // dense topographic detail. SCALE drives that.
-  const float SCALE             = 0.72;  // base noise scale - LOWER = larger cells = fewer, sparser blobs across the viewport
-  const float NOISE_DETAIL      = 3.0;   // number of contour bands per noise cell - LOWER = fewer parallel lines (less busy / fewer blobs)
-  const float DISTORT_SCALE     = 0.55;  // size of the slow underlying blobs
-  const float DISTORT_INTENSITY = 0.50;  // how much the slow blobs warp the contours
-  const float HAIRLINE_PIXELS   = 1.5;   // contour line width in screen pixels (fwidth-driven)
-  const float CURSOR_SCALE      = 1.5;   // falloff sharpness around the cursor
-  const float CURSOR_INTENSITY  = 0.05;  // how much the cursor drags contour UVs
+    const float SCALE             = 0.60;
+    const float NOISE_DETAIL      = 2.4;
+    const float DISTORT_SCALE     = 0.45;
+    const float DISTORT_INTENSITY = 0.38;
+    const float HAIRLINE_PIXELS   = 1.1;
+    const float CURSOR_SCALE      = 1.5;
+    const float CURSOR_INTENSITY  = 0.035;
+
 
   // Near-isotropic noise sampling - contours form in all directions like a
   // real topographic map. NOT stretched into horizontal stripes.
@@ -112,11 +113,14 @@ const frag = `
     float w       = fwidth(bands) * HAIRLINE_PIXELS * 0.5;
     float line    = 1.0 - smoothstep(0.0, w, dist);
 
-    // Theme colors (kept identical to v1 so the rest of the page does not shift).
-    vec3 bgLight   = vec3(0.957, 0.957, 0.929); // #F4F4ED cream
-    vec3 lineLight = vec3(0.46,  0.46,  0.46);  // soft neutral gray contour on cream
-    vec3 bgDark    = vec3(0.024, 0.047, 0.102); // #060C1A navy ink
-    vec3 lineDark  = vec3(1.0,   1.0,   1.0);   // solid white on navy (black would be invisible)
+    // Soft Rose & White — light mode
+    vec3 bgLight   = vec3(1.0, 0.961, 0.973); 
+    vec3 lineLight = vec3(0.867, 0.663, 0.745);
+
+    // Midnight Plum & Rose — dark mode
+    vec3 bgDark    = vec3(0.161, 0.122, 0.169);
+    vec3 lineDark  = vec3(0.941, 0.678, 0.773);
+
 
     vec3 bg      = mix(bgLight, bgDark, uDarkMix);
     vec3 lineCol = mix(lineLight, lineDark, uDarkMix);
@@ -124,7 +128,7 @@ const frag = `
     // Tiny cursor-velocity highlight so flicks leave a faint glow.
     lineCol += cursor * 0.04;
 
-    // Line opacity: soft, tonal beige hairlines - lower alpha so
+    float lineAlpha = line * mix(0.32, 0.28, uDarkMix);
     // the contours read as a warm beige tint rather than stark black. The lower
     // contrast also hides most of the half-res upscale aliasing. Dark sections
     // use white lines on navy, kept legible at a similar low alpha.
@@ -174,16 +178,16 @@ export default function HeroCanvasV2() {
 
     const mouse = new THREE.Vector2(0, 0)
     // The page is dark or light, never both, and it never inverts on scroll.
-    // uDarkMix is a theme reading now: 1 in dark, 0 in light, eased only when
+    
     // the visitor actually flips the switch.
     const darkMix = { value: getTheme() === 'dark' ? 1 : 0 }
     let targetDark = darkMix.value
-    renderer.setClearColor(darkMix.value ? 0x070b14 : 0xf4f4ed, 1)
+    renderer.setClearColor(darkMix.value ? 0x291f2b : 0xfff5f8, 1)
 
     const onThemeChange = () => {
       const dark = getTheme() === 'dark'
       targetDark = dark ? 1 : 0
-      renderer.setClearColor(dark ? 0x070b14 : 0xf4f4ed, 1)
+      renderer.setClearColor(dark ? 0x291f2b : 0xfff5f8, 1)
     }
     window.addEventListener('themechange', onThemeChange)
 
@@ -239,7 +243,7 @@ export default function HeroCanvasV2() {
     const FRAME_INTERVAL = 1000 / 30
 
     // Delta-time animation. Speeds are expressed PER SECOND, so the visual
-    // pace stays the same on a 60Hz, 120Hz, or 144Hz display. The previous
+    const DRIFT_PER_SECOND = 0.055
     // version ran at a hard 20fps cap which felt laggy compared to Lando's
     // uncapped 60fps. The shader is cheap (~one fullscreen plane, two
     // simplex samples) so there is no need to throttle on desktop.
