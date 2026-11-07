@@ -76,51 +76,60 @@ type Service = {
   bullets: string[]
 }
 
-const BULLETS = ['PLACEHOLDER benefit 1', 'PLACEHOLDER benefit 2', 'PLACEHOLDER benefit 3']
-const SERVICE_DESC = 'PLACEHOLDER - one line on this service.'
+const BULLETS = [
+  'Organized workflows',
+  'Accurate records',
+  'Reliable follow-through',
+]
+const SERVICE_DESC = 'Practical, detail-oriented support tailored to your daily business needs.'
+
 
 const SERVICES: Service[] = [
   {
     index: '01',
-    title: 'Service One',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, REACT, TAILWIND],
-    bullets: BULLETS,
+    title: 'Executive Virtual Assistance',
+    description:
+      'Organized administrative and operational support to help business owners manage daily responsibilities efficiently.',
+    chip: 'ADMIN & OPERATIONS',
+    logos: [],
+    bullets: [
+      'Inbox and document organization',
+      'Scheduling and meeting coordination',
+      'Data entry, invoicing, and reporting',
+      'Records and workflow management',
+    ],
   },
   {
     index: '02',
-    title: 'Service Two',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, N8N, OPENAI],
-    bullets: BULLETS,
+    title: 'Real Estate Virtual Assistance',
+    description:
+      'Reliable lead generation and administrative support to help real estate professionals manage prospects and opportunities.',
+    chip: 'REAL ESTATE SUPPORT',
+    logos: [],
+    bullets: [
+      'Cold calling and seller qualification',
+      'Skip tracing and lead generation',
+      'CRM updates and lead tracking',
+      'Appointment setting and follow-ups',
+    ],
   },
   {
     index: '03',
-    title: 'Service Three',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, GWS, SLACK],
-    bullets: BULLETS,
-  },
-  {
-    index: '04',
-    title: 'Service Four',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [REACT, VITE, CLOUDFLARE],
-    bullets: BULLETS,
-  },
-  {
-    index: '05',
-    title: 'Service Five',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [CLAUDE_CODE, EXPO, CHROME],
-    bullets: BULLETS,
+    title: 'Social Media Management Support',
+    description:
+      'Creative and organized support for maintaining an active, consistent, and engaging social media presence.',
+    chip: 'CONTENT & SOCIAL MEDIA',
+    logos: [],
+    bullets: [
+      'Social media account handling',
+      'Basic graphic design and video editing',
+      'Content creation and caption writing',
+      'Post scheduling and publishing',
+      'Engagement and activity monitoring',
+    ],
   },
 ]
+
 
 /** The tool marks, stacked horizontally on white tiles (same as Projects). */
 function Marks({ logos }: { logos: string[] }) {
