@@ -61,16 +61,17 @@ export const profile: Profile = {
     { value: 'PHT', label: 'Flexible US Hours', Icon: Clock },
   ],
 
-  displayName: {
-  line1: 'Structure for your business.',
-  line2: 'Space for your growth.',
+ displayName: {
+  line1: 'Your Reliable Partner in',
+  line2: 'Business Operations & Virtual Support',
 },
 
 hero: {
-  body: 'I help founders and real estate professionals stay organized, streamline operations, and focus on what matters most.',
+  body: 'I help business owners, real estate teams, and growing brands get their time back through proactive administrative assistance, reliable lead support, and thoughtful social media engagement.',
   portraitSrc: '/avatar.svg',
   portraitAlt: 'Angelica Jones Funelas',
 },
+
 
 
   
