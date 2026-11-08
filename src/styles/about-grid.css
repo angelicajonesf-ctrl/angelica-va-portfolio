@@ -155,3 +155,72 @@
     height: 36px;
   }
 }
+
+
+/* ABOUT ME — BREWEDOPS-INSPIRED GLASS CARD */
+
+@media (min-width: 1100px) {
+  .agrid .agrid__glass {
+    position: relative;
+    isolation: isolate;
+
+    /* Visible rounded outline */
+    border: 1.5px solid rgba(204, 151, 179, 0.58) !important;
+    border-radius: 34px !important;
+
+    /* White left, soft pink and lavender right */
+    background: linear-gradient(
+      110deg,
+      #ffffff 0%,
+      #fffafd 38%,
+      #fceef5 65%,
+      #e7d9f7 100%
+    ) !important;
+
+    box-shadow:
+      0 16px 40px rgba(132, 76, 107, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+
+    overflow: hidden;
+  }
+
+  /* Glass glow behind the illustration */
+  .agrid .agrid__glass::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 46%;
+    z-index: 0;
+    pointer-events: none;
+
+    background: radial-gradient(
+      ellipse at 85% 68%,
+      rgba(191, 199, 250, 0.68) 0%,
+      rgba(221, 206, 250, 0.42) 40%,
+      rgba(255, 255, 255, 0) 78%
+    );
+  }
+
+  .agrid .agrid__copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .agrid .agrid__portrait {
+    position: absolute;
+    z-index: 1;
+    right: -6px;
+    bottom: -6px;
+  }
+}
+
+/* Matching dark-mode styling */
+[data-theme='dark'] .agrid .agrid__glass {
+  border-color: rgba(236, 169, 203, 0.4) !important;
+  background: linear-gradient(
+    110deg,
+    #30252f,
+    #49303f 60%,
+    #62405e
+  ) !important;
+}
+  
