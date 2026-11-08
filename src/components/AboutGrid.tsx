@@ -29,7 +29,7 @@ const CAPABILITIES: Capability[] = [
     title: 'Real Estate Virtual Assistance',
     description: 'Lead Generation · Skip Tracing · CRM Management',
     marks: [
-      { src: 'icons/propstream.svg', name: 'PropStream' },
+      { src: 'icons/propstream.png', name: 'PropStream' },
       { src: 'icons/hubspot.svg', name: 'HubSpot' },
       { src: 'icons/salesforce.svg', name: 'Salesforce' },
       { src: 'icons/zillow.svg', name: 'Zillow' },
