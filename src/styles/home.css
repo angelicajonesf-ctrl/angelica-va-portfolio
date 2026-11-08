@@ -83,13 +83,14 @@
    and this can be one line at every width. */
 .home__lede {
   margin-top: clamp(12px, 1.8vh, 22px);
-  /* a reading measure, not the container: ~70 characters, balanced lines */
-  max-width: 70ch;
-  font-size: clamp(14px, 1.05vw, 22px);
-  line-height: 1.6;
+  max-width: 1100px;
+  width: 100%;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.5;
   color: var(--muted);
-  text-wrap: pretty;
+  text-wrap: balance;
 }
+
 
 /* The marquee still carries the horizontal inset it needed as a full-bleed
    band on the old long page. Home already supplies that padding, so drop it
