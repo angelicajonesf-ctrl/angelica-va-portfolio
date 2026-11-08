@@ -67,10 +67,9 @@ export default function AboutGrid() {
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            I help businesses stay organized, leads stay connected,
-            and operations stay on track.
-            <span> So business owners can focus on what matters most.</span>
-          </p>
+  Behind every smooth operation is reliable support.
+  <span> That's what I deliver.</span>
+</p>
 
           <p className="agrid__note">
             With over 3 years of experience across administrative support,
