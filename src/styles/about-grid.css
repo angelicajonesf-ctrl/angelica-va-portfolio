@@ -79,14 +79,6 @@
 [data-theme='dark'] .agrid__glass { background:linear-gradient(115deg,#30252f,#49303f 58%,#62405e) !important; }
 @media (prefers-reduced-motion:reduce) { .agrid__mark,.agrid__cap:hover .agrid__mark { transform:none; transition:none; } }
 
-
-@media (min-width: 1100px) and (min-height: 700px) {
-  .agrid .agrid__copy {
-    height: 100%;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
   .agrid .agrid__caps {
     flex: 1 1 auto;
     display: flex;
@@ -116,5 +108,50 @@
 
   .agrid .agrid__cap {
     --tile: 36px;
+  }
+}
+
+
+/* ABOUT ME — STABLE DESKTOP ROLE SIZING */
+
+@media (min-width: 1100px) and (min-height: 700px) {
+
+  .agrid .agrid__copy {
+    height: auto;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .agrid .agrid__caps {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 12px;
+  }
+
+  .agrid .agrid__cap {
+    --tile: 36px;
+    flex: 0 0 auto;
+    min-height: 76px;
+    max-height: none;
+    grid-template-columns: 100px minmax(0, 1fr) 24px;
+    gap: 12px;
+    padding: 12px 2px;
+  }
+
+  .agrid .agrid__cap-title {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .agrid .agrid__cap-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .agrid .agrid__mark {
+    width: 36px;
+    height: 36px;
   }
 }
