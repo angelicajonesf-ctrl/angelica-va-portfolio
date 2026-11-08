@@ -52,8 +52,29 @@ import './styles/perf.css'
 
 // Re-apply this tab's performance verdict before the first paint, so a
 // downgraded visitor never sees the expensive layers flash back on reload.
+
 restorePerfTier()
 restorePrefs()
+
+// Restore direct links and refreshed routes on GitHub Pages.
+const params = new URLSearchParams(window.location.search)
+const savedRoute = params.get('route')
+
+if (savedRoute !== null) {
+  params.delete('route')
+
+  const base = import.meta.env.BASE_URL
+  const restoredPath = base + savedRoute.replace(/^\/+/, '')
+  const remainingQuery = params.toString()
+
+  window.history.replaceState(
+    null,
+    '',
+    restoredPath +
+      (remainingQuery ? '?' + remainingQuery : '') +
+      window.location.hash
+  )
+}
 
 const container = document.getElementById('root')
 if (!container) throw new Error('Root element #root not found')
