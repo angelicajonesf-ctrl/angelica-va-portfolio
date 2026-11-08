@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting to Portfolio...</title>
+  <script>
+    (function () {
+      var base = '/angelica-va-portfolio/';
+      var path = window.location.pathname;
+
+      if (path.indexOf(base) !== 0) {
+        window.location.replace(base);
+        return;
+      }
+
+      var route = path.substring(base.length);
+
+      var destination =
+        base +
+        '?route=' +
+        encodeURIComponent(route) +
+        window.location.search.replace('?', '&') +
+        window.location.hash;
+
+      window.location.replace(destination);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to portfolio...</p>
+</body>
+</html>
