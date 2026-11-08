@@ -471,3 +471,110 @@
     aspect-ratio: 3 / 4;
   }
 }
+
+
+/* ==========================================
+   ANGELICA — HOMEPAGE BENTO REDESIGN
+   Larger featured cards and pink accents
+========================================== */
+
+@media (min-width: 1100px) {
+
+  /* Featured homepage layout */
+  .bento {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.1fr)
+      minmax(0, 1.45fr)
+      minmax(0, 1.35fr);
+
+    grid-template-rows:
+      minmax(0, 1.5fr)
+      minmax(0, 1fr);
+
+    grid-template-areas:
+      "intro works experience"
+      "intro services recommendations";
+
+    gap: 14px;
+    height: 100%;
+    min-height: 0;
+  }
+
+  /* Meet Angelica — tall introduction */
+  .bento__card--about {
+    grid-area: intro;
+  }
+
+  /* My Works — featured card */
+  .bento__card--projects {
+    grid-area: works;
+  }
+
+  /* My Experience — featured card */
+  .bento__card--ai {
+    grid-area: experience;
+  }
+
+  /* Smaller supporting cards */
+  .bento__card--services {
+    grid-area: services;
+  }
+
+  .bento__card--quotes {
+    grid-area: recommendations;
+  }
+
+  /* Make featured cards stand out */
+  .bento__card--projects,
+  .bento__card--ai {
+    background: color-mix(
+      in srgb,
+      var(--paper) 82%,
+      #f7c5da
+    );
+    border-color: #efc2d4;
+  }
+
+  /* Restore natural card layouts */
+  .bento__card--projects {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .bento__card--ai {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Larger introduction photo */
+  .bento__card--about .bento__photo {
+    width: clamp(145px, 13vw, 225px);
+  }
+
+  /* Card headings */
+  .bento__card--projects .bento__title,
+  .bento__card--ai .bento__title {
+    font-size: clamp(18px, 1.45vw, 23px);
+  }
+
+  /* Pink hover effect */
+  .bento__card--projects:hover,
+  .bento__card--ai:hover {
+    border-color: #e75b94;
+    box-shadow: 0 16px 36px rgba(217, 75, 130, 0.14);
+  }
+}
+
+/* Softer styling for all cards */
+.bento__card {
+  border-radius: 24px;
+}
+
+/* Better readability */
+.bento__desc {
+  line-height: 1.5;
+}
