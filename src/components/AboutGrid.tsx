@@ -11,6 +11,7 @@ type Capability = {
   marks: { src: string; name: string }[]
 }
 
+
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
@@ -18,7 +19,9 @@ const CAPABILITIES: Capability[] = [
     description: 'Executive Assistant · Administrative Assistant · General VA',
     marks: [
       { src: 'icons/google.svg', name: 'Google' },
-      { src: 'icons/ai/slack-color.svg', name: 'Slack' },
+      { src: 'icons/microsoft365.svg', name: 'Microsoft 365' },
+      { src: 'icons/notion.svg', name: 'Notion' },
+      { src: 'icons/odoo.svg', name: 'Odoo' },
     ],
   },
   {
@@ -26,7 +29,10 @@ const CAPABILITIES: Capability[] = [
     title: 'Real Estate Virtual Assistance',
     description: 'Lead Generation · Skip Tracing · CRM Management',
     marks: [
+      { src: 'icons/propstream.svg', name: 'PropStream' },
       { src: 'icons/hubspot.svg', name: 'HubSpot' },
+      { src: 'icons/salesforce.svg', name: 'Salesforce' },
+      { src: 'icons/zillow.svg', name: 'Zillow' },
     ],
   },
   {
@@ -35,7 +41,9 @@ const CAPABILITIES: Capability[] = [
     description: 'Outbound Calls · Lead Qualification · Follow-ups',
     marks: [
       { src: 'icons/hubspot.svg', name: 'HubSpot' },
-      { src: 'icons/google.svg', name: 'Google' },
+      { src: 'icons/bitrix24.svg', name: 'Bitrix24' },
+      { src: 'icons/salesforce.svg', name: 'Salesforce' },
+      { src: 'icons/googlecalendar.svg', name: 'Google Calendar' },
     ],
   },
   {
@@ -43,10 +51,14 @@ const CAPABILITIES: Capability[] = [
     title: 'Customer Service & Social Media Support',
     description: 'Client Communication · Social Media Engagement · Scheduling',
     marks: [
-      { src: 'icons/google.svg', name: 'Google' },
+      { src: 'icons/canva.svg', name: 'Canva' },
+      { src: 'icons/facebook.svg', name: 'Facebook' },
+      { src: 'icons/instagram.svg', name: 'Instagram' },
+      { src: 'icons/messenger.svg', name: 'Messenger' },
     ],
   },
 ]
+
 
 export default function AboutGrid() {
   return (
