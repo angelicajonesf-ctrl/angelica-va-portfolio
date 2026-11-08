@@ -165,17 +165,17 @@
     isolation: isolate;
 
     /* Visible rounded outline */
-    border: 1.5px solid rgba(204, 151, 179, 0.58) !important;
+    border: 2px solid rgba(189, 137, 181, 0.65) !important;
     border-radius: 34px !important;
 
     /* White left, soft pink and lavender right */
-    background: linear-gradient(
-      110deg,
-      #ffffff 0%,
-      #fffafd 38%,
-      #fceef5 65%,
-      #e7d9f7 100%
-    ) !important;
+  background: linear-gradient(
+  110deg,
+  #ffffff 0%,
+  #fffafd 30%,
+  #f5eafa 55%,
+  #d5e0ff 100%
+) !important;
 
     box-shadow:
       0 16px 40px rgba(132, 76, 107, 0.10),
@@ -194,8 +194,8 @@
 
     background: radial-gradient(
       ellipse at 85% 68%,
-      rgba(191, 199, 250, 0.68) 0%,
-      rgba(221, 206, 250, 0.42) 40%,
+      rgba(178, 196, 255, 0.80) 0%,
+rgba(213, 204, 255, 0.55) 40%,
       rgba(255, 255, 255, 0) 78%
     );
   }
