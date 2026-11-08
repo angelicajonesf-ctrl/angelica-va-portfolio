@@ -10,10 +10,41 @@
 .agrid__caps { list-style:none; padding:0; margin:4px 0 0; display:flex; flex-direction:column; min-width:0; }
 .agrid__cap { --tile:34px; --overlap:4px; display:grid; grid-template-columns:105px minmax(0,1fr) 22px; align-items:center; gap:12px; padding:clamp(9px,1.2vh,13px) 2px; border-top:1px solid var(--line); min-width:0; }
 .agrid__cap:last-child { border-bottom:1px solid var(--line); }
-.agrid__cap-marks { display:inline-flex; align-items:center; padding-left:var(--overlap); min-width:0; }
-.agrid__mark { display:grid; place-items:center; flex:none; width:var(--tile); height:var(--tile); margin-left:calc(-1 * var(--overlap)); border-radius:9px; background:#fff; box-shadow:inset 0 0 0 1px var(--line-strong),0 2px 6px -3px rgba(6,12,26,.35); z-index:var(--i); transition:transform 200ms ease; }
-.agrid__mark img { width:72%; height:72%; object-fit:contain; }
-.agrid__cap:hover .agrid__mark { transform:translateY(-2px); }
+.agrid__cap-marks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 0;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.agrid__mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  margin-left: 0;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 1px var(--line-strong),
+    0 2px 6px -3px rgba(6, 12, 26, .35);
+  z-index: var(--i);
+  transition: transform 200ms ease;
+}
+
+.agrid__mark img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.agrid__cap:hover .agrid__mark {
+  transform: translateY(-2px);
+}
+
 .agrid__cap-content { display:flex; flex-direction:column; gap:3px; min-width:0; }
 .agrid__cap-title { color:var(--navy); font-weight:700; font-size:clamp(13px,.95vw,16px); line-height:1.25; }
 .agrid__cap-description { color:var(--muted); font-size:clamp(10.5px,.72vw,12.5px); line-height:1.35; }
@@ -224,3 +255,54 @@
   ) !important;
 }
   
+
+/* ABOUT ME — FOUR LOGOS PER ROLE FIX */
+
+.agrid .agrid__cap {
+  grid-template-columns: 170px minmax(0, 1fr) 24px;
+  column-gap: 14px;
+}
+
+.agrid .agrid__cap-marks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 170px;
+  min-width: 0;
+  padding-left: 0;
+}
+
+.agrid .agrid__mark {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  margin-left: 0;
+  transform: none;
+}
+
+.agrid .agrid__mark img {
+  display: block;
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.agrid .agrid__cap-content {
+  min-width: 0;
+}
+
+/* Compact spacing for phones */
+@media (max-width: 720px) {
+  .agrid .agrid__cap {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 8px;
+  }
+
+  .agrid .agrid__cap-marks {
+    width: auto;
+  }
+
+  .agrid .agrid__cap-index {
+    display: none;
+  }
+}
