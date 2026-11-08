@@ -17,7 +17,7 @@ const CAPABILITIES: Capability[] = [
     title: 'Executive & Administrative Assistance',
     description: 'Executive Assistant · Administrative Assistant · General VA',
     marks: [
-      { src: 'icons/googleworkspace.svg', name: 'Google Workspace' },
+      { src: 'icons/google.svg', name: 'Google' },
       { src: 'icons/ai/slack-color.svg', name: 'Slack' },
     ],
   },
@@ -26,7 +26,7 @@ const CAPABILITIES: Capability[] = [
     title: 'Real Estate Virtual Assistance',
     description: 'Lead Generation · Skip Tracing · CRM Management',
     marks: [
-      { src: 'icons/ai/hubspot.svg', name: 'HubSpot' },
+      { src: 'icons/hubspot.svg', name: 'HubSpot' },
     ],
   },
   {
@@ -34,8 +34,8 @@ const CAPABILITIES: Capability[] = [
     title: 'Cold Calling & Appointment Setting',
     description: 'Outbound Calls · Lead Qualification · Follow-ups',
     marks: [
-      { src: 'icons/ai/hubspot.svg', name: 'HubSpot' },
-      { src: 'icons/googleworkspace.svg', name: 'Google Workspace' },
+      { src: 'icons/hubspot.svg', name: 'HubSpot' },
+      { src: 'icons/google.svg', name: 'Google' },
     ],
   },
   {
@@ -43,7 +43,7 @@ const CAPABILITIES: Capability[] = [
     title: 'Customer Service & Social Media Support',
     description: 'Client Communication · Social Media Engagement · Scheduling',
     marks: [
-      { src: 'icons/googleworkspace.svg', name: 'Google Workspace' },
+      { src: 'icons/google.svg', name: 'Google' },
     ],
   },
 ]
