@@ -1,4 +1,4 @@
-
+import type { CSSProperties } from 'react'
 import { profile } from '@/data/profile'
 
 const asset = (path: string) =>
