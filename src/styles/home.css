@@ -41,7 +41,7 @@
 .home__title {
   display: flex;
   flex-direction: column;
-  font-size: clamp(28px, 3vw, 44px);
+  font-size: clamp(28px, 2.8vw, 52px);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.15;
@@ -320,3 +320,42 @@ background:
     0 20px 60px rgba(120, 58, 85, 0.08);
 }
 
+
+/* ANGELICA — TALLER HOMEPAGE CARD SECTION */
+
+@media (min-width: 1100px) {
+  .home {
+    height: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .home__head {
+    min-height: 0;
+  }
+
+  .home__lede {
+    margin-top: 8px;
+    max-width: 1100px;
+    font-size: clamp(14px, 0.95vw, 17px);
+    line-height: 1.45;
+  }
+
+  .home__glass--tools {
+    min-height: 0;
+  }
+
+  .home__glass--showcase {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+  }
+
+  .home__showcase {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+  }
+}
