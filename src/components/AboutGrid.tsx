@@ -1,11 +1,4 @@
 
-import type { CSSProperties } from 'react'
-import {
-  Briefcase,
-  FileText,
-  MapPin,
-  Phone,
-} from '@/components/slab'
 import { profile } from '@/data/profile'
 
 const asset = (path: string) =>
@@ -129,65 +122,7 @@ export default function AboutGrid() {
               </li>
             ))}
           </ul>
-
-          <div className="agrid__bar">
-            <div className="agrid__cell">
-              <span className="agrid__cell-mark">
-                <Briefcase size={18} aria-hidden="true" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">
-                  3+ Years of Experience
-                </span>
-                <span className="agrid__cell-meta">
-                  ADMIN & CLIENT SUPPORT
-                </span>
-              </span>
-            </div>
-
-            <div className="agrid__cell">
-              <span className="agrid__cell-mark">
-                <MapPin size={18} aria-hidden="true" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">
-                  Based in the Philippines
-                </span>
-                <span className="agrid__cell-meta">
-                  FLEXIBLE ACROSS US TIME ZONES
-                </span>
-              </span>
-            </div>
-
-            <div className="agrid__cell">
-              <span className="agrid__cell-mark">
-                <Phone size={18} aria-hidden="true" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">
-                  200–500 Calls Daily
-                </span>
-                <span className="agrid__cell-meta">
-                  COLD CALLING & LEAD GENERATION
-                </span>
-              </span>
-            </div>
-
-            <div className="agrid__cell">
-              <span className="agrid__cell-mark">
-                <FileText size={18} aria-hidden="true" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">
-                  100+ Client Agreements Managed
-                </span>
-                <span className="agrid__cell-meta">
-                  CONTRACT & RECORDS MANAGEMENT
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
+               </div>
 
                <div className="agrid__portrait">
           <img
