@@ -469,134 +469,167 @@
 }
 
 
-/* ============================================
-   ABOUT ME — LARGER REFERENCE-STYLE LAYOUT
-   ============================================ */
+/* ==========================================
+   ANGELICA ABOUT — REFERENCE-STYLE OVERRIDES
+   Keep this at the END of about-grid.css
+   ========================================== */
 
 @media (min-width: 1100px) {
 
-  /* Keep the heading and main card together */
+  /* Main About page */
   .pgrid.agrid {
-    height: 100%;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(12px, 1.6vh, 22px);
-    overflow: hidden;
-  }
-
-  .agrid .pgrid__head {
-    flex: 0 0 auto;
-  }
-
-  /* Larger glass panel */
-  .agrid .agrid__glass {
-    flex: 1 1 auto;
-    height: auto;
-    min-height: 0;
     width: 100%;
+    min-height: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* Large glass card */
+  .agrid .agrid__glass {
+    position: relative;
     display: grid;
-    grid-template-columns:
-      minmax(0, 1.2fr)
-      minmax(0, 0.95fr);
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
-    gap: clamp(14px, 1.5vw, 28px);
-    align-items: stretch;
+    gap: 0;
+
+    width: 100%;
+    height: clamp(760px, 84vh, 1050px);
+    min-height: 760px;
+    padding: clamp(24px, 2.4vw, 44px);
+
     overflow: hidden;
+    isolation: isolate;
+
+    background: linear-gradient(
+      112deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 249, 252, 0.97) 34%,
+      rgba(251, 231, 241, 0.93) 68%,
+      rgba(235, 220, 250, 0.86) 100%
+    ) !important;
+
+    border: 1px solid rgba(215, 157, 188, 0.25);
+    border-radius: 34px;
   }
 
-  /* Use more of the left column */
+  /* Text remains above the illustration */
   .agrid .agrid__copy {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
     justify-content: center;
-    gap: clamp(8px, 1.15vh, 15px);
-    padding: clamp(8px, 1.2vh, 18px) 0
-             clamp(8px, 1.2vh, 18px) 8px;
+    gap: clamp(10px, 1.3vh, 18px);
+    padding: 0 0 0 4px;
   }
 
-  /* Bigger main statement */
   .agrid .agrid__lead {
-    max-width: 35ch;
-    font-size: clamp(23px, 1.8vw, 34px);
+    max-width: 32ch;
+    font-size: clamp(25px, 2vw, 36px);
     line-height: 1.22;
-    letter-spacing: -0.025em;
   }
 
-  /* Larger paragraphs */
   .agrid .agrid__note {
-    max-width: 66ch;
+    max-width: 62ch;
     font-size: clamp(13px, 0.95vw, 16px);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
-  /* Larger role rows */
+  /* Larger expertise rows */
   .agrid .agrid__cap {
-    --tile: clamp(31px, 2.3vw, 39px);
-    grid-template-columns:
-      clamp(105px, 8vw, 145px)
-      minmax(0, 1fr)
-      24px;
-    gap: clamp(10px, 1vw, 17px);
-    padding-block: clamp(10px, 1.35vh, 17px);
+    --tile: clamp(34px, 2.5vw, 42px);
+    grid-template-columns: 125px minmax(0, 1fr) 24px;
+    padding-block: clamp(12px, 1.6vh, 19px);
+    gap: 12px;
   }
 
   .agrid .agrid__cap-title {
-    font-size: clamp(14px, 1.05vw, 18px);
+    font-size: clamp(14px, 1.1vw, 18px);
   }
 
   .agrid .agrid__cap-description {
-    font-size: clamp(11px, 0.78vw, 13px);
+    font-size: clamp(11px, 0.8vw, 13px);
   }
 
-  /* Bigger achievement cards */
+  /* Achievement cards */
   .agrid .agrid__bar {
     gap: 10px;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
   .agrid .agrid__cell {
-    padding: clamp(11px, 1.2vh, 17px);
-    gap: 12px;
+    padding: 15px 12px;
   }
 
   .agrid .agrid__cell-title {
     font-size: clamp(12px, 0.9vw, 15px);
   }
 
-  .agrid .agrid__cell-meta {
-    font-size: clamp(9px, 0.7vw, 11px);
-  }
-
-  /* Enlarge illustration and anchor to bottom */
+  /* Illustration: bottom-right like BrewedOps */
   .agrid .agrid__portrait {
+    position: absolute;
+    z-index: 1;
+
+    right: -8px;
+    bottom: -8px;
+
+    width: 48%;
+    height: 76%;
+
+    margin: 0;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    min-height: 0;
-    height: 100%;
-    margin: 0 -12px -12px 0;
+    pointer-events: none;
   }
 
   .agrid .agrid__portrait img {
+    display: block;
     width: 100%;
     height: 100%;
-    max-height: none;
     max-width: none;
+    max-height: none;
+
     object-fit: contain;
-    object-position: bottom right;
+    object-position: right bottom;
   }
 }
 
-/* Medium-height desktop screens */
-@media (min-width: 1100px) and (max-height: 850px) {
-  .pgrid.agrid {
-    height: auto;
-    min-height: 100%;
-    overflow: visible;
-  }
-
+/* Smaller desktop screens */
+@media (min-width: 1100px) and (max-width: 1450px) {
   .agrid .agrid__glass {
-    height: auto;
-    min-height: 680px;
-    overflow: visible;
+    height: 850px;
+    min-height: 850px;
+  }
+
+  .agrid .agrid__portrait {
+    width: 46%;
+    height: 68%;
+  }
+
+  .agrid .agrid__lead {
+    font-size: clamp(23px, 1.9vw, 30px);
   }
 }
+
+/* Keep existing stacked layout on tablet/phone */
+@media (max-width: 1099px) {
+  .agrid .agrid__glass {
+    background: linear-gradient(
+      145deg,
+      #fffafd 0%,
+      #fbe8f2 65%,
+      #f0e2fa 100%
+    ) !important;
+  }
+}
+
+/* Dark mode: muted plum gradient */
+[data-theme='dark'] .agrid .agrid__glass {
+  background: linear-gradient(
+    115deg,
+    #30252f 0%,
+    #49303f 58%,
+    #62405e 100%
+  ) !important;
+}
+
