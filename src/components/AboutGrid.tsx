@@ -12,6 +12,7 @@ type Capability = {
 }
 
 
+
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
@@ -30,9 +31,9 @@ const CAPABILITIES: Capability[] = [
     description: 'Lead Generation · Skip Tracing · CRM Management',
     marks: [
       { src: 'icons/propstream.png', name: 'PropStream' },
+      { src: 'icons/zillow.png', name: 'Zillow' },
       { src: 'icons/hubspot.svg', name: 'HubSpot' },
-      { src: 'icons/salesforce.svg', name: 'Salesforce' },
-      { src: 'icons/zillow.svg', name: 'Zillow' },
+      { src: 'icons/salesforce.png', name: 'Salesforce' },
     ],
   },
   {
@@ -41,9 +42,9 @@ const CAPABILITIES: Capability[] = [
     description: 'Outbound Calls · Lead Qualification · Follow-ups',
     marks: [
       { src: 'icons/hubspot.svg', name: 'HubSpot' },
-      { src: 'icons/bitrix24.svg', name: 'Bitrix24' },
-      { src: 'icons/salesforce.svg', name: 'Salesforce' },
-      { src: 'icons/googlecalendar.svg', name: 'Google Calendar' },
+      { src: 'icons/bitrix.png', name: 'Bitrix24' },
+      { src: 'icons/salesforce.png', name: 'Salesforce' },
+      { src: 'icons/googlecalendar.png', name: 'Google Calendar' },
     ],
   },
   {
@@ -51,10 +52,10 @@ const CAPABILITIES: Capability[] = [
     title: 'Customer Service & Social Media Support',
     description: 'Client Communication · Social Media Engagement · Scheduling',
     marks: [
-      { src: 'icons/canva.svg', name: 'Canva' },
+      { src: 'icons/canva.png', name: 'Canva' },
       { src: 'icons/facebook.svg', name: 'Facebook' },
-      { src: 'icons/instagram.svg', name: 'Instagram' },
-      { src: 'icons/messenger.svg', name: 'Messenger' },
+      { src: 'icons/instagram.png', name: 'Instagram' },
+      { src: 'icons/capcut.png', name: 'CapCut' },
     ],
   },
 ]
