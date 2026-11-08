@@ -142,7 +142,7 @@ body {
     pointer-events: none;
     /* Solid, not a blurred material: a 312px x full-height blur over the
        animating shader cost a re-blur every frame (see home.css). */
-    background:
+   background: rgba(255, 250, 253, 0.12);
       linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 30%),
       var(--paper);
     box-shadow:
@@ -152,7 +152,7 @@ body {
     transition: opacity 620ms var(--ease-out);
   }
   [data-theme='dark'] .rail::before {
-    background:
+    background: rgba(22, 16, 31, 0.16);
       linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 30%),
       var(--paper);
     box-shadow:
