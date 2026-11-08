@@ -189,7 +189,7 @@ export default function AboutGrid() {
           </div>
         </div>
 
-        <div className="agrid__portrait">
+               <div className="agrid__portrait">
           <img
             src={asset('angelica-about-illustration.png')}
             alt="Illustration of Angelica working at her computer"
@@ -199,10 +199,6 @@ export default function AboutGrid() {
             height={700}
           />
         </div>
-      </div>
-    </section>
-  )
-}
       </div>
     </section>
   )
