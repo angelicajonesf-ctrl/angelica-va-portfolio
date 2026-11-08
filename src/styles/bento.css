@@ -578,3 +578,56 @@
 .bento__desc {
   line-height: 1.5;
 }
+
+
+/* ANGELICA — REFERENCE-STYLE BENTO HEIGHTS */
+
+@media (min-width: 1100px) {
+  .home .bento {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(0, 1.3fr)
+      minmax(0, 1.3fr);
+
+    grid-template-rows:
+      minmax(0, 1.15fr)
+      minmax(0, 1fr);
+
+    grid-template-areas:
+      "intro works experience"
+      "intro services recommendations";
+
+    gap: 14px;
+  }
+
+  .home .bento__card {
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .home .bento__card--about {
+    grid-area: intro;
+  }
+
+  .home .bento__card--projects {
+    grid-area: works;
+  }
+
+  .home .bento__card--ai {
+    grid-area: experience;
+  }
+
+  .home .bento__card--services {
+    grid-area: services;
+  }
+
+  .home .bento__card--quotes {
+    grid-area: recommendations;
+  }
+}
