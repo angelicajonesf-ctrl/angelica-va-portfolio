@@ -38,7 +38,7 @@ type Tool = {
 }
 
 export const tools: Tool[] = [
-  { name: 'Google Workspace', iconPath: `${import.meta.env.BASE_URL}icons/googleworkspace.svg` },
+  { name: 'Google Workspace', iconPath: `${import.meta.env.BASE_URL}icons/google.svg` },
 { name: 'Microsoft 365', iconPath: `${import.meta.env.BASE_URL}icons/microsoft-365.svg` },
   { name: 'Notion', iconPath: `${import.meta.env.BASE_URL}icons/notion.svg` },
   { name: 'Odoo', iconPath: `${import.meta.env.BASE_URL}icons/odoo.svg` },
