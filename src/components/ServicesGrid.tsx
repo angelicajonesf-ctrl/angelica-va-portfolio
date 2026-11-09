@@ -1,23 +1,15 @@
+
 import type { CSSProperties } from 'react'
-import { MagnetStraight, Timer, Trophy, CheckCircle } from '@/components/slab'
+import {
+  MagnetStraight,
+  Timer,
+  Trophy,
+  CheckCircle,
+} from '@/components/slab'
 import type { Icon } from '@/components/slab'
 import Autopilot, { TOOLS } from '@/components/Autopilot'
 
-/**
- * ServicesGrid - the Services view on one glass sheet.
- *
- * Three bands, top to bottom: your three-step method (on a dark plate so it
- * is the first thing the eye lands on), the five services as cards that carry
- * the marks of what each one is built with, and the live automation demo
- * scaled into whatever height is left. Same object language as Home and
- * Projects: the glass, the bento card, plated marks, orange for the index
- * and the accent.
- *
- * Every string below is a PLACEHOLDER. Replace it, or hand this file to your
- * AI assistant and tell it what to put in each spot.
- */
-
-/* ---------- The method ---------- */
+/* ---------- How I Work ---------- */
 
 type Stage = {
   index: string
@@ -26,7 +18,7 @@ type Stage = {
   Icon: Icon
   chips: string[]
 }
- 
+
 const STAGES: Stage[] = [
   {
     index: '01',
@@ -51,9 +43,7 @@ const STAGES: Stage[] = [
   },
 ]
 
-/* ---------- The services ---------- */
-
-
+/* ---------- Services ---------- */
 
 type Service = {
   index: string
@@ -63,9 +53,6 @@ type Service = {
   logos: string[]
   bullets: string[]
 }
-
-
-
 
 const SERVICES: Service[] = [
   {
@@ -155,81 +142,130 @@ const SERVICES: Service[] = [
   },
 ]
 
+/* ---------- Service Logos ---------- */
 
-
-
-/** The tool marks, stacked horizontally on white tiles (same as Projects). */
 function Marks({ logos }: { logos: string[] }) {
   return (
     <span className="bento__logos" aria-hidden="true">
       {logos.map((src) => (
-        <span key={src} className="bento__logo">   
-<img
-  src={`${import.meta.env.BASE_URL}${src}`}
-  alt=""
-  width={22}
-  height={22}
-  decoding="async"
-/>
-
+        <span key={src} className="bento__logo">
+          <img
+            src={`${import.meta.env.BASE_URL}${src}`}
+            alt=""
+            width={22}
+            height={22}
+            decoding="async"
+          />
         </span>
       ))}
     </span>
   )
 }
 
-/* ---------- The page ---------- */
+/* ---------- Services Page ---------- */
 
 export default function ServicesGrid() {
   return (
-    <section className="pgrid sgrid" aria-labelledby="services-title">
+    <section
+      className="pgrid sgrid"
+      aria-labelledby="services-title"
+    >
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">Services</span>
-        
-<h1 className="pgrid__title" id="services-title">
-  Reliable Support. Smoother Operations.
-</h1>
-<p className="pgrid__lede">
-  Helping business owners and real estate professionals stay organized,
-  manage leads, and keep daily operations running smoothly.
-</p>
+        <span className="pgrid__eyebrow">
+          Services
+        </span>
 
+        <h1
+          className="pgrid__title"
+          id="services-title"
+        >
+          Reliable Support. Smoother Operations.
+        </h1>
+
+        <p className="pgrid__lede">
+          Helping business owners and real estate
+          professionals stay organized, manage leads,
+          and keep daily operations running smoothly.
+        </p>
       </header>
 
       <div className="home__glass sgrid__glass">
-        {/* One dark plate, the headline on the left, the three stages wired
-            in order on the right with a signal running them. */}
-        <div className="sgrid__method" aria-labelledby="method-title">
-         
-<div className="sgrid__method-copy">
-  <span className="sgrid__method-eyebrow">How I Work</span>
-  <h2 className="sgrid__method-title" id="method-title">
-    A Simple Process.
-    <br />
-    <span>Reliable Support.</span>
-  </h2>
-  <p className="sgrid__method-sub">
-    Every business has different needs. I focus on understanding
-    your priorities, organizing the workflow, and providing
-    consistent support.
-  </p>
-</div>
 
+        {/* ---------- Three-Step Process ---------- */}
+
+        <div
+          className="sgrid__method"
+          aria-labelledby="method-title"
+        >
+          <div className="sgrid__method-copy">
+            <span className="sgrid__method-eyebrow">
+              How I Work
+            </span>
+
+            <h2
+              className="sgrid__method-title"
+              id="method-title"
+            >
+              A Simple Process.
+              <br />
+              <span>Reliable Support.</span>
+            </h2>
+
+            <p className="sgrid__method-sub">
+              Every business has different needs.
+              I focus on understanding your priorities,
+              organizing the workflow, and providing
+              consistent support.
+            </p>
+          </div>
 
           <ol className="sgrid__stages" role="list">
             {STAGES.map((s, i) => {
               const StageIcon = s.Icon
+
               return (
-                <li key={s.index} className="sgrid__stage" style={{ '--i': i } as CSSProperties}>
-                  <span className="sgrid__stage-ghost" aria-hidden="true">{s.index}</span>
-                  <span className="sgrid__stage-icon" aria-hidden="true">
-                    <StageIcon size={22} weight="duotone" />
+                <li
+                  key={s.index}
+                  className="sgrid__stage"
+                  style={{ '--i': i } as CSSProperties}
+                >
+                  <span
+                    className="sgrid__stage-ghost"
+                    aria-hidden="true"
+                  >
+                    {s.index}
                   </span>
-                <h3 className="sgrid__stage-label">{s.label}</h3>
-                  <p className="sgrid__stage-body">{s.body}</p>
-                  <ul className="sgrid__stage-chips" role="list" aria-label={`${s.label} touches`}>
+
+                  <span
+                    className="sgrid__stage-icon"
+                    aria-hidden="true"
+                  >
+                    <StageIcon
+                      size={22}
+                      weight="duotone"
+                    />
+                  </span>
+
+                  <h3 className="sgrid__stage-label">
+                    {s.label}
+                  </h3>
+
+                  <p className="sgrid__stage-body">
+                    {s.body}
+                  </p>
+
+                  <ul
+                    className="sgrid__stage-chips"
+                    role="list"
+                    aria-label={`${s.label} touches`}
+                  >
                     {s.chips.map((c) => (
-                      <li key={c} className="sgrid__stage-chip">{c}</li>
+                      <li
+                        key={c}
+                        className="sgrid__stage-chip"
+                      >
+                        {c}
+                      </li>
                     ))}
                   </ul>
                 </li>
@@ -238,33 +274,72 @@ export default function ServicesGrid() {
           </ol>
         </div>
 
-        {/* Five cards, each carrying the marks of what it is built with. */}
+        {/* ---------- Service Cards ---------- */}
+
         <div className="sgrid__offers">
           <div className="sgrid__offers-head">
             <h2 className="sgrid__offers-title">
-  What I Can Do for You.
-</h2>
-<p className="sgrid__offers-sub">
-  Flexible support tailored to your business needs.
-  Choose one service or combine a few.
-</p>
+              What I Can Do for You.
+            </h2>
+
+            <p className="sgrid__offers-sub">
+              Flexible support tailored to your
+              business needs. Choose one service
+              or combine a few.
+            </p>
           </div>
-          <ul className="bento sgrid__services" role="list">
+
+          <ul
+            className="bento sgrid__services"
+            role="list"
+          >
             {SERVICES.map((s) => (
-              <li key={s.title} className="bento__card sgrid__service">
+              <li
+                key={s.title}
+                className="bento__card sgrid__service"
+              >
                 <span className="bento__head">
                   <span className="sgrid__service-top">
                     <Marks logos={s.logos} />
-                    <span className="sgrid__service-index" aria-hidden="true">{s.index} / 05</span>
+
+                    <span
+                      className="sgrid__service-index"
+                      aria-hidden="true"
+                    >
+                      {s.index} / 05
+                    </span>
                   </span>
-                  <span className="bento__title">{s.title}</span>
-                  <span className="bento__desc">{s.description}</span>
+
+                  <span className="bento__title">
+                    {s.title}
+                  </span>
+
+                  <span className="bento__desc">
+                    {s.description}
+                  </span>
                 </span>
-                <span className="sgrid__chip" aria-hidden="true">{s.chip}</span>
-                <ul className="sgrid__bullets" role="list">
+
+                <span
+                  className="sgrid__chip"
+                  aria-hidden="true"
+                >
+                  {s.chip}
+                </span>
+
+                <ul
+                  className="sgrid__bullets"
+                  role="list"
+                >
                   {s.bullets.map((b) => (
-                    <li key={b} className="sgrid__bullet">
-                      <CheckCircle size={15} weight="duotone" aria-hidden="true" />
+                    <li
+                      key={b}
+                      className="sgrid__bullet"
+                    >
+                      <CheckCircle
+                        size={15}
+                        weight="duotone"
+                        aria-hidden="true"
+                      />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -274,30 +349,69 @@ export default function ServicesGrid() {
           </ul>
         </div>
 
-        {/* The live workflow. Its caption and the tool chips sit in a header
-            above the window, so the canvas gets the whole glass width. */}
+        {/* ---------- Animated Client Support Workflow ---------- */}
+
         <div className="sgrid__flow">
           <header className="sgrid__flow-head">
             <div className="sgrid__flow-copy">
-              <span className="sgrid__flow-eyebrow">Live automation</span>
-              <h2 className="sgrid__flow-title">Your automation headline.</h2>
+
+              <span className="sgrid__flow-eyebrow">
+                Workflow in Action
+              </span>
+
+              <h2 className="sgrid__flow-title">
+                From Inquiry to Resolution.
+              </h2>
+
               <p className="sgrid__flow-sub">
-                PLACEHOLDER - tell me what to put here: one sentence on what this example automation does for a client.
+                A visual example of how I manage client
+                inquiries, organize information, coordinate
+                follow-ups, and keep tasks moving toward
+                completion.
               </p>
+
             </div>
-            <ul className="sgrid__flow-tools" role="list" aria-label="Tools that power this flow">
+
+            <ul
+              className="sgrid__flow-tools"
+              role="list"
+              aria-label="Areas of support shown in this workflow"
+            >
               {TOOLS.map(({ Icon: ToolIcon, label }) => (
-                <li key={label} className="sgrid__flow-tool">
-                  <ToolIcon size={14} weight="duotone" aria-hidden="true" />
+                <li
+                  key={label}
+                  className="sgrid__flow-tool"
+                >
+                  <ToolIcon
+                    size={14}
+                    weight="duotone"
+                    aria-hidden="true"
+                  />
                   <span>{label}</span>
                 </li>
               ))}
             </ul>
           </header>
+
           <div className="sgrid__flow-main">
             <Autopilot compact maxScale={1.08} />
           </div>
+
+          <p
+            style={{
+              margin: '12px 0 0',
+              textAlign: 'center',
+              fontSize: '12px',
+              lineHeight: 1.5,
+              color: 'var(--muted)',
+            }}
+          >
+            Illustrative workflow demonstrating my
+            approach to client support and task
+            coordination. Not a live automation.
+          </p>
         </div>
+
       </div>
     </section>
   )
