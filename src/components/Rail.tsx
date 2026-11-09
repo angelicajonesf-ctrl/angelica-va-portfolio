@@ -7,9 +7,10 @@ import {
   HomeIcon,
   FolderIcon,
   StackIcon,
-  CupIcon,
   UserIcon,
   MessageIcon,
+} from './RailIcons'
+import { Wrench } from 'lucide-react'
 } from './RailIcons'
 import { getTheme, toggleTheme, type Theme } from '@/lib/theme'
 import { profile } from '@/data/profile'
@@ -31,7 +32,7 @@ export const RAIL_LINKS = [
   { label: 'Home', to: '/', Icon: HomeIcon },
   { label: 'Portfolio', to: '/projects', Icon: FolderIcon },
   { label: 'Services', to: '/services', Icon: StackIcon },
-  { label: 'Tools', to: '/tools', Icon: CupIcon },
+  { label: 'Tools', to: '/tools', Icon: Wrench },
   { label: 'Experience', to: '/experience', Icon: Clock },
   { label: 'About', to: '/about', Icon: UserIcon },
   { label: 'Contact', to: '/contact', Icon: MessageIcon },
