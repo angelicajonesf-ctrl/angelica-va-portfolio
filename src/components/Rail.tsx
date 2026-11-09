@@ -29,10 +29,10 @@ import { profile } from '@/data/profile'
 
 export const RAIL_LINKS = [
   { label: 'Home', to: '/', Icon: HomeIcon },
-  { label: 'Services', to: '/services', Icon: StackIcon },
-  { label: 'Experience', to: '/experience', Icon: Clock },
   { label: 'Portfolio', to: '/projects', Icon: FolderIcon },
-  { label: 'Tools & Tech Stack', to: '/tools', Icon: CupIcon },
+  { label: 'Services', to: '/services', Icon: StackIcon },
+  { label: 'Tools', to: '/tools', Icon: CupIcon },
+  { label: 'Experience', to: '/experience', Icon: Clock },
   { label: 'About', to: '/about', Icon: UserIcon },
   { label: 'Contact', to: '/contact', Icon: MessageIcon },
 ] as const
