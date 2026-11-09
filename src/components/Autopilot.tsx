@@ -14,19 +14,18 @@ import {
   Hourglass,
   Heart,
   Plug,
-  Sparkle,
 } from '@/components/slab'
 import type { Icon } from '@/components/slab'
 
 /**
  * Autopilot
  *
- * A live example automation in a faux macOS window: node cards (play-shaped
+ * An animated illustrative workflow in a faux macOS window: node cards (play-shaped
  * trigger, orange-ringed decision gate), curved SVG bezier "cables" between them, and
  * glowing orange "signal" dots that travel ALONG each cable via GSAP
  * MotionPathPlugin - so the flow visibly runs on a loop.
  *
- * Nodes are absolutely positioned on a fixed 900x520 design canvas (matching
+ * Nodes are absolutely positioned on a fixed 1000x388 design canvas (matching
  * the hand-drawn flowchart); cables are measured from the live node rects on
  * mount + resize, so the wiring is always correct. Reduced-motion drops the
  * signals; offscreen pauses the tweens.
@@ -47,15 +46,27 @@ type FlowNode = {
   variant?: 'trigger' | 'gate' | 'win' | 'lost'
 }
 
-// x,y = top-left of the node box on the 1000x372 canvas (mirrors the flowchart).
-// Two tiers: the chain across the top, the outcomes fanning out just below.
+// A visual example of a client support process, not a connected automation.
+// Coordinates use the existing 1000 x 388 design canvas.
+const NODES: FlowNode[] = [
+  { id: 'n-form', Icon: Lightning, title: 'New Inquiry', subtitle: 'Client reaches out', x: 72, y: 42, variant: 'trigger' },
+  { id: 'n-email', Icon: EnvelopeSimple, title: 'Respond', subtitle: 'Acknowledge request', x: 232, y: 42 },
+  { id: 'n-booked', Icon: CalendarCheck, title: 'Schedule', subtitle: 'Confirm next steps', x: 392, y: 42 },
+  { id: 'n-24hr', Icon: Clock, title: 'Track', subtitle: 'Update records', x: 552, y: 42 },
+  { id: 'n-1hr', Icon: BellRinging, title: 'Follow Up', subtitle: 'Keep client informed', x: 712, y: 42 },
+  { id: 'n-call', Icon: VideoCamera, title: 'Resolution', subtitle: 'Review the outcome', x: 872, y: 42, variant: 'gate' },
+  { id: 'n-proposal', Icon: FileText, title: 'Completed', subtitle: 'Request resolved', x: 142, y: 260 },
+  { id: 'n-won', Icon: Trophy, title: 'Closed', subtitle: 'Records finalized', x: 292, y: 260, variant: 'win' },
+  { id: 'n-maybe', Icon: Hourglass, title: 'Pending', subtitle: 'Awaiting response', x: 492, y: 260 },
+  { id: 'n-nurture', Icon: Heart, title: 'Follow-up', subtitle: 'Continue support', x: 642, y: 260 },
+  { id: 'n-lost', Icon: XCircle, title: 'Escalated', subtitle: 'Needs further review', x: 872, y: 260, variant: 'lost' },
+]
 
 export const TOOLS: { Icon: Icon; label: string }[] = [
   { Icon: Plug, label: 'CRM & Records' },
   { Icon: EnvelopeSimple, label: 'Client Communication' },
   { Icon: CalendarCheck, label: 'Scheduling & Follow-ups' },
 ]
-
 
 type LinkKind = 'solid' | 'dash' | 'loop'
 type Link = { from: string; to: string; kind?: LinkKind; label?: string }
@@ -76,12 +87,6 @@ const LINKS: Link[] = [
   // outcome follow-ons (solid)
   { from: 'n-proposal', to: 'n-won' },
   { from: 'n-maybe',    to: 'n-nurture' },
-]
-
-export const TOOLS: { Icon: Icon; label: string }[] = [
-  { Icon: Plug, label: 'CRM & Records' },
-  { Icon: EnvelopeSimple, label: 'Client Communication' },
-  { Icon: CalendarCheck, label: 'Scheduling & Follow-ups' },
 ]
 
 const SVGNS = 'http://www.w3.org/2000/svg'
@@ -263,7 +268,7 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
         const sig = document.createElementNS(SVGNS, 'circle')
         sig.setAttribute('r', dashed ? '3.2' : '4.4')
         sig.style.fill = 'var(--ap-loop)'
-        sig.setAttribute('filter', 'drop-shadow(0 0 5px rgba(255,122,26,.9))')
+        sig.setAttribute('filter', 'drop-shadow(0 0 5px rgba(217,70,115,.65))')
         sigSvg.appendChild(sig)
         const len = path.getTotalLength ? path.getTotalLength() : 360
         const dur = Math.min(7, Math.max(2.4, len / 95))
@@ -280,7 +285,12 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
     }
 
     let raf = requestAnimationFrame(build)
-    if (document.fonts?.ready) document.fonts.ready.then(() => window.setTimeout(build, 60))
+    let active = true
+    if (document.fonts?.ready) {
+      void document.fonts.ready.then(() => {
+        if (active) build()
+      })
+    }
     const ro = new ResizeObserver(() => {
       cancelAnimationFrame(raf)
       raf = requestAnimationFrame(build)
@@ -288,6 +298,7 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
     ro.observe(flow)
 
     return () => {
+      active = false
       cancelAnimationFrame(raf)
       ro.disconnect()
       tweensRef.current.forEach((t) => t.kill())
@@ -332,7 +343,7 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
       ref={sectionRef}
       className={compact ? 'autopilot autopilot--compact' : 'autopilot'}
       id="autopilot"
-      aria-label={compact ? 'Example automation flow, end to end' : undefined}
+      aria-label={compact ? 'Illustrative client support workflow' : undefined}
       aria-labelledby={compact ? undefined : 'autopilot-heading'}
       data-reveal
     >
@@ -343,9 +354,8 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
           How I Keep Tasks Moving.
         </h2>
         <p className="autopilot__intro">
-          PLACEHOLDER - A visual example of how I organize requests, maintain
-client records, coordinate follow-ups, and track tasks
-through completion.
+          An illustrative process for organizing client inquiries, updating records,
+          coordinating follow-ups, and tracking requests through completion.
         </p>
       </header>
       )}
@@ -381,7 +391,7 @@ through completion.
             </div>
           </div>
 
-          <ul className="autopilot__tools" role="list" aria-label="Tools that power this flow">
+          <ul className="autopilot__tools" role="list" aria-label="Tools associated with this example workflow">
             {TOOLS.map(({ Icon: ToolIcon, label }) => (
               <li key={label} className="autopilot__tool">
                 <ToolIcon size={14} weight="duotone" aria-hidden="true" />
