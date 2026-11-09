@@ -104,7 +104,7 @@ const featured = [
   groups[0].tools[1],
   groups[0].tools[5],
   groups[0].tools[6],
-  groups[2].tools[6],
+  groups[2].tools[8], // Asana instead of ClickUp
   groups[2].tools[9],
   groups[3].tools[0],
   groups[3].tools[1],
@@ -215,7 +215,6 @@ export default function ToolsView() {
       {/* TOOL EXPLORER */}
       <section className="tw-explorer" id="explore-tools">
         <div className="tw-section-intro">
-          <span className="tw-kicker">EXPLORE MY TOOLKIT</span>
           <h2>One toolkit. Many possibilities<span>.</span></h2>
           <p>
             Select a category to see the platforms I've worked with
