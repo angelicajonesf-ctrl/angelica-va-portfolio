@@ -26,28 +26,28 @@ type Stage = {
   Icon: Icon
   chips: string[]
 }
-
+ 
 const STAGES: Stage[] = [
   {
     index: '01',
-    label: 'Step 1',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Discover',
+    body: 'Understand your business goals, priorities, and daily challenges.',
     Icon: MagnetStraight,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4'],
+    chips: ['Goals', 'Needs', 'Priorities'],
   },
   {
     index: '02',
-    label: 'Step 2',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Organize',
+    body: 'Align tasks, tools, and workflows to keep everything on track.',
     Icon: Timer,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['Tasks', 'Systems', 'Workflow'],
   },
   {
     index: '03',
-    label: 'Step 3',
-    body: 'PLACEHOLDER - one line on the result the client gets.',
+    label: 'Deliver',
+    body: 'Provide dependable assistance, clear updates, and timely follow-through.',
     Icon: Trophy,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['Support', 'Updates', 'Results'],
   },
 ]
 
@@ -161,29 +161,36 @@ export default function ServicesGrid() {
     <section className="pgrid sgrid" aria-labelledby="services-title">
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Services</span>
-        <h1 className="pgrid__title" id="services-title">
-          Your services headline, in one short line.
-        </h1>
-        <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you offer.
-        </p>
+        
+<h1 className="pgrid__title" id="services-title">
+  Reliable Support. Smoother Operations.
+</h1>
+<p className="pgrid__lede">
+  Helping business owners and real estate professionals stay organized,
+  manage leads, and keep daily operations running smoothly.
+</p>
+
       </header>
 
       <div className="home__glass sgrid__glass">
         {/* One dark plate, the headline on the left, the three stages wired
             in order on the right with a signal running them. */}
         <div className="sgrid__method" aria-labelledby="method-title">
-          <div className="sgrid__method-copy">
-            <span className="sgrid__method-eyebrow">Your Method</span>
-            <h2 className="sgrid__method-title" id="method-title">
-              One. Two. Three.
-              <br />
-              <span>Your method, in three steps.</span>
-            </h2>
-            <p className="sgrid__method-sub">
-              PLACEHOLDER - one sentence on why your method works.
-            </p>
-          </div>
+         
+<div className="sgrid__method-copy">
+  <span className="sgrid__method-eyebrow">How I Work</span>
+  <h2 className="sgrid__method-title" id="method-title">
+    A Simple Process.
+    <br />
+    <span>Reliable Support.</span>
+  </h2>
+  <p className="sgrid__method-sub">
+    Every business has different needs. I focus on understanding
+    your priorities, organizing the workflow, and providing
+    consistent support.
+  </p>
+</div>
+
 
           <ol className="sgrid__stages" role="list">
             {STAGES.map((s, i) => {
@@ -194,7 +201,7 @@ export default function ServicesGrid() {
                   <span className="sgrid__stage-icon" aria-hidden="true">
                     <StageIcon size={22} weight="duotone" />
                   </span>
-                  <h3 className="sgrid__stage-label">{s.label}.</h3>
+                <h3 className="sgrid__stage-label">{s.label}</h3>
                   <p className="sgrid__stage-body">{s.body}</p>
                   <ul className="sgrid__stage-chips" role="list" aria-label={`${s.label} touches`}>
                     {s.chips.map((c) => (
