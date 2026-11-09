@@ -49,21 +49,13 @@ type FlowNode = {
 
 // x,y = top-left of the node box on the 1000x372 canvas (mirrors the flowchart).
 // Two tiers: the chain across the top, the outcomes fanning out just below.
-const NODES: FlowNode[] = [
-  // top chain
-  { id: 'n-form',     Icon: Lightning,     title: 'Trigger',        subtitle: 'Form submitted',    x: 6,   y: 36,  variant: 'trigger' },
-  { id: 'n-email',    Icon: EnvelopeSimple, title: 'Send Email',    subtitle: 'Action',            x: 176, y: 36 },
-  { id: 'n-booked',   Icon: CalendarCheck, title: 'Update CRM',     subtitle: 'Action',            x: 346, y: 36 },
-  { id: 'n-24hr',     Icon: Clock,         title: 'Wait',           subtitle: 'Delay step',        x: 516, y: 36 },
-  { id: 'n-1hr',      Icon: BellRinging,   title: 'Reminder',       subtitle: 'Email & SMS',       x: 686, y: 36 },
-  { id: 'n-call',     Icon: VideoCamera,   title: 'Decision',       subtitle: 'Condition gate',    x: 866, y: 36, variant: 'gate' },
-  // outcomes (one tier, fanning out of the decision gate)
-  { id: 'n-proposal', Icon: FileText,      title: 'Outcome A',      subtitle: 'Next action',       x: 56,  y: 268 },
-  { id: 'n-won',      Icon: Trophy,        title: 'Won',            subtitle: 'Goal reached',      x: 240, y: 268, variant: 'win' },
-  { id: 'n-maybe',    Icon: Hourglass,     title: 'Outcome B',      subtitle: 'Not ready yet',     x: 468, y: 268 },
-  { id: 'n-nurture',  Icon: Heart,         title: 'AI Step',        subtitle: 'Follow-up drip',    x: 652, y: 268 },
-  { id: 'n-lost',     Icon: XCircle,       title: 'Lost',           subtitle: 'Closed out',        x: 866, y: 268, variant: 'lost' },
+
+export const TOOLS: { Icon: Icon; label: string }[] = [
+  { Icon: Plug, label: 'CRM & Records' },
+  { Icon: EnvelopeSimple, label: 'Client Communication' },
+  { Icon: CalendarCheck, label: 'Scheduling & Follow-ups' },
 ]
+
 
 type LinkKind = 'solid' | 'dash' | 'loop'
 type Link = { from: string; to: string; kind?: LinkKind; label?: string }
@@ -76,7 +68,7 @@ const LINKS: Link[] = [
   { from: 'n-24hr',   to: 'n-1hr' },
   { from: 'n-1hr',    to: 'n-call' },
   // a loop back to an earlier step
-  { from: 'n-1hr',    to: 'n-booked', kind: 'loop', label: 'Loop Back' },
+  { from: 'n-1hr',    to: 'n-booked', kind: 'loop', label: 'Follow-up Cycle' },
   // decision outcomes (dashed dispatch)
   { from: 'n-call',   to: 'n-proposal', kind: 'dash' },
   { from: 'n-call',   to: 'n-maybe',    kind: 'dash' },
@@ -87,9 +79,9 @@ const LINKS: Link[] = [
 ]
 
 export const TOOLS: { Icon: Icon; label: string }[] = [
-  { Icon: Plug,           label: 'Your CRM' },
-  { Icon: EnvelopeSimple, label: 'Email & SMS' },
-  { Icon: Sparkle,        label: 'AI Assistant' },
+  { Icon: Plug, label: 'CRM & Records' },
+  { Icon: EnvelopeSimple, label: 'Client Communication' },
+  { Icon: CalendarCheck, label: 'Scheduling & Follow-ups' },
 ]
 
 const SVGNS = 'http://www.w3.org/2000/svg'
@@ -346,13 +338,14 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
     >
       {!compact && (
       <header className="autopilot__head">
-        <span className="autopilot__eyebrow">Live automation</span>
+        <span className="autopilot__eyebrow">Workflow in Action</span>
         <h2 id="autopilot-heading" className="autopilot__headline">
-          Your workflow, end to end.
+          How I Keep Tasks Moving.
         </h2>
         <p className="autopilot__intro">
-          PLACEHOLDER - tell me what to put here: two or three sentences walking
-          through this example automation, from the trigger to each outcome.
+          PLACEHOLDER - A visual example of how I organize requests, maintain
+client records, coordinate follow-ups, and track tasks
+through completion.
         </p>
       </header>
       )}
@@ -364,12 +357,12 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
             <span className="autopilot__dot autopilot__dot--y" />
             <span className="autopilot__dot autopilot__dot--g" />
           </span>
-          <span className="autopilot__titlebar-label">Automation Workflow</span>
+          <span className="autopilot__titlebar-label">Client Support Workflow</span>
         </div>
 
         <div className="autopilot__canvas">
           <p className="autopilot__caption">
-            Your flow caption, in one short line.
+            An illustrative overview of my client support process.
           </p>
 
           <div className="autopilot__board" aria-hidden="true">
