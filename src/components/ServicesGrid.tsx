@@ -126,7 +126,7 @@ const SERVICES: Service[] = [
       'Responsive communication that helps clients feel supported.',
     chip: 'CLIENT SUPPORT',
     logos: [
-      'icons/facebook.svg',
+      'icons/facebook.png',
       'icons/google.svg',
       'icons/zendesk.svg',
     ],
@@ -241,8 +241,13 @@ export default function ServicesGrid() {
         {/* Five cards, each carrying the marks of what it is built with. */}
         <div className="sgrid__offers">
           <div className="sgrid__offers-head">
-            <h2 className="sgrid__offers-title">Your services, listed.</h2>
-            <p className="sgrid__offers-sub">PLACEHOLDER - one short nudge.</p>
+            <h2 className="sgrid__offers-title">
+  What I Can Do for You.
+</h2>
+<p className="sgrid__offers-sub">
+  Flexible support tailored to your business needs.
+  Choose one service or combine a few.
+</p>
           </div>
           <ul className="bento sgrid__services" role="list">
             {SERVICES.map((s) => (
