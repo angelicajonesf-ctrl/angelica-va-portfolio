@@ -66,78 +66,95 @@ type Service = {
 
 
 
+
 const SERVICES: Service[] = [
   {
     index: '01',
-    title: 'Executive Virtual Assistance',
+    title: 'Executive & Administrative Assistance',
     description:
-      'Organized administrative and operational support to help business owners stay on top of daily responsibilities.',
+      'Keep your daily operations organized and running smoothly.',
     chip: 'ADMIN & OPERATIONS',
-    logos: [],
+    logos: [
+      'icons/google.svg',
+      'icons/notion.svg',
+      'icons/odoo.svg',
+    ],
     bullets: [
-      'Inbox and document organization',
-      'Scheduling and meeting coordination',
-      'Data entry, invoicing, and reporting',
-      'Records and workflow management',
+      'Inbox, scheduling & documents',
+      'Invoicing, records & reports',
+      'Day-to-day coordination',
     ],
   },
   {
     index: '02',
     title: 'Real Estate Virtual Assistance',
     description:
-      'Lead generation, prospect management, and administrative support for real estate professionals.',
-    chip: 'REAL ESTATE SUPPORT',
-    logos: [],
+      'Reliable lead and administrative support for real estate professionals.',
+    chip: 'REAL ESTATE',
+    logos: [
+      'icons/propstream.png',
+      'icons/zillow.png',
+      'icons/hubspot.svg',
+    ],
     bullets: [
-      'Lead generation and skip tracing',
-      'Cold calling and appointment setting',
-      'CRM updates and lead qualification',
-      'Property research and follow-ups',
+      'Lead generation & skip tracing',
+      'Cold calling & appointments',
+      'CRM updates & follow-ups',
     ],
   },
   {
     index: '03',
-    title: 'Social Media Management & Support',
+    title: 'Social Media Support',
     description:
-      'Practical support for maintaining an organized, active, and consistent social media presence.',
+      'Maintain an active and consistent online presence.',
     chip: 'CONTENT & ENGAGEMENT',
-    logos: [],
+    logos: [
+      'icons/canva.png',
+      'icons/instagram.png',
+      'icons/capcut.png',
+    ],
     bullets: [
-      'Basic graphic design using Canva',
-      'Content preparation and basic editing',
-      'Post scheduling and publishing',
-      'Inbox, comments, and engagement support',
+      'Canva graphics & basic editing',
+      'Scheduling & publishing',
+      'Comments, messages & engagement',
     ],
   },
   {
     index: '04',
     title: 'Customer Service & Client Relations',
     description:
-      'Responsive communication and reliable follow-through to support positive customer experiences.',
+      'Responsive communication that helps clients feel supported.',
     chip: 'CLIENT SUPPORT',
-    logos: [],
+    logos: [
+      'icons/facebook.svg',
+      'icons/google.svg',
+      'icons/zendesk.svg',
+    ],
     bullets: [
-      'Customer inquiries and follow-ups',
-      'Phone, email, and chat communication',
-      'Appointment and request coordination',
-      'Issue tracking and escalation',
+      'Phone, email & chat inquiries',
+      'Follow-ups & coordination',
+      'Issue tracking & escalation',
     ],
   },
   {
     index: '05',
     title: 'CRM & Operations Support',
     description:
-      'Accurate records, organized databases, and dependable administrative processes for growing businesses.',
-    chip: 'SYSTEMS & DOCUMENTATION',
-    logos: [],
+      'Keep business records, databases, and workflows accurate.',
+    chip: 'SYSTEMS & RECORDS',
+    logos: [
+      'icons/salesforce.png',
+      'icons/bitrix.png',
+      'icons/microsoft365.svg',
+    ],
     bullets: [
-      'CRM and database maintenance',
-      'Contract and document tracking',
-      'Invoice and collection monitoring',
-      'Spreadsheet trackers and reports',
+      'CRM & database maintenance',
+      'Contracts & payment tracking',
+      'Spreadsheet trackers & reporting',
     ],
   },
 ]
+
 
 
 
@@ -146,8 +163,15 @@ function Marks({ logos }: { logos: string[] }) {
   return (
     <span className="bento__logos" aria-hidden="true">
       {logos.map((src) => (
-        <span key={src} className="bento__logo">
-          <img src={src} alt="" width={22} height={22} decoding="async" />
+        <span key={src} className="bento__logo">   
+<img
+  src={`${import.meta.env.BASE_URL}${src}`}
+  alt=""
+  width={22}
+  height={22}
+  decoding="async"
+/>
+
         </span>
       ))}
     </span>
