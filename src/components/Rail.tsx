@@ -10,9 +10,26 @@ import {
   UserIcon,
   MessageIcon,
 } from './RailIcons'
-import { Wrench } from 'lucide-react'
 import { getTheme, toggleTheme, type Theme } from '@/lib/theme'
 import { profile } from '@/data/profile'
+
+function Wrench({ size = 21 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M14.7 6.3a5 5 0 0 0-6.4 6.4L3 17.7a2.1 2.1 0 0 0 3 3l5.3-5.3a5 5 0 0 0 6.4-6.4L14 12l-2-2 2.7-3.7Z" />
+    </svg>
+  )
+}
 
 
 /**
