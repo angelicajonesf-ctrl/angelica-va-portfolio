@@ -11,7 +11,6 @@ import {
   MessageIcon,
 } from './RailIcons'
 import { Wrench } from 'lucide-react'
-} from './RailIcons'
 import { getTheme, toggleTheme, type Theme } from '@/lib/theme'
 import { profile } from '@/data/profile'
 
