@@ -550,29 +550,23 @@
 [data-theme="dark"] .pgrid.sgrid {
   background: #100D18 !important;
 }
-
-
-/* SERVICES — FULL-HEIGHT RIGHT-SIDE PINK GLOW */
+ 
+/* SERVICES — CONTINUOUS RIGHT-SIDE PINK GRADIENT */
 
 [data-theme="dark"] .sgrid .sgrid__glass {
   background:
-    radial-gradient(
-     ellipse 110% 110% at 110% 50%
-      rgba(219, 105, 161, 0.32) 0%,
-      rgba(183, 75, 137, 0.25) 35%,
-      rgba(117, 49, 99, 0.12) 65%,
-      transparent 100%
-    ),
     linear-gradient(
-      110deg,
+      90deg,
       #211B2A 0%,
-      #281E32 42%,
-      #3A2440 75%,
-      #482849 100%
+      #292033 35%,
+      #38233F 60%,
+      #4A2850 80%,
+      #62335B 100%
     ) !important;
 
   border: 1px solid rgba(225, 157, 192, 0.18);
 }
+
 
 /* 3. Preserve dark card backgrounds */
 [data-theme="dark"] .sgrid .sgrid__service {
