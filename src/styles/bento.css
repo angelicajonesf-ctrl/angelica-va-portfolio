@@ -1278,3 +1278,113 @@ grid-template-areas:
       rotate(calc(-1 * var(--angle)));
   }
 }
+
+
+/* ==========================================
+   DIGITAL TOOLKIT — MATCH REFERENCE POSITION
+   Normal / non-hover appearance
+   ========================================== */
+
+/* Center the circle and label within the card */
+.home .bento__card--toolkit .bento__toolkit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Match reference circle dimensions */
+.home .bento__toolkit-orbit {
+  width: 132px;
+  height: 132px;
+  min-width: 132px;
+  min-height: 132px;
+  flex: 0 0 132px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+
+  background: #f7e8ef;
+  border: 1px solid #eedbe4;
+}
+
+/* White center with a soft pink outer ring */
+.home .bento__toolkit-center {
+  width: 94%;
+  height: 94%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+
+  background: #ffffff;
+  border: 6px solid #f8eef3;
+  color: #cf3f77;
+
+  box-shadow:
+    0 6px 16px rgba(117, 67, 91, 0.08);
+}
+
+/* Reference-sized suitcase icon */
+.home .bento__toolkit-center svg {
+  width: 43px;
+  height: 43px;
+}
+
+/* Label sits below the circle with a clear gap */
+.home .bento__toolkit-caption {
+  position: relative;
+  bottom: auto;
+  left: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: max-content;
+  max-width: 100%;
+  margin-top: 13px;
+  padding: 7px 13px;
+
+  background: #302b31;
+  color: #ffffff;
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* Hide the label on hover, as requested */
+.home .bento__card--toolkit:hover .bento__toolkit-caption,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-caption {
+  opacity: 0;
+  visibility: hidden;
+  transform: none;
+}
+
+/* Keep the normal state clean */
+.home .bento__toolkit-logo {
+  opacity: 0;
+}
+
+/* Compact laptop adjustments */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .bento__toolkit-orbit {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    min-height: 120px;
+    flex-basis: 120px;
+  }
+
+  .home .bento__toolkit-caption {
+    margin-top: 11px;
+  }
+}
