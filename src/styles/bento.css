@@ -661,3 +661,217 @@
 .home .bento__card {
   border-radius: 26px;
 }
+
+/* ==========================================
+   ANGELICA — FINAL SIX-CARD BENTO
+   Reference-inspired, pastel pink
+   ========================================== */
+
+/* DESKTOP: 4 columns, 2 rows */
+@media (min-width: 1100px) {
+  .home .bento {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.12fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+    grid-template-rows:
+      repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "intro works works toolkit"
+      "intro experience services recommendations";
+    gap: 14px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .home .bento__card--about {
+    grid-area: intro;
+  }
+
+  .home .bento__card--projects {
+    grid-area: works;
+  }
+
+  .home .bento__card--toolkit {
+    grid-area: toolkit;
+  }
+
+  .home .bento__card--ai {
+    grid-area: experience;
+  }
+
+  .home .bento__card--services {
+    grid-area: services;
+  }
+
+  .home .bento__card--quotes {
+    grid-area: recommendations;
+  }
+
+  /* Compact recommendations card */
+  .home .bento__card--quotes {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home .bento__card--quotes .bento__media {
+    grid-row: auto;
+    grid-column: auto;
+    margin-top: 10px;
+    min-height: 0;
+  }
+
+  /* Fit titles inside the smaller cards */
+  .home .bento__card--ai .bento__title,
+  .home .bento__card--projects .bento__title {
+    font-size: clamp(15px, 1.05vw, 18px);
+  }
+
+  .home .bento__card--toolkit .bento__title,
+  .home .bento__card--quotes .bento__title {
+    font-size: clamp(13px, 0.95vw, 16px);
+    letter-spacing: 0.025em;
+  }
+}
+
+/* TOOLKIT CARD */
+.home .bento__card--toolkit {
+  background: #fffdfd;
+  border: 1px solid rgba(122, 81, 103, 0.14);
+  box-shadow: 0 8px 20px rgba(87, 39, 65, 0.055);
+}
+
+.home .bento__card--toolkit:hover {
+  border-color: #e75b94;
+  box-shadow: 0 16px 36px rgba(217, 75, 130, 0.14);
+}
+
+/* Circular logo arrangement */
+.bento__toolkit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.bento__toolkit-orbit {
+  position: relative;
+  width: min(100%, 155px);
+  aspect-ratio: 1;
+  flex: 0 1 auto;
+  min-height: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 226, 237, 0.75) 0%,
+      rgba(255, 241, 246, 0.38) 58%,
+      transparent 75%
+    );
+  border: 1px dashed rgba(217, 70, 115, 0.20);
+}
+
+.bento__toolkit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 38%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ffe5ef;
+  color: #d94673;
+  box-shadow:
+    0 8px 24px rgba(217, 70, 115, 0.12),
+    inset 0 0 0 1px rgba(217, 70, 115, 0.14);
+}
+
+.bento__toolkit-logo {
+  --angle: calc(var(--i) * 60deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 29%;
+  aspect-ratio: 1;
+  padding: 6px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(217, 70, 115, 0.12);
+  box-shadow: 0 5px 14px rgba(102, 46, 72, 0.10);
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-112%)
+    rotate(calc(-1 * var(--angle)));
+  animation: toolkit-float 5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.55s);
+}
+
+.bento__toolkit-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bento__toolkit-caption {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  color: #bf315e;
+}
+
+@keyframes toolkit-float {
+  0%, 100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -5px;
+  }
+}
+
+/* TABLETS: 2 columns */
+@media (min-width: 640px) and (max-width: 1099px) {
+  .home .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home .bento__card--toolkit {
+    min-height: 230px;
+  }
+
+  .home .bento__toolkit-orbit {
+    width: 140px;
+  }
+}
+
+/* SMALL SCREENS */
+@media (max-width: 639px) {
+  .home .bento__card--toolkit {
+    min-height: 220px;
+  }
+
+  .home .bento__toolkit-orbit {
+    width: 130px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bento__toolkit-logo {
+    animation: none;
+  }
+}
