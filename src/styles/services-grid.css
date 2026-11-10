@@ -539,3 +539,9 @@
 [data-theme="dark"] .sgrid .sgrid__stage-body {
   color: #c9b8c7;
 }
+
+/* SERVICES — DARK OUTER BACKGROUND ONLY */
+
+[data-theme="dark"] .pgrid.sgrid {
+  background-color: #17131F;
+}
