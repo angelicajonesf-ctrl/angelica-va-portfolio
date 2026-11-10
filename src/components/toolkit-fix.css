@@ -153,16 +153,14 @@
     scale(.15);
 }
 
-/* SHAKE → BOOM → EXPAND → FLOAT */
+/* TOOLKIT — EXPLODE ONCE, THEN STAY STILL */
+
 .home .toolkit-fixed:hover .toolkit-fixed__logo,
 .home .toolkit-fixed:focus-visible .toolkit-fixed__logo {
   animation:
     toolkit-logo-boom 850ms
-      cubic-bezier(.2, 1.1, .3, 1)
-      500ms both,
-    toolkit-logo-float 3.4s
-      ease-in-out
-      1350ms infinite;
+    cubic-bezier(.2, 1.1, .3, 1)
+    500ms forwards;
 }
 
 /* LOGO EXPLOSION */
