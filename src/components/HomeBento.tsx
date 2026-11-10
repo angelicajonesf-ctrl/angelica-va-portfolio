@@ -261,6 +261,16 @@ export default function HomeBento() {
 
   <div className="bento__media bento__toolkit" aria-hidden="true">
     <div className="bento__toolkit-orbit">
+      
+<div className="bento__toolkit-burst" aria-hidden="true">
+  {Array.from({ length: 16 }, (_, i) => (
+    <span
+      key={i}
+      className="bento__toolkit-ray"
+      style={{ '--i': i } as React.CSSProperties}
+    />
+  ))}
+</div>
       {TOOLKIT_LOGOS.map((tool, i) => (
         <span
           key={tool.name}
@@ -323,4 +333,117 @@ export default function HomeBento() {
       </Link>
     </nav>
   )
+}
+
+/* ==========================================
+   DIGITAL TOOLKIT — HOVER CONFETTI BURST
+   ========================================== */
+
+.home .bento__toolkit-orbit {
+  isolation: isolate;
+}
+
+.home .bento__toolkit-burst {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Small colorful rays surrounding the orbit */
+.home .bento__toolkit-ray {
+  --angle: calc(var(--i) * 22.5deg);
+  --ray-color: #e9a6c0;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 20px;
+  border-radius: 100% 100% 80% 80%;
+  background: var(--ray-color);
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-52px)
+    scaleY(0.2);
+
+  transition:
+    transform 650ms cubic-bezier(.2, 1.3, .3, 1),
+    opacity 250ms ease;
+}
+
+/* Alternating pastel colors */
+.home .bento__toolkit-ray:nth-child(4n + 1) {
+  --ray-color: #e89ab7;
+}
+
+.home .bento__toolkit-ray:nth-child(4n + 2) {
+  --ray-color: #f1ba65;
+}
+
+.home .bento__toolkit-ray:nth-child(4n + 3) {
+  --ray-color: #65cdb0;
+}
+
+.home .bento__toolkit-ray:nth-child(4n + 4) {
+  --ray-color: #d6a5d9;
+}
+
+/* Rays burst outward when hovering */
+.home .bento__card--toolkit:hover .bento__toolkit-ray,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-108px)
+    scaleY(1);
+
+  transition-delay: calc(var(--i) * 20ms);
+}
+
+/* Gentle settling motion after expansion */
+.home .bento__card--toolkit:hover .bento__toolkit-burst,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-burst {
+  animation: toolkit-burst-settle 900ms ease-out both;
+}
+
+@keyframes toolkit-burst-settle {
+  0% {
+    transform: scale(0.88);
+  }
+
+  55% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Compact laptop screens */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .bento__card--toolkit:hover .bento__toolkit-ray,
+  .home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-82px)
+      scaleY(0.75);
+  }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .home .bento__toolkit-ray,
+  .home .bento__toolkit-burst {
+    animation: none !important;
+    transition: none !important;
+  }
 }
