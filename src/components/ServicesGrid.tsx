@@ -406,9 +406,7 @@ export default function ServicesGrid() {
               color: 'var(--muted)',
             }}
           >
-            Illustrative workflow demonstrating my
-            approach to client support and task
-            coordination. Not a live automation.
+            A visual overview of how I manage client inquiries, coordinate follow-ups, and guide tasks from start to resolution.
           </p>
         </div>
 
