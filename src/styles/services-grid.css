@@ -551,20 +551,24 @@
   background: #100D18 !important;
 }
 
-/* 2. Main glass container with pink glow */
+
+/* SERVICES — FULL-HEIGHT RIGHT-SIDE PINK GLOW */
+
 [data-theme="dark"] .sgrid .sgrid__glass {
   background:
     radial-gradient(
-      ellipse 75% 65% at 100% 85%,
-      rgba(216, 91, 147, 0.32) 0%,
-      rgba(155, 63, 116, 0.18) 38%,
-      transparent 75%
+     ellipse 110% 110% at 110% 50%
+      rgba(219, 105, 161, 0.32) 0%,
+      rgba(183, 75, 137, 0.25) 35%,
+      rgba(117, 49, 99, 0.12) 65%,
+      transparent 100%
     ),
     linear-gradient(
-      135deg,
+      110deg,
       #211B2A 0%,
-      #261D31 48%,
-      #382039 100%
+      #281E32 42%,
+      #3A2440 75%,
+      #482849 100%
     ) !important;
 
   border: 1px solid rgba(225, 157, 192, 0.18);
