@@ -1251,3 +1251,30 @@ grid-template-areas:
       rotate(calc(-1 * var(--angle)));
   }
 }
+
+/* ==========================================
+   DIGITAL TOOLKIT — REFERENCE LOGO SPACING
+   Keep existing logo and suitcase sizes
+   ========================================== */
+
+/* Spread eight app logos farther from the center */
+.home .bento__card--toolkit:hover .bento__toolkit-logo,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-245%)
+    rotate(calc(-1 * var(--angle)));
+}
+
+/* Compact laptop screens: keep the same spacing */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .bento__card--toolkit:hover .bento__toolkit-logo,
+  .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-245%)
+      rotate(calc(-1 * var(--angle)));
+  }
+}
