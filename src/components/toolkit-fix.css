@@ -445,3 +445,24 @@
 .home .bento__card.toolkit-fixed:hover {
   outline: none;
 }
+
+/* ==========================================
+   DIGITAL TOOLKIT — DARK MODE CARD
+   ========================================== */
+
+[data-theme="dark"] .home .bento__card.toolkit-fixed,
+html[data-theme="dark"] .home .bento__card.toolkit-fixed {
+  background: #392c3b;
+  border: 1px solid #665064;
+  box-shadow: 0 8px 22px rgba(12, 7, 15, .18);
+}
+
+[data-theme="dark"] .home .toolkit-fixed__center {
+  background: #392c3b;
+  color: #f0a6c4;
+}
+
+[data-theme="dark"] .home .toolkit-fixed__orbit {
+  background: #594252;
+  border-color: #76566b;
+}
