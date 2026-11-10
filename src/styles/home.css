@@ -359,3 +359,19 @@ background:
     height: 100%;
   }
 }
+
+/* GET IN TOUCH — MORE VISIBLE ARROW */
+
+.home a[href="/contact"] svg {
+  color: #C2185B !important;
+  stroke: #C2185B !important;
+  stroke-width: 2.5px;
+  transition: transform 250ms ease, color 250ms ease;
+}
+
+/* Hover effect */
+.home a[href="/contact"]:hover svg {
+  color: #A52A52 !important;
+  stroke: #A52A52 !important;
+  transform: translate(3px, -3px);
+}
