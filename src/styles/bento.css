@@ -876,3 +876,150 @@ grid-template-areas:
     animation: none;
   }
 }
+
+/* ==========================================
+   MY DIGITAL TOOLKIT
+   BREWEDOPS-STYLE HOVER REVEAL
+   ========================================== */
+
+.home .bento__card--toolkit {
+  isolation: isolate;
+}
+
+/* Main circular frame */
+.home .bento__toolkit-orbit {
+  position: relative;
+  width: min(100%, 160px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 70, 115, 0.13);
+  background: rgba(255, 233, 242, 0.36);
+  overflow: visible;
+  transition:
+    transform 650ms cubic-bezier(.22, 1, .36, 1),
+    background 650ms ease,
+    border-color 650ms ease;
+}
+
+/* Suitcase at the center */
+.home .bento__toolkit-center {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 58%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #d94673;
+  border: 6px solid #f8e8ef;
+  box-shadow:
+    0 5px 18px rgba(130, 65, 90, 0.12);
+  transform: translate(-50%, -50%);
+  transition:
+    transform 650ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 650ms ease;
+}
+
+/* Logos start hidden behind the suitcase */
+.home .bento__toolkit-logo {
+  --angle: calc(var(--i) * 60deg);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  aspect-ratio: 1;
+  padding: 7px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #ffffff;
+  border: 1px solid rgba(217, 70, 115, 0.15);
+  box-shadow: 0 5px 14px rgba(102, 46, 72, 0.12);
+  opacity: 0;
+  margin-top: 0;
+  animation: none;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.35);
+
+  transition:
+    transform 750ms cubic-bezier(.2, 1.25, .3, 1),
+    opacity 350ms ease;
+  transition-delay: 0ms;
+}
+
+.home .bento__toolkit-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Hover: logos spread around the center */
+.home .bento__card--toolkit:hover .bento__toolkit-logo,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
+  opacity: 1;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-160%)
+    rotate(calc(-1 * var(--angle)));
+  transition-delay: calc(var(--i) * 55ms);
+}
+
+/* Slightly enlarge the main ring */
+.home .bento__card--toolkit:hover .bento__toolkit-orbit,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-orbit {
+  transform: scale(1.04);
+  background: rgba(255, 233, 242, 0.60);
+  border-color: rgba(217, 70, 115, 0.25);
+}
+
+/* Suitcase gently lifts */
+.home .bento__card--toolkit:hover .bento__toolkit-center,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-center {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 9px 26px rgba(217, 70, 115, 0.17);
+}
+
+/* Reveal the Explore My Tools label */
+.home .bento__toolkit-caption {
+  opacity: 0.65;
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
+}
+
+.home .bento__card--toolkit:hover .bento__toolkit-caption,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-caption {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Smaller cards / laptop screens */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .bento__toolkit-orbit {
+    width: min(100%, 125px);
+  }
+
+  .home .bento__toolkit-logo {
+    width: 28%;
+    padding: 5px;
+  }
+}
+
+/* Reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .home .bento__toolkit-logo,
+  .home .bento__toolkit-orbit,
+  .home .bento__toolkit-center,
+  .home .bento__toolkit-caption {
+    animation: none;
+    transition: none;
+  }
+}
