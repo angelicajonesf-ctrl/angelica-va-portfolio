@@ -62,12 +62,11 @@ export const profile: Profile = {
   ],
 
  displayName: {
-  line1: 'Your Reliable Partner in',
-  line2: 'Business Operations & Virtual Support',
+  line1: 'Your Reliable Partner in Business Operations',
 },
 
 hero: {
-  body: 'I help business owners, real estate teams, and growing brands get their time back through proactive administrative assistance, reliable lead support, and thoughtful social media engagement.',
+  body: 'Reliable administrative, real estate, and social media support for growing businesses.',
   portraitSrc: '/avatar.svg',
   portraitAlt: 'Angelica Jones Funelas',
 },
