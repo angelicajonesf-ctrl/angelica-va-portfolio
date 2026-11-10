@@ -1,0 +1,165 @@
+/* Digital Toolkit isolated styles — do not replace your existing bento.css */
+.home .bento__card.toolkit-fixed {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+  isolation: isolate;
+}
+.home .toolkit-fixed > .bento__head {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 3;
+}
+.home .toolkit-fixed__stage {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 4px 0 5px;
+  margin: 0;
+  overflow: visible;
+}
+.home .toolkit-fixed__orbit {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  flex: 0 0 102px;
+  width: 102px;
+  height: 102px;
+  min-width: 102px;
+  min-height: 102px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f2e3e9;
+  border: 1px solid #ead5df;
+  margin: 0;
+  padding: 0;
+  transform: none;
+  animation: none;
+  overflow: visible;
+}
+.home .toolkit-fixed__center {
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #d94673;
+  background: white;
+  border: 0;
+  box-shadow: 0 3px 10px rgba(60, 36, 47, .08);
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  animation: none;
+}
+.home .toolkit-fixed__center svg { width: 36px; height: 36px; }
+.home .toolkit-fixed__caption {
+  box-sizing: border-box;
+  position: relative;
+  inset: auto;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 7px 12px;
+  background: #302b31;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  border-radius: 999px;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity .18s ease, visibility .18s ease;
+}
+.home .toolkit-fixed:hover .toolkit-fixed__caption,
+.home .toolkit-fixed:focus-visible .toolkit-fixed__caption { opacity: 0; visibility: hidden; }
+.home .toolkit-fixed__logo {
+  --angle: calc(var(--i) * 45deg);
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  width: 33px;
+  height: 33px;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ead8e1;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 5px 11px rgba(51, 33, 44, .12);
+  opacity: 0;
+  z-index: 4;
+  margin: 0;
+  animation: none;
+  transform: translate(-50%, -50%) scale(.3);
+  transition: transform .65s cubic-bezier(.22,1,.36,1), opacity .25s ease;
+}
+.home .toolkit-fixed__logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.home .toolkit-fixed:hover .toolkit-fixed__logo,
+.home .toolkit-fixed:focus-visible .toolkit-fixed__logo {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-205%) rotate(calc(-1 * var(--angle)));
+  animation: toolkit-fixed-float 3.5s ease-in-out .75s infinite;
+  animation-delay: calc(.75s + var(--i) * -.2s);
+}
+@keyframes toolkit-fixed-float { 0%,100% { margin-top: 0; } 50% { margin-top: -3px; } }
+.home .toolkit-fixed__burst { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.home .toolkit-fixed__ray {
+  --angle: calc(var(--i) * 22.5deg);
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%; left: 50%;
+  width: 4px; height: 14px;
+  border-radius: 6px;
+  background: #e9a6c0;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-40px) scaleY(.2);
+  animation: none;
+}
+.home .toolkit-fixed__ray:nth-child(4n + 2) { background: #f1ba65; }
+.home .toolkit-fixed__ray:nth-child(4n + 3) { background: #65cdb0; }
+.home .toolkit-fixed__ray:nth-child(4n + 4) { background: #d6a5d9; }
+.home .toolkit-fixed:hover .toolkit-fixed__ray,
+.home .toolkit-fixed:focus-visible .toolkit-fixed__ray {
+  animation: toolkit-fixed-burst .9s ease-out both;
+  animation-delay: calc(var(--i) * 12ms);
+}
+@keyframes toolkit-fixed-burst {
+  0% { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle)) translateY(-42px) scaleY(.2); }
+  35% { opacity: .9; }
+  100% { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle)) translateY(-80px) scaleY(.3); }
+}
+/* Small bento cards: preserve room for the heading and the caption */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .toolkit-fixed__orbit { width: 92px; height: 92px; min-width: 92px; min-height: 92px; flex-basis: 92px; }
+  .home .toolkit-fixed__stage { gap: 7px; padding-top: 1px; padding-bottom: 2px; }
+  .home .toolkit-fixed__logo { width: 30px; height: 30px; padding: 4px; }
+  .home .toolkit-fixed:hover .toolkit-fixed__logo,
+  .home .toolkit-fixed:focus-visible .toolkit-fixed__logo {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-190%) rotate(calc(-1 * var(--angle)));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home .toolkit-fixed__logo, .home .toolkit-fixed__ray, .home .toolkit-fixed__caption { animation: none !important; transition: none !important; }
+}
