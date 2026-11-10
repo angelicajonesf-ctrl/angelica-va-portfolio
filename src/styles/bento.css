@@ -1123,3 +1123,73 @@ grid-template-areas:
   }
 }
 
+
+/* ==========================================
+   PASTEL PINK DARK MODE — BENTO CARDS
+   ========================================== */
+
+html[data-theme="dark"] .home .bento,
+body[data-theme="dark"] .home .bento,
+[data-theme="dark"] .home .bento {
+  color: #fff2f7;
+}
+
+/* All six cards */
+html[data-theme="dark"] .home .bento__card,
+body[data-theme="dark"] .home .bento__card,
+[data-theme="dark"] .home .bento__card {
+  background: #392c3b;
+  border: 1px solid #665064;
+  box-shadow: 0 8px 22px rgba(12, 7, 15, .18);
+}
+
+/* Headings and body text */
+[data-theme="dark"] .home .bento__title,
+[data-theme="dark"] .home .bento__offer-title,
+[data-theme="dark"] .home .bento__review-top {
+  color: #fff2f7;
+}
+
+[data-theme="dark"] .home .bento__desc,
+[data-theme="dark"] .home .bento__offer-note,
+[data-theme="dark"] .home .bento__review-role,
+[data-theme="dark"] .home .bento__review-work {
+  color: #d5bfcb;
+}
+
+/* Service rows and experience chips */
+[data-theme="dark"] .home .bento__offer,
+[data-theme="dark"] .home .bento__chip,
+[data-theme="dark"] .home .bento__review {
+  background: #332736;
+  border-color: #665064;
+  color: #fff2f7;
+}
+
+/* Toolkit circle */
+[data-theme="dark"] .home .toolkit-fixed__orbit {
+  background: #594252;
+  border-color: #76566b;
+}
+
+[data-theme="dark"] .home .toolkit-fixed__center {
+  background: #392c3b;
+  color: #f0a6c4;
+}
+
+/* Toolkit application tiles */
+[data-theme="dark"] .home .toolkit-fixed__logo {
+  background: #fff;
+  border-color: #d8c3d0;
+}
+
+/* Toolkit label */
+[data-theme="dark"] .home .toolkit-fixed__caption {
+  background: #f8eaf1;
+  color: #302b31;
+}
+
+/* Arrows */
+[data-theme="dark"] .home .bento__arrow {
+  color: #f0a6c4;
+}
