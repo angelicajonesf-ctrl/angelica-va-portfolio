@@ -540,8 +540,38 @@
   color: #c9b8c7;
 }
 
-/* SERVICES — DARK OUTER BACKGROUND ONLY */
 
+/* ========================================
+   SERVICES — DARK PLUM + PINK GRADIENT
+   Dark mode only
+======================================== */
+
+/* 1. Outer Services background */
 [data-theme="dark"] .pgrid.sgrid {
-  background-color: #17131F;
+  background: #100D18 !important;
 }
+
+/* 2. Main glass container with pink glow */
+[data-theme="dark"] .sgrid .sgrid__glass {
+  background:
+    radial-gradient(
+      ellipse 75% 65% at 100% 85%,
+      rgba(216, 91, 147, 0.32) 0%,
+      rgba(155, 63, 116, 0.18) 38%,
+      transparent 75%
+    ),
+    linear-gradient(
+      135deg,
+      #211B2A 0%,
+      #261D31 48%,
+      #382039 100%
+    ) !important;
+
+  border: 1px solid rgba(225, 157, 192, 0.18);
+}
+
+/* 3. Preserve dark card backgrounds */
+[data-theme="dark"] .sgrid .sgrid__service {
+  background: #17131F;
+}
+
