@@ -1127,3 +1127,81 @@ grid-template-areas:
     transition: none !important;
   }
 }
+
+/* ==========================================
+   DIGITAL TOOLKIT — LARGER REFERENCE DESIGN
+   ========================================== */
+
+/* Larger, perfectly round suitcase circle */
+.home .bento__toolkit-orbit {
+  width: 132px;
+  height: 132px;
+  min-width: 132px;
+  min-height: 132px;
+  flex: 0 0 132px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+/* Bigger central suitcase badge */
+.home .bento__toolkit-center {
+  width: 88%;
+  height: 88%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 6px solid #f7e6ee;
+}
+
+/* Bigger suitcase icon */
+.home .bento__toolkit-center svg {
+  width: 43px;
+  height: 43px;
+}
+
+/* Bigger tool tiles */
+.home .bento__toolkit-logo {
+  width: 39px;
+  height: 39px;
+  padding: 7px;
+}
+
+/* Spread logos around the larger circle */
+.home .bento__card--toolkit:hover .bento__toolkit-logo,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-210%)
+    rotate(calc(-1 * var(--angle)));
+}
+
+/* Keep the one-time confetti burst */
+.home .bento__card--toolkit:hover .bento__toolkit-ray,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
+  animation: toolkit-one-shot 950ms ease-out both;
+}
+
+/* Compact laptop screens */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .bento__toolkit-orbit {
+    width: 118px;
+    height: 118px;
+    min-width: 118px;
+    min-height: 118px;
+    flex-basis: 118px;
+  }
+
+  .home .bento__toolkit-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .home .bento__card--toolkit:hover .bento__toolkit-logo,
+  .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-195%)
+      rotate(calc(-1 * var(--angle)));
+  }
+}
