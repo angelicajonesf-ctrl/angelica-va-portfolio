@@ -1,33 +1,45 @@
-/* Digital Toolkit isolated styles — do not replace your existing bento.css */
+
+/* ==============================================
+   DIGITAL TOOLKIT — COMPLETE CLEAN STYLESHEET
+   Pastel Pink | Shake → Boom → Float
+   ============================================== */
+
+/* CARD */
 .home .bento__card.toolkit-fixed {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: stretch;
+  justify-content: flex-start;
   overflow: hidden;
   isolation: isolate;
 }
+
+/* HEADING */
 .home .toolkit-fixed > .bento__head {
   position: relative;
   flex: 0 0 auto;
-  z-index: 3;
+  z-index: 6;
 }
+
+/* STAGE */
 .home .toolkit-fixed__stage {
   position: relative;
   box-sizing: border-box;
   display: flex;
   flex: 1 1 auto;
-  min-height: 0;
-  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  padding: 4px 0 5px;
+  gap: 10px;
+  width: 100%;
+  min-height: 0;
   margin: 0;
+  padding: 4px 0 6px;
   overflow: visible;
 }
+
+/* MAIN CIRCLE */
 .home .toolkit-fixed__orbit {
   position: relative;
   box-sizing: border-box;
@@ -43,10 +55,11 @@
   border: 1px solid #ead5df;
   margin: 0;
   padding: 0;
-  transform: none;
-  animation: none;
   overflow: visible;
+  transform: none;
 }
+
+/* WHITE SUITCASE CENTER */
 .home .toolkit-fixed__center {
   position: absolute;
   box-sizing: border-box;
@@ -54,206 +67,149 @@
   left: 50%;
   width: 90%;
   height: 90%;
-  border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #d94673;
-  background: white;
+  border-radius: 50%;
+  background: #ffffff;
   border: 0;
-  box-shadow: 0 3px 10px rgba(60, 36, 47, .08);
-  z-index: 2;
+  color: #d94673;
+  box-shadow: 0 4px 12px rgba(60, 36, 47, .10);
+  z-index: 4;
   transform: translate(-50%, -50%);
-  animation: none;
 }
-.home .toolkit-fixed__center svg { width: 36px; height: 36px; }
+
+.home .toolkit-fixed__center svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* LABEL — NORMAL STATE */
 .home .toolkit-fixed__caption {
-  box-sizing: border-box;
   position: relative;
-  inset: auto;
+  box-sizing: border-box;
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
+  inset: auto;
   width: max-content;
   max-width: 100%;
   margin: 0;
   padding: 7px 12px;
+  border-radius: 999px;
   background: #302b31;
-  color: #fff;
+  color: #ffffff;
   font-size: 10px;
   font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
-  border-radius: 999px;
-  z-index: 2;
+  z-index: 5;
   opacity: 1;
   visibility: visible;
   transform: none;
-  transition: opacity .18s ease, visibility .18s ease;
+  transition:
+    opacity 200ms ease,
+    visibility 200ms ease;
 }
+
+/* HIDE LABEL ON HOVER */
 .home .toolkit-fixed:hover .toolkit-fixed__caption,
-.home .toolkit-fixed:focus-visible .toolkit-fixed__caption { opacity: 0; visibility: hidden; }
+.home .toolkit-fixed:focus-visible .toolkit-fixed__caption {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ==============================================
+   APPLICATION LOGOS
+   ============================================== */
+
 .home .toolkit-fixed__logo {
   --angle: calc(var(--i) * 45deg);
+
   position: absolute;
   box-sizing: border-box;
   top: 50%;
   left: 50%;
-  width: 33px;
-  height: 33px;
-  padding: 5px;
+
+  width: 35px;
+  height: 35px;
+  padding: 4px;
+
   display: grid;
   place-items: center;
+
+  background: #ffffff;
   border: 1px solid #ead8e1;
   border-radius: 10px;
-  background: white;
-  box-shadow: 0 5px 11px rgba(51, 33, 44, .12);
+
+  box-shadow: 0 5px 12px rgba(51, 33, 44, .14);
+
+  z-index: 5;
   opacity: 0;
-  z-index: 4;
   margin: 0;
-  animation: none;
-  transform: translate(-50%, -50%) scale(.3);
-  transition: transform .65s cubic-bezier(.22,1,.36,1), opacity .25s ease;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.15);
 }
-.home .toolkit-fixed__logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+/* SHAKE → BOOM → EXPAND → FLOAT */
 .home .toolkit-fixed:hover .toolkit-fixed__logo,
 .home .toolkit-fixed:focus-visible .toolkit-fixed__logo {
-  opacity: 1;
-  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-205%) rotate(calc(-1 * var(--angle)));
-  animation: toolkit-fixed-float 3.5s ease-in-out .75s infinite;
-  animation-delay: calc(.75s + var(--i) * -.2s);
-}
-@keyframes toolkit-fixed-float { 0%,100% { margin-top: 0; } 50% { margin-top: -3px; } }
-.home .toolkit-fixed__burst { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-.home .toolkit-fixed__ray {
-  --angle: calc(var(--i) * 22.5deg);
-  position: absolute;
-  box-sizing: border-box;
-  top: 50%; left: 50%;
-  width: 4px; height: 14px;
-  border-radius: 6px;
-  background: #e9a6c0;
-  opacity: 0;
-  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-40px) scaleY(.2);
-  animation: none;
-}
-.home .toolkit-fixed__ray:nth-child(4n + 2) { background: #f1ba65; }
-.home .toolkit-fixed__ray:nth-child(4n + 3) { background: #65cdb0; }
-.home .toolkit-fixed__ray:nth-child(4n + 4) { background: #d6a5d9; }
-.home .toolkit-fixed:hover .toolkit-fixed__ray,
-.home .toolkit-fixed:focus-visible .toolkit-fixed__ray {
-  animation: toolkit-fixed-burst .9s ease-out both;
-  animation-delay: calc(var(--i) * 12ms);
-}
-@keyframes toolkit-fixed-burst {
-  0% { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle)) translateY(-42px) scaleY(.2); }
-  35% { opacity: .9; }
-  100% { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle)) translateY(-80px) scaleY(.3); }
-}
-/* Small bento cards: preserve room for the heading and the caption */
-@media (min-width: 1100px) and (max-height: 800px) {
-  .home .toolkit-fixed__orbit { width: 92px; height: 92px; min-width: 92px; min-height: 92px; flex-basis: 92px; }
-  .home .toolkit-fixed__stage { gap: 7px; padding-top: 1px; padding-bottom: 2px; }
-  .home .toolkit-fixed__logo { width: 30px; height: 30px; padding: 4px; }
-  .home .toolkit-fixed:hover .toolkit-fixed__logo,
-  .home .toolkit-fixed:focus-visible .toolkit-fixed__logo {
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-190%) rotate(calc(-1 * var(--angle)));
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .home .toolkit-fixed__logo, .home .toolkit-fixed__ray, .home .toolkit-fixed__caption { animation: none !important; transition: none !important; }
+  animation:
+    toolkit-logo-boom 850ms
+      cubic-bezier(.2, 1.1, .3, 1)
+      500ms both,
+    toolkit-logo-float 3.4s
+      ease-in-out
+      1350ms infinite;
 }
 
-/* ==========================================
-   TOOLKIT — SHAKE, BOOM & FLOAT
-   ========================================== */
-
-/* Keep the suitcase centered */
-.home .bento__card--toolkit .bento__toolkit-orbit {
-  position: relative;
-  overflow: visible;
-}
-
-/* App tiles: consistent size */
-.home .bento__card--toolkit .bento__toolkit-logo {
-  --angle: calc(var(--i) * 45deg);
-
-  width: 38px;
-  height: 38px;
-  padding: 5px;
-
-  opacity: 0;
-  margin: 0;
-  animation: none;
-
-  transform:
-    translate(-50%, -50%)
-    scale(0.15);
-
-  transition:
-    opacity 180ms ease,
-    transform 650ms cubic-bezier(.2, 1.2, .3, 1);
-}
-
-/* Hover: logos spread farther from the center */
-.home .bento__card--toolkit:hover .bento__toolkit-logo,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-  opacity: 1;
-
-  transform:
-    translate(-50%, -50%)
-    rotate(var(--angle))
-    translateY(-225%)
-    rotate(calc(-1 * var(--angle)));
-
-  transition-delay: 450ms;
-}
-
-/* Shake the suitcase first */
-.home .bento__card--toolkit:hover .bento__toolkit-center,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-center {
-  animation: toolkit-shake-boom 650ms ease-out both;
-}
-
-@keyframes toolkit-shake-boom {
-  0% {
-    transform: translate(-50%, -50%) rotate(0) scale(1);
+/* LOGO EXPLOSION */
+@keyframes toolkit-logo-boom {
+  0%, 12% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-12px)
+      rotate(calc(-1 * var(--angle)))
+      scale(.1);
   }
 
-  12% {
-    transform: translate(-50%, -50%) rotate(-7deg) scale(.96);
+  55% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-90px)
+      rotate(calc(-1 * var(--angle)))
+      scale(1.18);
   }
 
-  24% {
-    transform: translate(-50%, -50%) rotate(7deg) scale(.96);
-  }
-
-  36% {
-    transform: translate(-50%, -50%) rotate(-6deg) scale(1);
-  }
-
-  48% {
-    transform: translate(-50%, -50%) rotate(6deg) scale(1);
-  }
-
-  65% {
-    transform: translate(-50%, -50%) rotate(0) scale(1.13);
+  80% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-76px)
+      rotate(calc(-1 * var(--angle)))
+      scale(.94);
   }
 
   100% {
-    transform: translate(-50%, -50%) rotate(0) scale(1);
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-82px)
+      rotate(calc(-1 * var(--angle)))
+      scale(1);
   }
 }
 
-/* Confetti bursts after the shake */
-.home .bento__card--toolkit:hover .bento__toolkit-ray,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
-  animation: toolkit-one-shot 800ms ease-out both;
-  animation-delay: 420ms;
-}
-
-/* Gentle floating after logos expand */
-@keyframes toolkit-app-float {
+/* SUBTLE FLOATING AFTER EXPLOSION */
+@keyframes toolkit-logo-float {
   0%, 100% {
     margin-top: 0;
   }
@@ -263,30 +219,198 @@
   }
 }
 
-.home .bento__card--toolkit:hover .bento__toolkit-logo,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-  animation: toolkit-app-float 3.5s ease-in-out infinite;
-  animation-delay: 1100ms;
+/* APPLICATION IMAGES */
+.home .toolkit-fixed__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-/* Compact laptop spacing */
-@media (min-width: 1100px) and (max-height: 800px) {
-  .home .bento__card--toolkit:hover .bento__toolkit-logo,
-  .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-205%)
-      rotate(calc(-1 * var(--angle)));
+/* ==============================================
+   SUITCASE SHAKE + POP
+   ============================================== */
+
+.home .toolkit-fixed:hover .toolkit-fixed__center,
+.home .toolkit-fixed:focus-visible .toolkit-fixed__center {
+  animation: toolkit-suitcase-shake 850ms ease-out both;
+}
+
+@keyframes toolkit-suitcase-shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0) scale(1);
+  }
+
+  10% {
+    transform: translate(-50%, -50%) rotate(-12deg) scale(.96);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) rotate(12deg) scale(.96);
+  }
+
+  30% {
+    transform: translate(-50%, -50%) rotate(-11deg) scale(1);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) rotate(11deg) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(0) scale(1);
+  }
+
+  65% {
+    transform: translate(-50%, -50%) rotate(0) scale(1.2);
+  }
+
+  82% {
+    transform: translate(-50%, -50%) rotate(0) scale(.94);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(0) scale(1);
   }
 }
 
-/* Reduced-motion accessibility */
+/* ==============================================
+   CONFETTI BURST
+   ============================================== */
+
+.home .toolkit-fixed__burst {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.home .toolkit-fixed__ray {
+  --angle: calc(var(--i) * 22.5deg);
+
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+
+  width: 5px;
+  height: 17px;
+  border-radius: 6px;
+
+  background: #e9a6c0;
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(-35px)
+    scaleY(.2);
+}
+
+.home .toolkit-fixed__ray:nth-child(4n + 2) {
+  background: #f1ba65;
+}
+
+.home .toolkit-fixed__ray:nth-child(4n + 3) {
+  background: #65cdb0;
+}
+
+.home .toolkit-fixed__ray:nth-child(4n + 4) {
+  background: #d6a5d9;
+}
+
+/* ONE-TIME BURST */
+.home .toolkit-fixed:hover .toolkit-fixed__ray,
+.home .toolkit-fixed:focus-visible .toolkit-fixed__ray {
+  animation:
+    toolkit-confetti-boom 900ms ease-out 550ms both;
+}
+
+@keyframes toolkit-confetti-boom {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-35px)
+      scaleY(.2);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: .9;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-92px)
+      scaleY(1.3);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-110px)
+      scaleY(.2);
+  }
+}
+
+/* ==============================================
+   COMPACT LAPTOP SCREENS
+   ============================================== */
+
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .toolkit-fixed__orbit {
+    width: 92px;
+    height: 92px;
+    min-width: 92px;
+    min-height: 92px;
+    flex-basis: 92px;
+  }
+
+  .home .toolkit-fixed__stage {
+    gap: 8px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+  }
+
+  .home .toolkit-fixed__logo {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+}
+
+/* ==============================================
+   ACCESSIBILITY
+   ============================================== */
+
 @media (prefers-reduced-motion: reduce) {
-  .home .bento__card--toolkit:hover .bento__toolkit-center,
-  .home .bento__card--toolkit:hover .bento__toolkit-logo,
-  .home .bento__card--toolkit:hover .bento__toolkit-ray {
+  .home .toolkit-fixed__center,
+  .home .toolkit-fixed__logo,
+  .home .toolkit-fixed__ray,
+  .home .toolkit-fixed__caption {
     animation: none !important;
     transition: none !important;
+  }
+
+  .home .toolkit-fixed:hover .toolkit-fixed__logo,
+  .home .toolkit-fixed:focus-visible .toolkit-fixed__logo {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateY(-82px)
+      rotate(calc(-1 * var(--angle)));
+  }
+
+  .home .toolkit-fixed:hover .toolkit-fixed__ray,
+  .home .toolkit-fixed:focus-visible .toolkit-fixed__ray {
+    opacity: 0;
   }
 }
