@@ -277,8 +277,8 @@ export default function HomeBento() {
         </span>
       ))}
       <span className="bento__toolkit-center">
-        <Gear size={25} weight="duotone" aria-hidden="true" />
-      </span>
+  <Briefcase size={29} weight="duotone" aria-hidden="true" />
+</span>
     </div>
     <span className="bento__toolkit-caption">
       Explore My Tools
