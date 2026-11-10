@@ -62,7 +62,8 @@ export const profile: Profile = {
   ],
 
  displayName: {
-  line1: 'Your Reliable Partner in Business Operations',
+  line1: 'Your Partner in Business Growth.',
+  line2: '',
 },
 
 hero: {
