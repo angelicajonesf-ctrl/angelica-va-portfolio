@@ -20,6 +20,8 @@ const TOOLKIT_LOGOS = [
   { name: 'Notion', file: 'notion.svg' },
   { name: 'Canva', file: 'canva.png' },
   { name: 'CapCut', file: 'capcut.png' },
+  { name: 'Salesforce', file: 'salesforce.png' },
+  { name: 'Asana', file: 'asana.png' },
 ]
 
 // Replace these images with your actual portfolio screenshots.
@@ -248,54 +250,60 @@ export default function HomeBento() {
         </ul>
       </Link>
 
-{/* MY DIGITAL TOOLKIT */}
-<Link
-  to="/tools"
-  className="bento__card bento__card--toolkit"
->
-  <CardHead
-    Icon={Gear}
-    title="My Digital Toolkit"
-    desc="The platforms behind my daily workflow."
-  />
 
-  <div className="bento__media bento__toolkit" aria-hidden="true">
-    <div className="bento__toolkit-orbit">
-      
-<div className="bento__toolkit-burst" aria-hidden="true">
-  {Array.from({ length: 16 }, (_, i) => (
-    <span
-      key={i}
-      className="bento__toolkit-ray"
-      style={{ '--i': i } as React.CSSProperties}
-    />
-  ))}
-</div>
-      {TOOLKIT_LOGOS.map((tool, i) => (
-        <span
-          key={tool.name}
-          className="bento__toolkit-logo"
-          style={{ '--i': i } as React.CSSProperties}
-          title={tool.name}
-        >
-          <img
-            src={`${base}icons/${tool.file}`}
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
-      ))}
-      <span className="bento__toolkit-center">
-  <Briefcase size={29} weight="duotone" aria-hidden="true" />
-</span>
-    </div>
-    <span className="bento__toolkit-caption">
-      Explore My Tools
-      <ArrowUpRight size={13} weight="bold" aria-hidden="true" />
-    </span>
-  </div>
-</Link>
+      {/* MY DIGITAL TOOLKIT */}
+      <Link
+        to="/tools"
+        className="bento__card bento__card--toolkit"
+        aria-label="My Digital Toolkit — explore my tools"
+      >
+        <CardHead
+          Icon={Gear}
+          title="My Digital Toolkit"
+          desc=""
+        />
+
+        <div className="bento__media bento__toolkit" aria-hidden="true">
+          <div className="bento__toolkit-orbit">
+            <div className="bento__toolkit-burst">
+              {Array.from({ length: 16 }, (_, i) => (
+                <span
+                  key={i}
+                  className="bento__toolkit-ray"
+                  style={{ '--i': i } as React.CSSProperties}
+                />
+              ))}
+            </div>
+
+            {TOOLKIT_LOGOS.map((tool, i) => (
+              <span
+                key={tool.name}
+                className="bento__toolkit-logo"
+                style={{ '--i': i } as React.CSSProperties}
+              >
+                <img
+                  src={`${base}icons/${tool.file}`}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+            ))}
+
+            <span className="bento__toolkit-center">
+              <Briefcase
+                size={34}
+                weight="duotone"
+                aria-hidden="true"
+              />
+            </span>
+          </div>
+
+          <span className="bento__toolkit-caption">
+            Tech-Savvy Virtual Assistant
+          </span>
+        </div>
+      </Link>
 
       {/* PROFESSIONAL RECOMMENDATIONS */}
       <Link
