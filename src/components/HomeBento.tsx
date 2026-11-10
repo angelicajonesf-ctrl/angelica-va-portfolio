@@ -250,18 +250,13 @@ export default function HomeBento() {
         </ul>
       </Link>
 
-
-      {/* MY DIGITAL TOOLKIT */}
+{/* MY DIGITAL TOOLKIT */}
       <Link
         to="/tools"
         className="bento__card bento__card--toolkit"
-        aria-label="My Digital Toolkit — explore my tools"
+        aria-label="My Digital Toolkit — explore the tools I use"
       >
-        <CardHead
-          Icon={Gear}
-          title="My Digital Toolkit"
-          desc=""
-        />
+        <CardHead Icon={Gear} title="My Digital Toolkit" desc="" />
 
         <div className="bento__media bento__toolkit" aria-hidden="true">
           <div className="bento__toolkit-orbit">
@@ -274,12 +269,12 @@ export default function HomeBento() {
                 />
               ))}
             </div>
-
             {TOOLKIT_LOGOS.map((tool, i) => (
               <span
                 key={tool.name}
                 className="bento__toolkit-logo"
                 style={{ '--i': i } as React.CSSProperties}
+                title={tool.name}
               >
                 <img
                   src={`${base}icons/${tool.file}`}
@@ -289,16 +284,10 @@ export default function HomeBento() {
                 />
               </span>
             ))}
-
             <span className="bento__toolkit-center">
-              <Briefcase
-                size={34}
-                weight="duotone"
-                aria-hidden="true"
-              />
+              <Briefcase size={39} weight="duotone" aria-hidden="true" />
             </span>
           </div>
-
           <span className="bento__toolkit-caption">
             Tech-Savvy Virtual Assistant
           </span>
@@ -342,4 +331,3 @@ export default function HomeBento() {
     </nav>
   )
 }
-
