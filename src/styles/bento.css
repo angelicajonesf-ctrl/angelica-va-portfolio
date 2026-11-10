@@ -738,653 +738,188 @@ grid-template-areas:
   }
 }
 
-/* ============================================
-   DIGITAL TOOLKIT — reference-style interaction
-   Replaces all earlier toolkit-specific CSS.
-   ============================================ */
+/* =====================================================
+   MY DIGITAL TOOLKIT — ONE CONSOLIDATED STYLE
+   Normal: single pink halo, white circle, label below.
+   Hover: 8 floating logos; one-shot confetti; hide label.
+   ===================================================== */
 .home .bento__card--toolkit {
   isolation: isolate;
   background: #fffdfd;
   border: 1px solid rgba(122, 81, 103, .14);
   box-shadow: 0 8px 20px rgba(87, 39, 65, .055);
+  overflow: hidden;
 }
 .home .bento__card--toolkit:hover {
   border-color: #e75b94;
   box-shadow: 0 16px 36px rgba(217, 75, 130, .14);
 }
-.home .bento__card--toolkit .bento__desc:empty { display: none; }
-.home .bento__card--toolkit .bento__title {
-  font-size: clamp(13px, .95vw, 16px);
-  letter-spacing: .025em;
-}
-.home .bento__toolkit {
-  display: flex;
+.home .bento__card--toolkit .bento__desc { display: none; }
+.home .bento__card--toolkit .bento__media.bento__toolkit {
+  position: relative;
+  display: block;
   flex: 1 1 auto;
   min-height: 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  margin-top: 0;
   overflow: visible;
-  margin-top: 4px;
 }
-/* The orbit itself is square, so the center cannot become oval. */
+/* 116px matches the reference's smaller central medallion. */
 .home .bento__toolkit-orbit {
-  position: relative;
-  flex: 0 0 auto;
-  width: clamp(86px, 7.4vw, 112px);
-  height: clamp(86px, 7.4vw, 112px);
-  aspect-ratio: 1 / 1;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 116px;
+  height: 116px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  border: 0;
-  background: transparent;
+  background: #fff;
+  border: 1px solid #ead6df; /* one thin outline */
+  box-shadow: 0 0 0 7px rgba(224, 187, 203, .38),
+              0 7px 18px rgba(91, 55, 70, .08); /* one soft halo */
+  transform: translate(-50%, -50%);
   overflow: visible;
   isolation: isolate;
 }
-/* Reference-style white disk, pale pink outline, suitcase icon. */
 .home .bento__toolkit-center {
   position: absolute;
   z-index: 4;
-  inset: 50% auto auto 50%;
-  box-sizing: border-box;
+  inset: 0;
   display: grid;
   place-items: center;
-  width: 84%;
-  height: 84%;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border: 0;
   border-radius: 50%;
-  border: 7px solid #f7dce8;
   background: #fff;
-  color: #bf315e;
-  box-shadow: 0 0 0 1px #ebc7d6, 0 8px 20px rgba(145, 63, 96, .12);
-  transform: translate(-50%, -50%);
-  transition: transform 650ms cubic-bezier(.22, 1, .36, 1);
+  color: #ce3f78;
+  box-shadow: none;
+  transform: none;
+  transition: transform 450ms ease;
 }
-.home .bento__toolkit-center svg { width: 34px; height: 34px; }
+.home .bento__toolkit-center svg { width: 39px; height: 39px; }
 .home .bento__card--toolkit:hover .bento__toolkit-center,
 .home .bento__card--toolkit:focus-visible .bento__toolkit-center {
-  transform: translate(-50%, -50%) scale(1.04);
+  transform: scale(1.035);
 }
-/* Eight logos are fully hidden behind the disk until hover. */
+/* App tiles have a fixed 35px size and spread 75px from center. */
 .home .bento__toolkit-logo {
   --angle: calc(var(--i) * 45deg);
   position: absolute;
-  z-index: 3;
-  top: 50%;
-  left: 50%;
-  box-sizing: border-box;
+  top: 50%; left: 50%;
+  z-index: 5;
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  padding: 5px;
-  margin: 0;
+  width: 35px;
+  height: 35px;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid #e8d5df;
   border-radius: 10px;
-  border: 1px solid rgba(217, 70, 115, .16);
   background: #fff;
-  box-shadow: 0 5px 12px rgba(102, 46, 72, .13);
+  box-shadow: 0 5px 12px rgba(68, 42, 57, .12);
   opacity: 0;
-  visibility: hidden;
+  margin: 0;
   animation: none;
-  transform: translate(-50%, -50%) scale(.25);
-  transition: transform 700ms cubic-bezier(.2, 1.1, .3, 1), opacity 250ms ease, visibility 0s linear 700ms;
+  transform: translate(-50%, -50%) scale(.2);
+  transition: transform 650ms cubic-bezier(.22, 1, .36, 1), opacity 240ms ease;
 }
 .home .bento__toolkit-logo img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: contain;
 }
 .home .bento__card--toolkit:hover .bento__toolkit-logo,
 .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
   opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-205%) rotate(calc(-1 * var(--angle)));
-  transition-delay: calc(var(--i) * 35ms), calc(var(--i) * 35ms), 0ms;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-75px) rotate(calc(-1 * var(--angle)));
+  animation: toolkit-gentle-float 3.8s ease-in-out 750ms infinite;
+  animation-delay: calc(750ms + var(--i) * 80ms);
 }
-/* Confetti rays appear only on hover, just outside the logos. */
+@keyframes toolkit-gentle-float {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -3px; }
+}
+/* Caption is centered near the card bottom, as in the reference. */
+.home .bento__toolkit-caption {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: calc(100% - 8px);
+  box-sizing: border-box;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: #302b31;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%);
+  transition: opacity 200ms ease, visibility 200ms ease;
+}
+.home .bento__card--toolkit:hover .bento__toolkit-caption,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-caption {
+  opacity: 0;
+  visibility: hidden;
+}
+/* Confetti bursts once, fades away while hover continues. */
 .home .bento__toolkit-burst {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
+  overflow: visible;
+  animation: none;
 }
 .home .bento__toolkit-ray {
   --angle: calc(var(--i) * 22.5deg);
   --ray-color: #e89ab7;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 3px;
-  height: 11px;
-  border-radius: 999px;
+  top: 50%; left: 50%;
+  width: 4px; height: 15px;
+  border-radius: 8px;
   background: var(--ray-color);
   opacity: 0;
-  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-42px) scaleY(.2);
-  transition: transform 650ms cubic-bezier(.2, 1.2, .3, 1), opacity 280ms ease;
+  animation: none;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-45px) scaleY(.2);
 }
 .home .bento__toolkit-ray:nth-child(4n + 2) { --ray-color: #f1ba65; }
-.home .bento__toolkit-ray:nth-child(4n + 3) { --ray-color: #75cbb2; }
+.home .bento__toolkit-ray:nth-child(4n + 3) { --ray-color: #65cdb0; }
 .home .bento__toolkit-ray:nth-child(4n + 4) { --ray-color: #d6a5d9; }
 .home .bento__card--toolkit:hover .bento__toolkit-ray,
 .home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
-  opacity: .85;
-  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-89px) scaleY(1);
-  transition-delay: calc(var(--i) * 18ms);
-}
-/* A dark reference-style tag, not an action button. */
-.home .bento__toolkit-caption {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  padding: 6px 11px;
-  border-radius: 999px;
-  background: #302b31;
-  color: #fff;
-  font-size: clamp(9px, .73vw, 11px);
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
-  opacity: 1;
-  transform: none;
-}
-@media (min-width: 640px) and (max-width: 1099px) {
-  .home .bento__card--toolkit { min-height: 230px; }
-}
-@media (max-width: 639px) {
-  .home .bento__card--toolkit { min-height: 220px; }
-}
-@media (min-width: 1100px) and (max-height: 800px) {
-  .home .bento__toolkit-orbit { width: 86px; height: 86px; }
-  .home .bento__toolkit-logo { width: 29px; height: 29px; }
-  .home .bento__card--toolkit:hover .bento__toolkit-logo,
-  .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-185%) rotate(calc(-1 * var(--angle)));
-  }
-  .home .bento__card--toolkit:hover .bento__toolkit-ray,
-  .home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-72px) scaleY(.8);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .home .bento__toolkit-logo,
-  .home .bento__toolkit-center,
-  .home .bento__toolkit-ray { transition: none !important; animation: none !important; }
-}
-
-/* ==========================================
-   DIGITAL TOOLKIT — REFERENCE HOVER EFFECT
-   Eight logos + temporary confetti burst
-   ========================================== */
-
-/* Keep the Toolkit layout centered */
-.home .bento__card--toolkit .bento__toolkit {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
-  margin-top: 0;
-  min-height: 0;
-  gap: 0;
-}
-
-/* Perfectly round central orbit */
-.home .bento__toolkit-orbit {
-  position: relative;
-  width: 108px;
-  height: 108px;
-  min-width: 108px;
-  min-height: 108px;
-  flex: 0 0 108px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: #f9e6ef;
-  border: 1px solid #efd0dd;
-  overflow: visible;
-}
-
-/* White circular suitcase badge */
-.home .bento__toolkit-center {
-  width: 82%;
-  height: 82%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 5px solid #f7e6ee;
-  color: #c83d72;
-  z-index: 4;
-}
-
-/* Eight logos initially hidden */
-.home .bento__toolkit-logo {
-  --angle: calc(var(--i) * 45deg);
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 34px;
-  height: 34px;
-  aspect-ratio: 1;
-
-  padding: 6px;
-  border-radius: 11px;
-  background: #ffffff;
-  border: 1px solid #edd7e0;
-
-  z-index: 3;
-  opacity: 0;
-  margin: 0;
-  animation: none;
-
-  transform:
-    translate(-50%, -50%)
-    scale(0.2);
-
-  transition:
-    transform 700ms cubic-bezier(.22, 1, .36, 1),
-    opacity 250ms ease;
-}
-
-/* Hover: spread all eight logos outward */
-.home .bento__card--toolkit:hover .bento__toolkit-logo,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-  opacity: 1;
-
-  transform:
-    translate(-50%, -50%)
-    rotate(var(--angle))
-    translateY(-235%)
-    rotate(calc(-1 * var(--angle)));
-
-  transition-delay: calc(var(--i) * 35ms);
-}
-
-/* Normal: show professional label */
-.home .bento__toolkit-caption {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-
-  width: max-content;
-  max-width: 100%;
-  padding: 7px 13px;
-
-  border-radius: 999px;
-  background: #302b31;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-
-  opacity: 1;
-  transform: translateX(-50%);
-  transition:
-    opacity 180ms ease,
-    visibility 180ms ease;
-}
-
-/* Hover: hide label completely */
-.home .bento__card--toolkit:hover .bento__toolkit-caption,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-caption {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(-50%);
-}
-
-/* Confetti starts hidden */
-.home .bento__toolkit-ray {
-  opacity: 0;
-  animation: none;
-  transition: none;
-}
-
-/* Hover: confetti appears briefly then vanishes */
-.home .bento__card--toolkit:hover .bento__toolkit-ray,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
-  animation: toolkit-one-shot 950ms ease-out both;
+  animation: toolkit-one-shot 900ms ease-out both;
   animation-delay: calc(var(--i) * 16ms);
 }
-
-/* One-shot burst — not a looping animation */
 @keyframes toolkit-one-shot {
-  0% {
-    opacity: 0;
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-48px)
-      scaleY(0.2);
-  }
-
-  30% {
-    opacity: 0.85;
-  }
-
-  65% {
-    opacity: 0.65;
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-88px)
-      scaleY(0.9);
-  }
-
-  100% {
-    opacity: 0;
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-100px)
-      scaleY(0.3);
-  }
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-45px) scaleY(.2); }
+  32% { opacity: .85; }
+  65% { opacity: .55; transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-77px) scaleY(.9); }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-86px) scaleY(.25); }
 }
-
-/* Remove the old burst settling animation */
-.home .bento__card--toolkit:hover .bento__toolkit-burst,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-burst {
-  animation: none;
+@media (min-width: 640px) and (max-width: 1099px) {
+  .home .bento__card--toolkit { min-height: 240px; }
 }
-
-/* Small laptop screens */
+@media (max-width: 639px) {
+  .home .bento__card--toolkit { min-height: 240px; }
+}
 @media (min-width: 1100px) and (max-height: 800px) {
-  .home .bento__toolkit-orbit {
-    width: 94px;
-    height: 94px;
-    min-width: 94px;
-    min-height: 94px;
-    flex-basis: 94px;
-  }
-
-  .home .bento__toolkit-logo {
-    width: 30px;
-    height: 30px;
-  }
-
+  .home .bento__toolkit-orbit { width: 108px; height: 108px; }
+  .home .bento__toolkit-logo { width: 32px; height: 32px; }
   .home .bento__card--toolkit:hover .bento__toolkit-logo,
   .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-215%)
-      rotate(calc(-1 * var(--angle)));
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-67px) rotate(calc(-1 * var(--angle)));
   }
 }
-
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .home .bento__toolkit-logo,
   .home .bento__toolkit-ray,
-  .home .bento__toolkit-caption {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* ==========================================
-   DIGITAL TOOLKIT — LARGER REFERENCE DESIGN
-   ========================================== */
-
-/* Larger, perfectly round suitcase circle */
-.home .bento__toolkit-orbit {
-  width: 132px;
-  height: 132px;
-  min-width: 132px;
-  min-height: 132px;
-  flex: 0 0 132px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-}
-
-/* Bigger central suitcase badge */
-.home .bento__toolkit-center {
-  width: 88%;
-  height: 88%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  border: 6px solid #f7e6ee;
-}
-
-/* Bigger suitcase icon */
-.home .bento__toolkit-center svg {
-  width: 43px;
-  height: 43px;
-}
-
-/* Bigger tool tiles */
-.home .bento__toolkit-logo {
-  width: 39px;
-  height: 39px;
-  padding: 7px;
-}
-
-/* Spread logos around the larger circle */
-.home .bento__card--toolkit:hover .bento__toolkit-logo,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-  transform:
-    translate(-50%, -50%)
-    rotate(var(--angle))
-    translateY(-210%)
-    rotate(calc(-1 * var(--angle)));
-}
-
-/* Keep the one-time confetti burst */
-.home .bento__card--toolkit:hover .bento__toolkit-ray,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-ray {
-  animation: toolkit-one-shot 950ms ease-out both;
-}
-
-/* Compact laptop screens */
-@media (min-width: 1100px) and (max-height: 800px) {
-  .home .bento__toolkit-orbit {
-    width: 118px;
-    height: 118px;
-    min-width: 118px;
-    min-height: 118px;
-    flex-basis: 118px;
-  }
-
-  .home .bento__toolkit-logo {
-    width: 35px;
-    height: 35px;
-  }
-
-  .home .bento__card--toolkit:hover .bento__toolkit-logo,
-  .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-195%)
-      rotate(calc(-1 * var(--angle)));
-  }
-}
-
-/* ==========================================
-   DIGITAL TOOLKIT — BIGGER APP LOGOS ONLY
-   ========================================== */
-
-/* Enlarge the eight application tiles */
-.home .bento__toolkit-logo {
-  width: 46px;
-  height: 46px;
-  padding: 5px;
-}
-
-/* Make the actual app icons fill more of each tile */
-.home .bento__toolkit-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Keep logos spaced around the original suitcase */
-.home .bento__card--toolkit:hover .bento__toolkit-logo,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-  transform:
-    translate(-50%, -50%)
-    rotate(var(--angle))
-    translateY(-175%)
-    rotate(calc(-1 * var(--angle)));
-}
-
-/* Slightly smaller tiles on compact laptop screens */
-@media (min-width: 1100px) and (max-height: 800px) {
-  .home .bento__toolkit-logo {
-    width: 40px;
-    height: 40px;
-    padding: 4px;
-  }
-
-  .home .bento__card--toolkit:hover .bento__toolkit-logo,
-  .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-175%)
-      rotate(calc(-1 * var(--angle)));
-  }
-}
-
-/* ==========================================
-   DIGITAL TOOLKIT — REFERENCE LOGO SPACING
-   Keep existing logo and suitcase sizes
-   ========================================== */
-
-/* Spread eight app logos farther from the center */
-.home .bento__card--toolkit:hover .bento__toolkit-logo,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-  transform:
-    translate(-50%, -50%)
-    rotate(var(--angle))
-    translateY(-245%)
-    rotate(calc(-1 * var(--angle)));
-}
-
-/* Compact laptop screens: keep the same spacing */
-@media (min-width: 1100px) and (max-height: 800px) {
-  .home .bento__card--toolkit:hover .bento__toolkit-logo,
-  .home .bento__card--toolkit:focus-visible .bento__toolkit-logo {
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--angle))
-      translateY(-245%)
-      rotate(calc(-1 * var(--angle)));
-  }
-}
-
-
-/* ==========================================
-   DIGITAL TOOLKIT — MATCH REFERENCE POSITION
-   Normal / non-hover appearance
-   ========================================== */
-
-/* Center the circle and label within the card */
-.home .bento__card--toolkit .bento__toolkit {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  margin-top: 0;
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-/* Match reference circle dimensions */
-.home .bento__toolkit-orbit {
-  width: 132px;
-  height: 132px;
-  min-width: 132px;
-  min-height: 132px;
-  flex: 0 0 132px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-
-  background: #f7e8ef;
-  border: 1px solid #eedbe4;
-}
-
-/* White center with a soft pink outer ring */
-.home .bento__toolkit-center {
-  width: 94%;
-  height: 94%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-
-  background: #ffffff;
-  border: 6px solid #f8eef3;
-  color: #cf3f77;
-
-  box-shadow:
-    0 6px 16px rgba(117, 67, 91, 0.08);
-}
-
-/* Reference-sized suitcase icon */
-.home .bento__toolkit-center svg {
-  width: 43px;
-  height: 43px;
-}
-
-/* Label sits below the circle with a clear gap */
-.home .bento__toolkit-caption {
-  position: relative;
-  bottom: auto;
-  left: auto;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: max-content;
-  max-width: 100%;
-  margin-top: 13px;
-  padding: 7px 13px;
-
-  background: #302b31;
-  color: #ffffff;
-  border-radius: 999px;
-
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-}
-
-/* Hide the label on hover, as requested */
-.home .bento__card--toolkit:hover .bento__toolkit-caption,
-.home .bento__card--toolkit:focus-visible .bento__toolkit-caption {
-  opacity: 0;
-  visibility: hidden;
-  transform: none;
-}
-
-/* Keep the normal state clean */
-.home .bento__toolkit-logo {
-  opacity: 0;
-}
-
-/* Compact laptop adjustments */
-@media (min-width: 1100px) and (max-height: 800px) {
-  .home .bento__toolkit-orbit {
-    width: 120px;
-    height: 120px;
-    min-width: 120px;
-    min-height: 120px;
-    flex-basis: 120px;
-  }
-
-  .home .bento__toolkit-caption {
-    margin-top: 11px;
-  }
+  .home .bento__toolkit-center { animation: none !important; transition: none !important; }
 }
