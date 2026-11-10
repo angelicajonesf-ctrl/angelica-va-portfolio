@@ -677,10 +677,11 @@
       minmax(0, 1fr)
       minmax(0, 1fr);
     grid-template-rows:
-      repeat(2, minmax(0, 1fr));
-    grid-template-areas:
-      "intro works works toolkit"
-      "intro experience services recommendations";
+      repeat(2, minmax(0, 1fr)); 
+grid-template-areas:
+  "intro works works experience"
+  "intro toolkit services recommendations";
+
     gap: 14px;
     width: 100%;
     height: 100%;
