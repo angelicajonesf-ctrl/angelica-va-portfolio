@@ -572,15 +572,3 @@
 [data-theme="dark"] .sgrid .sgrid__service {
   background: #17131F;
 }
-
-
-/* SERVICES — REMOVE TOP PINK SHADOW */
-
-[data-theme="dark"] .pgrid.sgrid {
-  box-shadow: none !important;
-}
-
-[data-theme="dark"] .pgrid.sgrid::before,
-[data-theme="dark"] .pgrid.sgrid::after {
-  box-shadow: none !important;
-}
