@@ -412,3 +412,36 @@
     opacity: 0;
   }
 }
+
+/* ==========================================
+   DIGITAL TOOLKIT — MATCH OTHER CARD BORDERS
+   ========================================== */
+
+/* Normal card appearance */
+.home .bento__card.toolkit-fixed {
+  border: 1px solid rgba(75, 65, 75, 0.14);
+  border-radius: 28px;
+  background: #ffffff;
+
+  box-shadow:
+    0 5px 14px rgba(55, 40, 50, 0.05);
+
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+/* Keep the same border when hovered or focused */
+.home .bento__card.toolkit-fixed:hover,
+.home .bento__card.toolkit-fixed:focus-visible {
+  border-color: rgba(75, 65, 75, 0.14);
+  background: #ffffff;
+
+  box-shadow:
+    0 5px 14px rgba(55, 40, 50, 0.05);
+}
+
+/* Remove any old pink hover outline */
+.home .bento__card.toolkit-fixed:hover {
+  outline: none;
+}
