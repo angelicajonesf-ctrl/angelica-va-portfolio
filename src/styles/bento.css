@@ -1193,3 +1193,31 @@ body[data-theme="dark"] .home .bento__card,
 [data-theme="dark"] .home .bento__arrow {
   color: #f0a6c4;
 }
+
+/* ==========================================
+   BENTO HEADING ICONS — SAME IN BOTH THEMES
+   ========================================== */
+
+/* Keep all six heading icons rose pink */
+.home .bento .bento__head .bento__icon,
+[data-theme="dark"] .home .bento .bento__head .bento__icon,
+[data-theme="light"] .home .bento .bento__head .bento__icon {
+  background: #D94673 !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+
+/* Keep the symbols white */
+.home .bento .bento__head .bento__icon svg,
+[data-theme="dark"] .home .bento .bento__head .bento__icon svg,
+[data-theme="light"] .home .bento .bento__head .bento__icon svg {
+  color: #FFFFFF !important;
+  fill: currentColor;
+}
+
+/* Preserve the same icon colors on hover */
+.home .bento__card:hover .bento__icon,
+[data-theme="dark"] .home .bento__card:hover .bento__icon {
+  background: #D94673 !important;
+  color: #FFFFFF !important;
+}
