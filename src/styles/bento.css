@@ -923,3 +923,80 @@ grid-template-areas:
   .home .bento__toolkit-ray,
   .home .bento__toolkit-center { animation: none !important; transition: none !important; }
 }
+
+/* ==========================================
+   DIGITAL TOOLKIT — FIX CIRCLE OVERLAP
+   ========================================== */
+
+/* Give the circle and label separate space */
+.home .bento__card--toolkit .bento__toolkit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 0 4px;
+  margin-top: 4px;
+  min-height: 0;
+}
+
+/* Reduce the main circle */
+.home .bento__toolkit-orbit {
+  width: 105px;
+  height: 105px;
+  min-width: 105px;
+  min-height: 105px;
+  flex: 0 0 105px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+/* Keep the white suitcase circle proportional */
+.home .bento__toolkit-center {
+  width: 92%;
+  height: 92%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 5px solid #f5e6ed;
+}
+
+/* Keep the suitcase icon readable */
+.home .bento__toolkit-center svg {
+  width: 38px;
+  height: 38px;
+}
+
+/* Put the label underneath, not on top of the circle */
+.home .bento__toolkit-caption {
+  position: static;
+  inset: auto;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 7px 13px;
+  transform: none;
+
+  background: #302b31;
+  color: #ffffff;
+  border-radius: 999px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Preserve the hide-on-hover behavior */
+.home .bento__card--toolkit:hover .bento__toolkit-caption,
+.home .bento__card--toolkit:focus-visible .bento__toolkit-caption {
+  opacity: 0;
+  visibility: hidden;
+  transform: none;
+}
+
+/* Override older compact-screen circle sizes */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .home .bento__toolkit-orbit {
+    width: 105px;
+    height: 105px;
+    min-width: 105px;
+    min-height: 105px;
+    flex-basis: 105px;
+  }
+}
