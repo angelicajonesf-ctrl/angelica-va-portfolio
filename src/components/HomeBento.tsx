@@ -13,6 +13,14 @@ import {
 } from '@/components/slab'
 
 const base = import.meta.env.BASE_URL
+const TOOLKIT_LOGOS = [
+  { name: 'HubSpot', file: 'hubspot.svg' },
+  { name: 'Google Workspace', file: 'googleworkspace.svg' },
+  { name: 'Odoo', file: 'odoo.svg' },
+  { name: 'Notion', file: 'notion.svg' },
+  { name: 'Canva', file: 'canva.png' },
+  { name: 'CapCut', file: 'capcut.png' },
+]
 
 // Replace these images with your actual portfolio screenshots.
 // Upload them inside public/home/.
@@ -239,6 +247,45 @@ export default function HomeBento() {
           ))}
         </ul>
       </Link>
+
+{/* MY DIGITAL TOOLKIT */}
+<Link
+  to="/tools"
+  className="bento__card bento__card--toolkit"
+>
+  <CardHead
+    Icon={Gear}
+    title="My Digital Toolkit"
+    desc="The platforms behind my daily workflow."
+  />
+
+  <div className="bento__media bento__toolkit" aria-hidden="true">
+    <div className="bento__toolkit-orbit">
+      {TOOLKIT_LOGOS.map((tool, i) => (
+        <span
+          key={tool.name}
+          className="bento__toolkit-logo"
+          style={{ '--i': i } as React.CSSProperties}
+          title={tool.name}
+        >
+          <img
+            src={`${base}icons/${tool.file}`}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+      ))}
+      <span className="bento__toolkit-center">
+        <Gear size={25} weight="duotone" aria-hidden="true" />
+      </span>
+    </div>
+    <span className="bento__toolkit-caption">
+      Explore My Tools
+      <ArrowUpRight size={13} weight="bold" aria-hidden="true" />
+    </span>
+  </div>
+</Link>
 
       {/* PROFESSIONAL RECOMMENDATIONS */}
       <Link
