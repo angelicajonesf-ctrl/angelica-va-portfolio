@@ -414,3 +414,9 @@ export default function ServicesGrid() {
     </section>
   )
 }
+
+/* SERVICES — DARK OUTER BACKGROUND ONLY */
+
+[data-theme="dark"] .pgrid.sgrid {
+  background-color: #17131F;
+}
