@@ -24,12 +24,16 @@
   max-width: 100%;
 }
 
+
+/* EXPERIENCE LABEL — MATCH PROJECTS PAGE */
+
 .experience-page__eyebrow {
   display: block;
-  color: var(--journey-pink);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: .06em;
+  color: #c72f68;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   margin-bottom: 13px;
 }
 
