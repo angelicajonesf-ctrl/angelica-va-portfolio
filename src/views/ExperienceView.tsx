@@ -49,7 +49,9 @@ const experiences = [
   },
 ]
 
-const RESUME_AVAILABLE = false // Set to true after uploading public/resume.pdf
+
+const RESUME_AVAILABLE = true
+ // Set to true after uploading public/resume.pdf
 
 function ExperienceCard({ job, index }: { job: (typeof experiences)[number]; index: number }) {
   const [expanded, setExpanded] = useState(false)
