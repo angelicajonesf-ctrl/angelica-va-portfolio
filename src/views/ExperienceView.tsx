@@ -1,221 +1,164 @@
 import { useEffect, useRef, useState } from 'react'
 import { Briefcase, Phone, Buildings, CheckCircle } from '@/components/slab'
 
-const RESUME_AVAILABLE = false // Change to true after uploading public/resume.pdf
-const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`
-
 const experiences = [
   {
-    role: 'Facility Assistant / Administrator',
-    company: 'Secure Storage Services Corp.',
-    period: 'February – September 2026',
-    Icon: Buildings,
-    description: 'Managed daily branch operations, client documentation, invoicing, collections, and administrative reporting.',
-    highlights: [
-      'Managed 60+ active client agreements',
-      'Handled ₱600,000+ in monthly collections',
-      'Maintained a 97–100% on-time collection rate',
+    role: 'Facility Assistant', company: 'Secure Storage Services Corp.', location: 'Makati, Philippines', period: 'Feb 2026 – Nov 2026', Icon: Buildings,
+    summary: 'Managed branch administration, client agreements, financial records, and daily facility operations.',
+    tags: ['100+ client agreements', '₱600K+ monthly collections', 'Occupancy: 80% → 90%'],
+    details: [
+      'Managed client inquiries, service agreements, transactions, collections monitoring, and documentation.',
+      'Maintained a 97% on-time collection rate and recovered 100% of delinquent accounts through follow-ups.',
+      'Maintained accurate digital and physical records for 100+ active client agreements.',
+      'Processed subscriptions, transactions, and invoices using Odoo, Google Sheets, and Excel.',
+      'Supported operational improvements that increased occupancy from 80% to 90% in two months.',
     ],
   },
   {
-    role: 'Real Estate Virtual Assistant',
-    company: 'Filipino Real Estate Virtual Assistant',
-    period: 'Previous Experience',
-    Icon: Phone,
-    description: 'Supported a US real estate client through lead generation, skip tracing, outbound calling, appointment setting, and CRM management.',
-    highlights: [
-      'Handled 200–500 outbound calls per day',
-      'Qualified property owners and scheduled appointments',
-      'Maintained lead information and follow-up records',
+    role: 'Area Head', company: 'Happy Go Shopping Center', location: 'Zambales, Philippines', period: 'Apr 2024 – Feb 2026', Icon: Briefcase,
+    summary: 'Coordinated daily business operations, reporting, and sales and marketing activities.',
+    tags: ['Daily operations', 'Operational reporting', 'Sales & marketing'],
+    details: [
+      'Coordinated operational activities within an assigned area to keep workflows efficient.',
+      'Prepared reports and maintained records using Microsoft Office and Google Workspace.',
+      'Coordinated updates, issues, and follow-up actions with management.',
+      'Supported initiatives to improve customer traffic, tenant engagement, and business performance.',
     ],
   },
   {
-    role: 'Customer Service Associate',
-    company: 'Virtual Source Inc.',
-    period: 'Previous Experience',
-    Icon: Phone,
-    description: 'Handled real estate outreach, lead qualification, customer communication, and CRM updates.',
-    highlights: [
-      'Managed 200–300+ outbound calls per day',
-      'Recorded lead information accurately',
-      'Coordinated qualified leads with acquisition teams',
+    role: 'Real Estate Virtual Assistant', company: 'FilReva', location: 'Zambales, Philippines', period: 'Nov 2023 – Jul 2024', Icon: Phone,
+    summary: 'Supported lead generation, prospect outreach, appointment setting, and CRM management.',
+    tags: ['200–300+ calls daily', 'HubSpot & Salesforce', 'Appointment setting'],
+    details: [
+      'Handled approximately 200–300+ outbound and inbound calls daily, depending on campaign needs.',
+      'Maintained prospect records, call notes, lead statuses, and follow-up schedules.',
+      'Conducted online research and organized prospect information for lead generation.',
+      'Coordinated appointments and passed relevant prospect information to internal teams.',
     ],
   },
   {
-    role: 'Area Head',
-    company: 'Happy Go Shopping Center',
-    period: 'Previous Experience',
-    Icon: Briefcase,
-    description: 'Oversaw daily operations, reporting, coordination, and sales and marketing activities.',
-    highlights: [
-      'Coordinated day-to-day business operations',
-      'Prepared operational reports',
-      'Supported sales and marketing initiatives',
+    role: 'Customer Service Associate', company: 'AM Virtual Sourcing Incorporation', location: 'Zambales, Philippines', period: 'May 2023 – Nov 2023', Icon: Phone,
+    summary: 'Managed customer outreach, CRM records, appointments, and follow-up communication.',
+    tags: ['Customer communication', 'Accurate CRM records', 'Appointment coordination'],
+    details: [
+      'Handled high-volume customer communications and tracked inquiries and follow-ups.',
+      'Updated CRM records, call notes, and prospect information accurately.',
+      'Coordinated appointment details between prospects and internal teams.',
+      'Followed established workflows to complete assigned tasks consistently and on time.',
     ],
   },
 ]
 
-const expertise = [
-  'Administrative & Operations Support',
-  'Client & Stakeholder Communication',
-  'Real Estate Outreach',
-  'Lead Generation & Appointment Setting',
-  'Invoicing & Collections',
-  'Reporting & Coordination',
-]
+const RESUME_AVAILABLE = false // Set to true after uploading public/resume.pdf
 
-export default function ExperienceView() {
-  const timelineRef = useRef<HTMLDivElement>(null)
-  const [timelineProgress, setTimelineProgress] = useState(0)
+function ExperienceCard({ job, index }: { job: (typeof experiences)[number]; index: number }) {
+  const [expanded, setExpanded] = useState(false)
+  const cardRef = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const timeline = timelineRef.current
-    if (!timeline) return
-
-    const cards = Array.from(timeline.querySelectorAll<HTMLElement>('.experience-card'))
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      cards.forEach((card) => card.classList.add('is-visible'))
-    } else {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible')
-              observer.unobserve(entry.target)
-            }
-          })
-        },
-        { threshold: 0.08, rootMargin: '0px 0px 40px 0px' },
-      )
-      cards.forEach((card) => observer.observe(card))
-      // Cleanup is registered below along with the scroll listener.
-      const updateProgress = () => {
-        const rect = timeline.getBoundingClientRect()
-        const viewMarker = window.innerHeight * 0.68
-        const progress = ((viewMarker - rect.top) / Math.max(rect.height, 1)) * 100
-        setTimelineProgress(Math.max(0, Math.min(100, progress)))
-      }
-      updateProgress()
-      window.addEventListener('scroll', updateProgress, { passive: true })
-      window.addEventListener('resize', updateProgress)
-      return () => {
-        observer.disconnect()
-        window.removeEventListener('scroll', updateProgress)
-        window.removeEventListener('resize', updateProgress)
-      }
-    }
-
-    const updateProgress = () => {
-      const rect = timeline.getBoundingClientRect()
-      const progress = ((window.innerHeight * 0.68 - rect.top) / Math.max(rect.height, 1)) * 100
-      setTimelineProgress(Math.max(0, Math.min(100, progress)))
-    }
-    updateProgress()
-    window.addEventListener('scroll', updateProgress, { passive: true })
-    window.addEventListener('resize', updateProgress)
-    return () => {
-      window.removeEventListener('scroll', updateProgress)
-      window.removeEventListener('resize', updateProgress)
-    }
+    const element = cardRef.current
+    if (!element) return
+    if (!('IntersectionObserver' in window)) { setVisible(true); return }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setVisible(true); observer.unobserve(entry.target) }
+    }, { threshold: 0.08 })
+    observer.observe(element)
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section className="experience-page" aria-labelledby="experience-title">
-      <div className="experience-page__layout">
-        <aside className="experience-page__side">
-          <div className="experience-page__intro">
-           <span className="experience-page__eyebrow">
-  EXPERIENCE
-</span>
-
-<h1>My Professional Journey</h1>
-            <p>
-              My background in administration, operations, customer service, and real estate
-              support has equipped me with practical skills to help businesses stay organized
-              and operate efficiently.
-            </p>
-          </div>
-
-          <div className="experience-page__focus" aria-label="Professional focus areas">
-            <span>Administrative &amp; Operations Support</span>
-            <span>Real Estate Outreach &amp; Lead Management</span>
-            <span>Client Communication &amp; Coordination</span>
-          </div>
-
-          <div className="experience-resume">
-            <div className="experience-resume__paper" aria-hidden="true">
-              <div className="experience-resume__avatar" />
-              <div className="experience-resume__paper-title" />
-              <div className="experience-resume__paper-line" />
-              <div className="experience-resume__paper-line short" />
-              <div className="experience-resume__paper-rule" />
-              <div className="experience-resume__paper-line" />
-              <div className="experience-resume__paper-line" />
-              <div className="experience-resume__paper-line short" />
-              <div className="experience-resume__paper-rule" />
-              <div className="experience-resume__paper-line" />
-              <div className="experience-resume__paper-line short" />
+    <article ref={cardRef} className={`journey-item ${visible ? 'is-visible' : ''}`} style={{ transitionDelay: `${Math.min(index * 90, 270)}ms` }}>
+      <span className="journey-item__dot" aria-hidden="true" />
+      <div className="journey-card">
+        <div className="journey-card__main">
+          <span className="journey-card__icon"><job.Icon size={24} weight="duotone" /></span>
+          <div className="journey-card__copy">
+            <div className="journey-card__heading">
+              <h2>{job.role}</h2>
+              <span className="journey-card__date">{job.period}</span>
             </div>
-            <div className="experience-resume__content">
-              <span className="experience-resume__eyebrow">EXPLORE MORE</span>
+            <div className="journey-card__meta"><strong>{job.company}</strong><span>{job.location}</span></div>
+            <p className="journey-card__summary">{job.summary}</p>
+            <div className="journey-card__tags">
+              {job.tags.map((tag) => <span className="journey-card__tag" key={tag}><CheckCircle size={15} weight="fill" />{tag}</span>)}
+            </div>
+            <button type="button" className="journey-card__toggle" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>
+              {expanded ? 'Hide responsibilities' : 'View responsibilities'} <span aria-hidden="true">{expanded ? '−' : '+'}</span>
+            </button>
+            {expanded && <ul className="journey-card__details">{job.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>}
+          </div>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+export default function ExperienceView() {
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    let frame = 0
+    const update = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const el = timelineRef.current
+        if (!el) return
+        const rect = el.getBoundingClientRect()
+        const usable = Math.max(rect.height - 36, 1)
+        const travelled = window.innerHeight * 0.65 - rect.top
+        setProgress(Math.max(0, Math.min(100, (travelled / usable) * 100)))
+      })
+    }
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', update); window.removeEventListener('resize', update) }
+  }, [])
+
+  const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`
+
+  return (
+    <section className="experience-page">
+      <header className="experience-page__header">
+        <span className="experience-page__eyebrow">EXPERIENCE</span>
+        <h1>My Professional Journey</h1>
+        <p>My background in administration, operations, customer service, and real estate support has equipped me to keep businesses organized and running efficiently.</p>
+      </header>
+
+      <div className="experience-page__layout">
+        <aside className="experience-page__aside">
+          <div className="experience-expertise-card">
+            <h2>Areas of Expertise</h2>
+            <div className="experience-expertise-card__list">
+              <span><Briefcase size={19} weight="duotone" /> Administrative & Operations Support</span>
+              <span><Buildings size={19} weight="duotone" /> Real Estate & Lead Management</span>
+              <span><Phone size={19} weight="duotone" /> Client Communication & Coordination</span>
+            </div>
+          </div>
+          <div className="experience-resume-card">
+            <div className="experience-resume-card__paper" aria-hidden="true"><span /><i /><i /><i /><i /><i /><i /></div>
+            <div className="experience-resume-card__content">
+              <span className="experience-resume-card__eyebrow">EXPLORE MORE</span>
               <h2>My Resume</h2>
-              <p>See my complete work history, skills, and qualifications.</p>
-              {RESUME_AVAILABLE ? (
-                <>
-                  <a className="experience-resume__button" href={resumeUrl} target="_blank" rel="noopener noreferrer">View Resume</a>
-                  <a className="experience-resume__button experience-resume__button--outline" href={resumeUrl} download="Angelica-Jones-Funelas-Resume.pdf">Download PDF</a>
-                </>
-              ) : (
-                <>
-                  <span className="experience-resume__button experience-resume__button--disabled" aria-disabled="true">View Resume</span>
-                  <span className="experience-resume__button experience-resume__button--outline experience-resume__button--disabled" aria-disabled="true">Download PDF</span>
-                  <small>Resume PDF coming soon</small>
-                </>
-              )}
+              <p>Explore my full work history, skills, and qualifications.</p>
+              {RESUME_AVAILABLE ? <>
+                <a className="experience-resume-card__button" href={resumeUrl} target="_blank" rel="noopener noreferrer">View Resume</a>
+                <a className="experience-resume-card__button experience-resume-card__button--outline" href={resumeUrl} download="Angelica_Jones_Funelas_Resume.pdf">Download PDF</a>
+              </> : <>
+                <span className="experience-resume-card__button experience-resume-card__button--disabled">View Resume</span>
+                <span className="experience-resume-card__button experience-resume-card__button--outline experience-resume-card__button--disabled">Download PDF</span>
+                <small>Resume PDF coming soon</small>
+              </>}
             </div>
           </div>
         </aside>
 
-        <div className="experience-timeline" ref={timelineRef} aria-label="Career timeline">
-          <div className="experience-timeline__track" aria-hidden="true">
-            <div className="experience-timeline__fill" style={{ height: `${timelineProgress}%` }} />
-          </div>
-          {experiences.map((job, index) => (
-            <div className="experience-timeline__entry" key={job.company}>
-              <span className={`experience-timeline__dot${index === 0 ? ' experience-timeline__dot--first' : ''}`} aria-hidden="true" />
-              <article className="experience-card">
-                <div className="experience-card__identity">
-                  <span className="experience-card__icon"><job.Icon size={25} weight="duotone" /></span>
-                  <span className="experience-card__period">{job.period}</span>
-                </div>
-                <div className="experience-card__main">
-                  <h2>{job.role}</h2>
-                  <h3>{job.company}</h3>
-                  <p>{job.description}</p>
-                </div>
-                <ul className="experience-card__highlights">
-                  {job.highlights.map((highlight) => (
-                    <li key={highlight}><CheckCircle size={17} weight="fill" /><span>{highlight}</span></li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="experience-expertise" aria-label="Core expertise">
-        <strong className="experience-expertise__label">Core Expertise</strong>
-        <div className="experience-expertise__viewport">
-          <div className="experience-expertise__track">
-            {[0, 1].map((copy) => (
-              <div className="experience-expertise__group" key={copy} aria-hidden={copy === 1}>
-                {expertise.map((item) => <span key={item}>{item}</span>)}
-              </div>
-            ))}
-          </div>
+        <div className="journey-timeline" ref={timelineRef}>
+          <div className="journey-timeline__rail" aria-hidden="true" />
+          <div className="journey-timeline__progress" aria-hidden="true" style={{ height: `${progress}%` }} />
+          {experiences.map((job, index) => <ExperienceCard job={job} index={index} key={job.company} />)}
         </div>
       </div>
     </section>
