@@ -634,8 +634,18 @@
 .experience-page .experience-page__eyebrow {
   color: #d94673 !important;
   font-size: 15px !important;
-  font-weight: 800 !important;
   letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+}
+
+/* EXPERIENCE LABEL — MATCH PROJECTS */
+
+.experience-page .experience-page__eyebrow {
+  color: #c72f68 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   opacity: 1 !important;
 }
