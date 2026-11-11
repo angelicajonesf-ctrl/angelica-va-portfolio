@@ -667,3 +667,12 @@
   text-transform: uppercase !important;
   opacity: 1 !important;
 }
+
+/* REMOVE PINK DOT BEFORE MY DIGITAL WORKSPACE */
+
+.tw-hero-copy .tw-kicker-dot,
+.tw-hero-copy .tw-kicker::before,
+.tw-hero-copy .tw-kicker::after {
+  display: none !important;
+  content: none !important;
+}
