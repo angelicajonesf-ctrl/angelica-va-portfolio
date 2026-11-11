@@ -654,3 +654,20 @@
   text-transform: uppercase !important;
   opacity: 1 !important;
 }
+
+/* CLEAN STATIC EXPERIENCE TIMELINE */
+
+.journey-timeline__rail {
+  background: #f3b5cd !important;
+  opacity: 1 !important;
+}
+
+.journey-timeline__progress {
+  display: none !important;
+}
+
+.journey-item__dot {
+  background: #ffffff !important;
+  border: 3px solid #d94673 !important;
+  box-shadow: 0 0 0 4px #fce5ee !important;
+}
