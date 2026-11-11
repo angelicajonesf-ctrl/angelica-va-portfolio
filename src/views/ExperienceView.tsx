@@ -126,9 +126,9 @@ export default function ExperienceView() {
 <span
   className="experience-page__eyebrow"
   style={{
-    color: '#D94673',
+    color: '#C72F68',
     fontSize: '14px',
-    fontWeight: 600,
+    fontWeight: 400,
     letterSpacing: '0.06em',
     textTransform: 'uppercase',
     opacity: 1,
