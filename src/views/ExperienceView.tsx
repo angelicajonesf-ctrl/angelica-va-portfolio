@@ -126,9 +126,11 @@ export default function ExperienceView() {
       <div className="experience-page__layout">
         <aside className="experience-page__side">
           <div className="experience-page__intro">
-            <span className="experience-page__eyebrow">MY PROFESSIONAL JOURNEY</span>
-            <h1 id="experience-title">Experience &amp; Background</h1>
-            <span className="experience-page__underline" aria-hidden="true" />
+           <span className="experience-page__eyebrow">
+  EXPERIENCE
+</span>
+
+<h1>My Professional Journey</h1>
             <p>
               My background in administration, operations, customer service, and real estate
               support has equipped me with practical skills to help businesses stay organized
