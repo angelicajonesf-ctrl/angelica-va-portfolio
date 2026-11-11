@@ -234,7 +234,8 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
         const path = document.createElementNS(SVGNS, 'path')
         path.setAttribute('d', geo.d)
         path.setAttribute('fill', 'none')
-        path.style.stroke = kind === 'loop' ? 'var(--ap-loop)' : dashed ? 'var(--ap-cable-dash)' : 'var(--ap-cable)'
+       
+path.style.stroke = kind === 'loop' ? '#E88BAD' : dashed ? 'var(--ap-cable-dash)' : 'var(--ap-cable)'
         path.setAttribute('stroke-width', kind === 'loop' ? '2' : '2.3')
         path.setAttribute('stroke-linecap', 'round')
         if (dashed) path.setAttribute('stroke-dasharray', kind === 'loop' ? '7 8' : '1 7')
@@ -245,7 +246,7 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
           dot.setAttribute('cx', String(p.x))
           dot.setAttribute('cy', String(p.y))
           dot.setAttribute('r', '3.2')
-          dot.style.fill = kind === 'loop' ? 'var(--ap-loop)' : 'var(--ap-port)'
+         dot.style.fill = kind === 'loop' ? '#E88BAD' : 'var(--ap-port)'
           cablesSvg.appendChild(dot)
         }
 
@@ -256,7 +257,7 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
           t.setAttribute('x', String(lx))
           t.setAttribute('y', String(ly))
           t.setAttribute('text-anchor', 'middle')
-          t.style.fill = 'var(--ap-loop)'
+          t.style.fill = '#E88BAD'
           t.setAttribute('font-size', '10.5')
           t.setAttribute('font-weight', '600')
           t.setAttribute('font-family', 'Poppins, sans-serif')
@@ -267,7 +268,7 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
         if (reduce) return
         const sig = document.createElementNS(SVGNS, 'circle')
         sig.setAttribute('r', dashed ? '3.2' : '4.4')
-        sig.style.fill = 'var(--ap-loop)'
+       sig.style.fill = '#E88BAD'
         sig.setAttribute('filter', 'drop-shadow(0 0 5px rgba(217,70,115,.65))')
         sigSvg.appendChild(sig)
         const len = path.getTotalLength ? path.getTotalLength() : 360
