@@ -186,32 +186,42 @@ export default function ToolsView() {
           </div>
         </div>
 
-        <div className="tw-hero-visual" aria-label="Featured software tools">
-          <div className="tw-orbit tw-orbit-one" aria-hidden="true" />
-          <div className="tw-orbit tw-orbit-two" aria-hidden="true" />
+      
+<div className="tw-hero-visual tw-flow-visual" aria-label="My digital workspace tools">
+  <div className="tw-flow-glow" aria-hidden="true" />
 
-          <div className="tw-center-card">
-            <span className="tw-center-icon">✦</span>
-            <span className="tw-center-title">My Toolkit</span>
-            <span className="tw-center-subtitle">
-              Organized. Connected. Creative.
-            </span>
-          </div>
+  <svg
+    className="tw-flow-lines"
+    viewBox="0 0 600 500"
+    preserveAspectRatio="xMidYMid meet"
+    aria-hidden="true"
+  >
+    <path d="M70 250 C140 70 270 80 320 180 S490 350 540 180" />
+    <path d="M90 380 C170 470 280 330 350 270 S480 100 540 120" />
+    <path d="M130 100 C210 180 230 360 370 380 S500 300 550 420" />
+  </svg>
 
-          {featured.map((tool, index) => (
-            <div
-              className={`tw-float-card tw-float-${index + 1}`}
-              key={tool.name}
-              title={tool.name}
-            >
-              <Logo tool={tool} />
-              <span>{tool.name}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="tw-flow-center">
+    <span className="tw-flow-sparkle">✦</span>
+    <strong>My Digital Toolkit</strong>
+    <small>Organized · Connected · Creative</small>
+  </div>
 
-      {/* TOOL EXPLORER */}
+  {featured.map((tool, index) => (
+    <div
+      className={`tw-flow-logo tw-flow-logo-${index + 1}`}
+      key={tool.name}
+      title={tool.name}
+    >
+      <Logo tool={tool} />
+    </div>
+  ))}
+</div>
+
+</section>
+
+{/* TOOL EXPLORER */}
+<section className="tw-explorer" id="explore-tools">
       <section className="tw-explorer" id="explore-tools">
         <div className="tw-section-intro">
           <h2>One toolkit. Many possibilities<span>.</span></h2>
