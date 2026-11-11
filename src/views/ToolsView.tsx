@@ -149,10 +149,10 @@ export default function ToolsView() {
 
       {/* HERO */}
       <section className="tw-hero">
-        <div className="tw-hero-copy">
-          <span className="tw-kicker">
-            MY DIGITAL WORKSPACE
-          </span>
+        <div className="tw-hero-copy">        
+<span className="tw-kicker">
+  MY DIGITAL WORKSPACE
+</span>
 
           <h1>
             Tools that help
