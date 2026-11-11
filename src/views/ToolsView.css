@@ -654,3 +654,16 @@
     transition: none !important;
   }
 }
+
+/* TOOLS PAGE — MATCH OTHER PAGE LABELS */
+
+.tw-page .tw-kicker {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.96px !important;
+  line-height: 18px !important;
+  color: rgb(181, 43, 96) !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+}
