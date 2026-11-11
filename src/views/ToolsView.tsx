@@ -222,7 +222,6 @@ export default function ToolsView() {
 
 {/* TOOL EXPLORER */}
 <section className="tw-explorer" id="explore-tools">
-      <section className="tw-explorer" id="explore-tools">
         <div className="tw-section-intro">
           <h2>One toolkit. Many possibilities<span>.</span></h2>
           <p>
