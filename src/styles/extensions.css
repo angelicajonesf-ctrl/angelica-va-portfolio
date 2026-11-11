@@ -2820,23 +2820,31 @@ img.about__stat-badge {
 
 /* trigger: warm, play-shaped entry tile */
 .autopilot__node--trigger .autopilot__node-card {
-  background: linear-gradient(158deg, #fff5ec, #ffe3cd);
-  border-color: #ffc59b;
+  background: linear-gradient(158deg, #FFF5F9, #FCE7F0);
+border-color: #F5B6CF;
   color: var(--orange-ink);
   border-top-left-radius: 11px;
   border-bottom-left-radius: 11px;
 }
 /* gate: orange-ringed decision tile */
+
+/* RESOLUTION — PASTEL PINK */
+
 .autopilot__node--gate .autopilot__node-card {
-  border-color: var(--orange);
-  color: var(--orange-ink);
+  background: linear-gradient(158deg, #FFF5F9, #FCE7F0);
+  border-color: #F5B6CF;
+  color: #C72F68;
   box-shadow:
-    0 2px 6px rgba(255, 122, 26, 0.12),
-    0 16px 28px -12px rgba(255, 122, 26, 0.34),
-    0 0 0 2px rgba(255, 122, 26, 0.13),
+    0 2px 6px rgba(232, 139, 173, 0.12),
+    0 16px 28px -12px rgba(232, 139, 173, 0.25),
+    0 0 0 2px rgba(232, 139, 173, 0.13),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
-.autopilot__node--gate .autopilot__node-cap strong { color: var(--orange-ink); }
+
+.autopilot__node--gate .autopilot__node-cap strong {
+  color: #C72F68;
+}
+
 
 .autopilot__node-cap { display: block; margin-top: 13px; }
 .autopilot__node-cap strong {
