@@ -127,9 +127,9 @@ export default function ExperienceView() {
   className="experience-page__eyebrow"
   style={{
     color: '#D94673',
-    fontSize: '15px',
-    fontWeight: 800,
-    letterSpacing: '0.08em',
+    fontSize: '14px',
+    fontWeight: 600,
+    letterSpacing: '0.06em',
     textTransform: 'uppercase',
     opacity: 1,
   }}
