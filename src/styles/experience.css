@@ -1,183 +1,113 @@
-
-/* ==========================================
-   EXPERIENCE PAGE — ANGELICA'S PORTFOLIO
-   Pastel Pink Theme
-========================================== */
-
+/* Experience page — scoped to this page only */
 .experience-page {
+  --experience-pink: #d94b82;
+  --experience-pale: #fce5ee;
   padding: 32px;
   color: var(--navy);
   width: 100%;
   box-sizing: border-box;
 }
+.experience-page *, .experience-page *::before, .experience-page *::after { box-sizing: border-box; }
+.experience-page__layout { display: grid; grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.8fr); gap: 34px; align-items: start; }
+.experience-page__side { min-width: 0; }
+.experience-page__intro { margin-bottom: 25px; }
+.experience-page__eyebrow { display: inline-block; color: var(--experience-pink); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.experience-page__intro h1 { font-size: clamp(32px, 3vw, 46px); font-weight: 700; line-height: 1.1; margin: 16px 0 14px; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.experience-page__underline { display: block; width: 94px; height: 3px; border-radius: 100%; background: var(--experience-pink); transform: rotate(-3deg); margin-bottom: 23px; }
+.experience-page__intro p { color: var(--muted); font-size: 15px; line-height: 1.75; margin: 0; }
+.experience-page__focus { display: grid; gap: 9px; margin-bottom: 26px; }
+.experience-page__focus span { padding: 12px 15px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); font-size: 13px; font-weight: 600; line-height: 1.45; }
+.experience-resume { display: flex; gap: 17px; align-items: center; padding: 19px; border-radius: 22px; border: 1px solid var(--line); background: var(--white); min-width: 0; }
+.experience-resume__paper { width: 104px; height: 145px; padding: 14px 11px; border-radius: 6px; background: #fff; border: 1px solid #f2dce5; box-shadow: 0 6px 16px rgba(100,35,65,.10); transform: rotate(-6deg); flex: 0 0 auto; }
+.experience-resume__avatar { width: 23px; height: 23px; border-radius: 50%; background: #f6b8d0; margin-bottom: 7px; }
+.experience-resume__paper-title { width: 70%; height: 5px; background: #b74475; border-radius: 3px; margin-bottom: 8px; }
+.experience-resume__paper-line { height: 3px; background: #e6d9df; margin-bottom: 5px; border-radius: 3px; }
+.experience-resume__paper-line.short { width: 65%; }
+.experience-resume__paper-rule { height: 1px; background: #f3bdd3; margin: 9px 0; }
+.experience-resume__content { flex: 1; min-width: 0; }
+.experience-resume__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--experience-pink); }
+.experience-resume__content h2 { font-size: 20px; margin: 5px 0 6px; }
+.experience-resume__content p { color: var(--muted); font-size: 12px; line-height: 1.5; margin: 0 0 12px; }
+.experience-resume__button { display: block; text-align: center; text-decoration: none; padding: 10px 12px; margin-top: 8px; border-radius: 999px; background: var(--experience-pink); color: #fff; font-size: 12px; font-weight: 700; border: 1px solid var(--experience-pink); transition: transform .2s ease, background .2s ease; }
+.experience-resume__button:not(.experience-resume__button--disabled):hover { transform: translateY(-2px); background: #bf315e; }
+.experience-resume__button--outline { background: transparent; color: var(--experience-pink); }
+.experience-resume__button--outline:not(.experience-resume__button--disabled):hover { background: var(--experience-pale); }
+.experience-resume__button--disabled { opacity: .48; cursor: not-allowed; }
 
-.experience-page__intro {
-  max-width: 760px;
-  margin-bottom: 28px;
+/* Career timeline */
+.experience-timeline { position: relative; min-width: 0; }
+.experience-timeline__header { margin-bottom: 25px; }
+.experience-timeline__header h2 { font-size: clamp(23px, 2.5vw, 30px); margin: 0 0 8px; }
+.experience-timeline__header p { font-size: 14px; color: var(--muted); margin: 0; }
+.experience-timeline__track { position: relative; padding-left: 43px; }
+.experience-timeline__track::before { content: ""; position: absolute; left: 15px; top: 16px; bottom: 25px; width: 2px; background: #f5bfd2; }
+.experience-timeline__progress { position: absolute; z-index: 1; left: 15px; top: 16px; width: 2px; height: var(--timeline-progress, 0%); max-height: calc(100% - 41px); background: var(--experience-pink); transition: height .15s linear; }
+.experience-timeline__item { position: relative; margin-bottom: 20px; }
+.experience-timeline__item:last-child { margin-bottom: 0; }
+.experience-timeline__dot { position: absolute; z-index: 2; left: -35px; top: 27px; width: 16px; height: 16px; border-radius: 50%; border: 4px solid var(--experience-pink); background: var(--white); box-shadow: 0 0 0 5px var(--experience-pale); }
+.experience-timeline__card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 23px; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.experience-timeline__card:hover { transform: translateY(-3px); border-color: #efb5cd; box-shadow: 0 10px 25px rgba(100,35,65,.06); }
+.experience-timeline__top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+.experience-timeline__icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: var(--experience-pale); color: var(--experience-pink); flex-shrink: 0; }
+.experience-timeline__period { font-size: 12px; color: var(--muted); text-align: right; }
+.experience-timeline__card h3 { font-size: 18px; line-height: 1.35; margin: 0 0 5px; color: var(--navy); }
+.experience-timeline__company { color: var(--experience-pink); font-size: 13px; font-weight: 700; margin: 0 0 13px; }
+.experience-timeline__description { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0 0 15px; }
+.experience-timeline__highlights { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+.experience-timeline__highlights li { display: flex; align-items: flex-start; gap: 9px; font-size: 12px; line-height: 1.6; }
+.experience-timeline__highlights svg { flex-shrink: 0; color: var(--experience-pink); margin-top: 2px; }
+
+/* Reveal animation */
+.experience-reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.experience-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Expertise marquee */
+.experience-expertise { margin-top: 35px; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+.experience-expertise__label { display: block; color: var(--experience-pink); font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 16px; }
+.experience-expertise__viewport { overflow: hidden; width: 100%; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
+.experience-expertise__track { display: flex; align-items: center; gap: 30px; width: max-content; animation: experience-marquee 38s linear infinite; }
+.experience-expertise__viewport:hover .experience-expertise__track { animation-play-state: paused; }
+.experience-expertise__group { display: flex; align-items: center; gap: 30px; flex-shrink: 0; }
+.experience-expertise__item { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; color: var(--navy); font-size: 13px; font-weight: 600; }
+.experience-expertise__item::before { content: "✦"; color: var(--experience-pink); font-size: 13px; }
+@keyframes experience-marquee { to { transform: translateX(-50%); } }
+
+/* Dark mode */
+[data-theme='dark'] .experience-page { --experience-pink: #f3a3c2; --experience-pale: rgba(217,75,130,.15); }
+[data-theme='dark'] .experience-timeline__track::before { background: rgba(243,163,194,.25); }
+[data-theme='dark'] .experience-timeline__dot { box-shadow: 0 0 0 5px rgba(217,75,130,.12); }
+[data-theme='dark'] .experience-timeline__card:hover { border-color: rgba(243,163,194,.45); }
+[data-theme='dark'] .experience-resume__button { color: #302b31; }
+[data-theme='dark'] .experience-resume__button--outline { color: var(--experience-pink); }
+
+/* Responsive */
+@media (max-width: 1050px) {
+  .experience-page__layout { grid-template-columns: minmax(230px, .85fr) minmax(0, 1.4fr); gap: 24px; }
+  .experience-resume { flex-direction: column; align-items: stretch; }
+  .experience-resume__paper { align-self: center; }
 }
-
-.experience-page__eyebrow {
-  display: inline-block;
-  color: #d94b82;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.experience-page__intro h1 {
-  font-size: clamp(30px, 3vw, 46px);
-  font-weight: 700;
-  line-height: 1.12;
-  margin: 12px 0;
-  letter-spacing: -0.03em;
-}
-
-.experience-page__intro p {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.7;
-  margin-top: 12px;
-}
-
-/* EXPERIENCE CARDS */
-
-.experience-page__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.experience-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 24px;
-  min-width: 0;
-  box-sizing: border-box;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.experience-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(100, 35, 65, 0.08);
-}
-
-.experience-card__heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.experience-card__icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  color: #d94b82;
-  background: #fce5ee;
-}
-
-.experience-card__period {
-  font-size: 12px;
-  color: var(--muted);
-  text-align: right;
-  line-height: 1.5;
-}
-
-.experience-card h2 {
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 0 0 5px;
-  color: var(--navy);
-}
-
-.experience-card h3 {
-  font-size: 14px;
-  font-weight: 600;
-  color: #d94b82;
-  margin: 0 0 14px;
-}
-
-.experience-card p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.65;
-  margin: 0;
-}
-
-/* ACHIEVEMENTS */
-
-.experience-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 18px 0 0;
-  display: grid;
-  gap: 10px;
-}
-
-.experience-card li {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--navy);
-}
-
-.experience-card li svg {
-  flex-shrink: 0;
-  color: #d94b82;
-  margin-top: 2px;
-}
-
-/* DARK MODE */
-
-[data-theme='dark'] .experience-card__icon {
-  background: rgba(217, 75, 130, 0.15);
-  color: #f3a3c2;
-}
-
-[data-theme='dark'] .experience-page__eyebrow,
-[data-theme='dark'] .experience-card h3,
-[data-theme='dark'] .experience-card li svg {
-  color: #f3a3c2;
-}
-
-/* RESPONSIVE DESIGN */
-
 @media (max-width: 760px) {
-  .experience-page {
-    padding: 20px;
-  }
-
-  .experience-page__intro h1 {
-    font-size: 30px;
-  }
-
-  .experience-page__grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .experience-card {
-    padding: 20px;
-  }
+  .experience-page { padding: 20px; }
+  .experience-page__layout { grid-template-columns: 1fr; gap: 34px; }
+  .experience-page__intro h1 { font-size: 32px; }
+  .experience-resume { flex-direction: row; }
+  .experience-timeline__track { padding-left: 35px; }
+  .experience-timeline__progress, .experience-timeline__track::before { left: 11px; }
+  .experience-timeline__dot { left: -31px; }
 }
-
+@media (max-width: 420px) {
+  .experience-resume { flex-direction: column; }
+  .experience-resume__paper { align-self: center; }
+  .experience-timeline__card { padding: 17px; }
+  .experience-timeline__top { align-items: flex-start; }
+  .experience-timeline__period { font-size: 11px; }
+  .experience-timeline__card h3 { font-size: 16px; }
+  .experience-expertise__track, .experience-expertise__group { gap: 20px; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .experience-card {
-    transition: none;
-  }
-
-  .experience-card:hover {
-    transform: none;
-  }
+  .experience-reveal { opacity: 1; transform: none; transition: none; }
+  .experience-expertise__track { animation: none; }
+  .experience-timeline__progress { transition: none; }
+  .experience-timeline__card, .experience-resume__button { transition: none; }
+  .experience-timeline__card:hover, .experience-resume__button:hover { transform: none; }
 }
