@@ -5978,3 +5978,26 @@ img.about__stat-badge {
   .wfs__strip { overflow-x: auto; }
 }
 
+
+/* PASTEL PINK WORKFLOW BOXES */
+
+/* New Inquiry */
+.autopilot__node--trigger .autopilot__node-card {
+  background: linear-gradient(158deg, #FFF5F9, #FCE7F0) !important;
+  border-color: #F5B6CF !important;
+  color: #C72F68 !important;
+}
+
+/* Resolution */
+.autopilot__node--gate .autopilot__node-card {
+  background: linear-gradient(158deg, #FFF5F9, #FCE7F0) !important;
+  border-color: #F5B6CF !important;
+  color: #C72F68 !important;
+}
+
+/* Pink hover effect */
+.autopilot__node--trigger .autopilot__node-card:hover,
+.autopilot__node--gate .autopilot__node-card:hover {
+  background: #FAD8E6 !important;
+  border-color: #E88BAD !important;
+}
