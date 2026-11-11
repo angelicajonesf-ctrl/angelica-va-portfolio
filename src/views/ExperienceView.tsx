@@ -123,19 +123,7 @@ export default function ExperienceView() {
     <section className="experience-page">
       <header className="experience-page__header">
         
-<span
-  className="experience-page__eyebrow"
-  style={{
-    color: '#C72F68',
-    fontSize: '14px',
-    fontWeight: 400,
-    letterSpacing: '0.06em',
-    textTransform: 'uppercase',
-    opacity: 1,
-  }}
->
-  EXPERIENCE
-</span>
+<span className="experience-page__eyebrow">EXPERIENCE</span>
 
         <h1>My Professional Journey</h1>
         <p>My background in administration, operations, customer service, and real estate support has equipped me to keep businesses organized and running efficiently.</p>
