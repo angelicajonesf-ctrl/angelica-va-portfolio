@@ -628,3 +628,14 @@
     transform: none;
   }
 }
+
+/* BOLDER EXPERIENCE LABEL */
+
+.experience-page .experience-page__eyebrow {
+  color: #d94673 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+}
