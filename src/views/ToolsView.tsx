@@ -151,7 +151,6 @@ export default function ToolsView() {
       <section className="tw-hero">
         <div className="tw-hero-copy">
           <span className="tw-kicker">
-            <span className="tw-kicker-dot" />
             MY DIGITAL WORKSPACE
           </span>
 
