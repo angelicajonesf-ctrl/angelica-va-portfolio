@@ -187,35 +187,22 @@ export default function ToolsView() {
         </div>
 
       
-<div className="tw-hero-visual tw-flow-visual" aria-label="My digital workspace tools">
-  <div className="tw-flow-glow" aria-hidden="true" />
-
-  <svg
-    className="tw-flow-lines"
-    viewBox="0 0 600 500"
-    preserveAspectRatio="xMidYMid meet"
-    aria-hidden="true"
-  >
-    <path d="M70 250 C140 70 270 80 320 180 S490 350 540 180" />
-    <path d="M90 380 C170 470 280 330 350 270 S480 100 540 120" />
-    <path d="M130 100 C210 180 230 360 370 380 S500 300 550 420" />
-  </svg>
-
-  <div className="tw-flow-center">
-    <span className="tw-flow-sparkle">✦</span>
-    <strong>My Digital Toolkit</strong>
-    <small>Organized · Connected · Creative</small>
+<div className="tw-hero-visual tw-sticker-scene" aria-label="Featured digital tools">
+  <div className="tw-sticker-ribbon tw-sticker-ribbon--top" aria-hidden="true" />
+  <div className="tw-sticker-ribbon tw-sticker-ribbon--bottom" aria-hidden="true" />
+  <span className="tw-sticker-doodle tw-sticker-doodle--one" aria-hidden="true">✧</span>
+  <span className="tw-sticker-doodle tw-sticker-doodle--two" aria-hidden="true">♡</span>
+  <span className="tw-sticker-doodle tw-sticker-doodle--three" aria-hidden="true">✦</span>
+  <div className="tw-sticker-grid">
+    {featured.map((tool, index) => (
+      <div className={`tw-sticker tw-sticker--${index + 1}`} key={tool.name}>
+        <span className="tw-sticker-tape" aria-hidden="true" />
+        <div className="tw-sticker-picture"><Logo tool={tool} /></div>
+        <strong className="tw-sticker-name">{tool.name}</strong>
+        <small className="tw-sticker-use">{tool.use}</small>
+      </div>
+    ))}
   </div>
-
-  {featured.map((tool, index) => (
-    <div
-      className={`tw-flow-logo tw-flow-logo-${index + 1}`}
-      key={tool.name}
-      title={tool.name}
-    >
-      <Logo tool={tool} />
-    </div>
-  ))}
 </div>
 
 </section>
