@@ -222,62 +222,67 @@ export default function ToolsView() {
       
         </div>
       </section>
-
-      {/* TOOL EXPLORER */}
+    
+{/* TOOL EXPLORER */}
 <section className="tw-explorer" id="explore-tools">
-        <div className="tw-section-intro">
-          <h2>One toolkit. Many possibilities<span>.</span></h2>
-          <p>
-            Select a category to see the platforms I've worked with
-            and the tasks they support.
-          </p>
+  <div className="tw-section-intro">
+    <h2>One toolkit. Many possibilities<span>.</span></h2>
+    <p>
+      Select a category to see the platforms I've worked with
+      and the tasks they support.
+    </p>
+  </div>
+
+  <div className="tw-explorer-shell">
+    <div className="tw-category-nav" aria-label="Tool categories">
+      {groups.map(group => (
+        <button
+          key={group.id}
+          type="button"
+          className={`tw-category-btn${active === group.id ? ' is-active' : ''}`}
+          onClick={() => setActive(group.id)}
+          aria-pressed={active === group.id}
+        >
+          <span>{group.title}</span>
+          <small>{group.tools.length}</small>
+        </button>
+      ))}
+    </div>
+
+    <div className="tw-category-content" key={current.id}>
+      <div className="tw-category-heading">
+        <div>
+          <span className="tw-mini-label">SELECTED CATEGORY</span>
+          <h3>{current.title}</h3>
+          <p>{current.description}</p>
         </div>
 
-        <div className="tw-explorer-shell">
-          <div className="tw-category-nav" aria-label="Tool categories">
-            {groups.map(group => (
-              <button
-                key={group.id}
-                type="button"
-                className={`tw-category-btn${active === group.id ? ' is-active' : ''}`}
-                onClick={() => setActive(group.id)}
-                aria-pressed={active === group.id}
-              >
-                <span>{group.title}</span>
-                <small>{group.tools.length}</small>
-              </button>
-            ))}
-          </div>
+        <span className="tw-category-count">
+          {current.tools.length} tools
+        </span>
+      </div>
 
-          <div className="tw-category-content" key={current.id}>
-            <div className="tw-category-heading">
-              <div>
-                <span className="tw-mini-label">SELECTED CATEGORY</span>
-                <h3>{current.title}</h3>
-                <p>{current.description}</p>
-              </div>
-              <span className="tw-category-count">
-                {current.tools.length} tools
-              </span>
+      <div className="tw-tool-grid">
+        {current.tools.map((tool, index) => (
+          <article
+            className="tw-tool-card"
+            key={tool.name}
+            style={{ animationDelay: `${index * 45}ms` }}
+          >
+            <div className="tw-explorer-logo">
+              <Logo tool={tool} />
             </div>
 
-            <div className="tw-tool-grid">
-              {current.tools.map(tool => (
-                <article className="tw-tool-card" key={tool.name}>
-                  <Logo tool={tool} />
-                  <div className="tw-tool-info">
-                    <h4>{tool.name}</h4>
-                    <p>{tool.use}</p>
-                  </div>
-                  <span className="tw-tool-corner" aria-hidden="true">
-                    ✧
-                  </span>
-                </article>
-              ))}
+            <div className="tw-tool-info">
+              <h4>{tool.name}</h4>
+              <p>{tool.use}</p>
             </div>
-          </div>
-        </div>
-      </section>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* WORKFLOW */}
       <section className="tw-workflow" id="workflow">
