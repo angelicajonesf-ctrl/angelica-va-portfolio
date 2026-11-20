@@ -199,10 +199,13 @@ export default function ToolsView() {
 
       {/* HERO */}
       <section className="tw-hero tw-board-hero">
+        <div className="tw-compact-heading">
         <div className="tw-hero-copy">
           <span className="tw-kicker">MY DIGITAL WORKSPACE</span>
           <h1>Tools that help me <em>get things done.</em></h1>
           <p>From managing real estate leads to organizing operations and creating content, here's a look at the platforms that support my work.</p>
+        </div>
+          <div className="tw-hero-actions"><a href="#explore-tools" className="tw-primary-btn">Explore My Toolkit <span>↗</span></a><a href="#workflow" className="tw-text-link">See My Workflow →</a></div>
         </div>
         <div className="tw-board">
           <div className="tw-board-head">
@@ -211,13 +214,12 @@ export default function ToolsView() {
           </div>
           <div className="tw-board-stage">
             <svg className="tw-board-ribbon" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M-30 95 C220 -40 460 220 830 70 M-30 320 C240 150 530 450 830 280" fill="none" stroke="#f6a9c6" strokeWidth="76" opacity=".55" />
-              <path d="M-30 65 C220 -70 460 190 830 40 M-30 290 C240 120 530 420 830 250" fill="none" stroke="#fff" strokeWidth="2" opacity=".8" />
+              <path d="M-30 95 C220 -40 460 220 830 70 M-30 320 C240 150 530 450 830 280" fill="none" stroke="#f6a9c6" strokeWidth="42" opacity=".55" />
+              <path d="M-30 65 C220 -70 460 190 830 40 M-30 290 C240 120 530 420 830 250" fill="none" stroke="#fff" strokeWidth="1.5" opacity=".8" />
             </svg>
             <div className="tw-board-grid">{featured.map((tool,index) => <Sticker key={tool.name} tool={tool} index={index} />)}</div>
           </div>
           <p className="tw-board-hint">✦ Hover to straighten · Drag and release to play ✦</p>
-          <div className="tw-hero-actions"><a href="#explore-tools" className="tw-primary-btn">Explore My Toolkit <span>↗</span></a><a href="#workflow" className="tw-text-link">See My Workflow →</a></div>
         </div>
       </section>
 
