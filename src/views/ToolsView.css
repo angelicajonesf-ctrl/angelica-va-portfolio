@@ -736,3 +736,77 @@
 .tw-page .tw-board-tape {height:12px;top:-6px;}
 .tw-page .tw-board-hint {margin:8px 0 0;font-size:.69rem;}
 @media(max-width:700px){.tw-page .tw-compact-heading .tw-hero-actions{justify-content:flex-start;}.tw-page .tw-board{padding:15px 12px 10px;}.tw-page .tw-board-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:350px;gap:22px 14px;}}
+
+/* ==========================================
+   TOOLKIT — CLEAN PANEL & STACKED BUTTONS
+   ========================================== */
+
+/* Stack navigation buttons vertically */
+
+.tw-page .tw-compact-heading .tw-hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 200px;
+  flex: 0 0 200px;
+  margin-top: 4px;
+  padding: 0;
+}
+
+/* Explore My Toolkit button */
+
+.tw-page .tw-compact-heading .tw-primary-btn {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+/* See My Workflow outlined button */
+
+.tw-page .tw-compact-heading .tw-text-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid #d94673;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 250ms ease,
+              color 250ms ease;
+}
+
+.tw-page .tw-compact-heading .tw-text-link:hover {
+  background: #f9dce7;
+  color: #bf315e;
+}
+
+/* Remove pink ribbons behind sticker cards */
+
+.tw-page .tw-board-ribbon {
+  display: none !important;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 700px) {
+  .tw-page .tw-compact-heading .tw-hero-actions {
+    width: 100%;
+    max-width: 240px;
+    flex: 0 0 auto;
+    align-items: stretch;
+  }
+}
