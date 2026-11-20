@@ -219,7 +219,7 @@ export default function ToolsView() {
             </svg>
             <div className="tw-board-grid">{featured.map((tool,index) => <Sticker key={tool.name} tool={tool} index={index} />)}</div>
           </div>
-          <p className="tw-board-hint">✦ Hover to straighten · Drag and release to play ✦</p>
+      
         </div>
       </section>
 
