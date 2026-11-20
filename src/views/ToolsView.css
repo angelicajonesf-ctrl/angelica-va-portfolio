@@ -1295,3 +1295,73 @@
     transform: none;
   }
 }
+
+/* ==========================================
+   TOOL EXPLORER — TRANSPARENT LOGO DESIGN
+   ========================================== */
+
+/* Transparent containers with subtle borders */
+
+.tw-explorer .tw-tool-card .tw-explorer-logo {
+  width: 82px;
+  height: 82px;
+  padding: 9px;
+  background: transparent !important;
+  border: 1px solid #e5cdd8;
+  border-radius: 20px;
+  box-shadow: none;
+  transition: border-color 250ms ease;
+}
+
+/* Remove nested logo backgrounds */
+
+.tw-explorer .tw-explorer-logo > * {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Enlarge actual brand logos */
+
+.tw-explorer .tw-explorer-logo img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0 !important;
+  object-fit: contain;
+  background: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+/* Subtle border effect on hover */
+
+.tw-explorer .tw-tool-card:hover .tw-explorer-logo {
+  border-color: #d94673;
+}
+
+/* Dark mode */
+
+[data-theme="dark"] .tw-explorer .tw-tool-card .tw-explorer-logo {
+  border-color: #76566b;
+  background: transparent !important;
+}
+
+[data-theme="dark"] .tw-explorer .tw-explorer-logo img {
+  mix-blend-mode: normal;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 700px) {
+  .tw-explorer .tw-tool-card .tw-explorer-logo {
+    width: 65px;
+    height: 65px;
+    padding: 7px;
+    border-radius: 16px;
+  }
+}
