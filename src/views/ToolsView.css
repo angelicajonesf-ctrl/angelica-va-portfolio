@@ -710,3 +710,29 @@
 .tw-board .tw-hero-actions{margin:0;padding-top:20px;border-top:1px solid #efcad9;justify-content:space-between;}
 @media(max-width:700px){.tw-board-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 15px;}.tw-board-stage{padding:30px 3px 15px;}.tw-board-sticker{min-height:165px;}.tw-board-picture{height:75px;}.tw-board-hero .tw-hero-copy{text-align:left;}}
 @media(prefers-reduced-motion:reduce){.tw-board-sticker{transition:none;}}
+
+/* COMPACT TOOLKIT — header navigation and contained logos */
+.tw-page .tw-compact-heading {display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.tw-compact-heading .tw-hero-copy {flex:1 1 420px;min-width:0;}
+.tw-page .tw-compact-heading .tw-hero-actions {margin:4px 0 0;padding:0;justify-content:flex-end;gap:16px;}
+.tw-compact-heading .tw-primary-btn {padding:10px 14px;font-size:.76rem;box-shadow:none;border-radius:9px;}
+.tw-compact-heading .tw-text-link {font-size:.76rem;white-space:nowrap;}
+.tw-page .tw-board-hero h1 {font-size:clamp(1.6rem,2.4vw,2.25rem);margin:7px 0;}
+.tw-page .tw-board {margin-top:18px;padding:18px 22px 12px;border-radius:20px;}
+.tw-page .tw-board-head {padding-bottom:12px;gap:10px;}
+.tw-page .tw-board-head h2 {font-size:1.15rem;margin:4px 0 0;}
+.tw-page .tw-board .tw-hero-stat {gap:8px;}
+.tw-page .tw-board .tw-hero-stat strong {font-size:1.55rem;}
+.tw-page .tw-board .tw-hero-stat span {font-size:.68rem;}
+.tw-page .tw-board-stage {padding:23px 4px 12px;}
+.tw-page .tw-board-grid {max-width:650px;gap:22px 16px;}
+.tw-page .tw-board-sticker {min-height:132px;padding:7px 7px 9px;}
+.tw-page .tw-board-picture {height:58px;min-height:58px;flex:0 0 58px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.tw-page .tw-board-picture .tw-logo {display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-width:0;min-height:0;flex:0 1 100%;padding:5px 9px;box-sizing:border-box;background:transparent;overflow:hidden;}
+.tw-page .tw-board-picture .tw-logo img {display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain;object-position:center;}
+.tw-page .tw-board-sticker strong {font-size:.83rem;margin:6px 0 2px;}
+.tw-page .tw-board-sticker small {font-size:.66rem;line-height:1.3;margin-bottom:5px;}
+.tw-page .tw-board-tag {font-size:.59rem;padding:2px 6px;}
+.tw-page .tw-board-tape {height:12px;top:-6px;}
+.tw-page .tw-board-hint {margin:8px 0 0;font-size:.69rem;}
+@media(max-width:700px){.tw-page .tw-compact-heading .tw-hero-actions{justify-content:flex-start;}.tw-page .tw-board{padding:15px 12px 10px;}.tw-page .tw-board-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:350px;gap:22px 14px;}}
