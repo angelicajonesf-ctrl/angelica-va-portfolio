@@ -885,3 +885,15 @@
     animation: none !important;
   }
 }
+
+/* ==========================================
+   TOOLKIT — CLEAN LOGO BACKGROUNDS
+   ========================================== */
+
+.tw-board-grid img {
+  background: transparent !important;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+  border: none;
+  box-shadow: none;
+}
