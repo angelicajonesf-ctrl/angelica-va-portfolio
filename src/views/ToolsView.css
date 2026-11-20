@@ -897,3 +897,401 @@
   border: none;
   box-shadow: none;
 }
+
+/* ==========================================
+   TOOL EXPLORER — PASTEL PINK REDESIGN
+   ========================================== */
+
+.tw-explorer {
+  font-family: 'Poppins', sans-serif;
+  scroll-margin-top: 30px;
+  
+  --ex-panel: #fff8fa;
+  --ex-nav: #f5e4ec;
+  --ex-card: #fffdfd;
+  --ex-border: #edd7e1;
+  --ex-heading: #302b31;
+  --ex-muted: #806e79;
+  --ex-active: #fff9fc;
+}
+
+/* SECTION HEADING */
+
+.tw-explorer .tw-section-intro {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.tw-explorer .tw-section-intro h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 3.3vw, 46px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  color: var(--ex-heading);
+  margin: 0 0 16px;
+}
+
+.tw-explorer .tw-section-intro h2 span {
+  color: #d94673;
+}
+
+.tw-explorer .tw-section-intro p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ex-muted);
+}
+
+/* MAIN PANEL */
+
+.tw-explorer .tw-explorer-shell {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 12px;
+  background: var(--ex-panel);
+  border: 1px solid var(--ex-border);
+  border-radius: 28px;
+  box-shadow: none;
+}
+
+/* CATEGORY NAVIGATION */
+
+.tw-explorer .tw-category-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+  padding: 6px;
+  background: var(--ex-nav);
+  border: none;
+  border-radius: 19px;
+}
+
+.tw-explorer .tw-category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 49px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--ex-muted);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background 250ms ease,
+    color 250ms ease;
+}
+
+.tw-explorer .tw-category-btn:hover {
+  color: #d94673;
+}
+
+.tw-explorer .tw-category-btn.is-active {
+  background: var(--ex-active);
+  color: #d94673;
+  box-shadow: 0 2px 7px rgba(100, 45, 70, .05);
+}
+
+/* CIRCULAR TOOL COUNTERS */
+
+.tw-explorer .tw-category-btn small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: rgba(150, 100, 125, .12);
+  color: var(--ex-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tw-explorer .tw-category-btn.is-active small {
+  background: #d94673;
+  color: #ffffff;
+}
+
+/* CATEGORY CONTENT */
+
+.tw-explorer .tw-category-content {
+  padding: 30px 24px 24px;
+}
+
+.tw-explorer .tw-mini-label {
+  color: #d94673;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+}
+
+.tw-explorer .tw-category-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.tw-explorer .tw-category-heading h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 2.7vw, 34px);
+  font-weight: 800;
+  letter-spacing: -.8px;
+  color: var(--ex-heading);
+  line-height: 1.25;
+  margin: 12px 0;
+}
+
+.tw-explorer .tw-category-heading p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--ex-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tw-explorer .tw-category-count {
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: var(--ex-nav);
+  color: #d94673;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* TOOL CARDS */
+
+.tw-explorer .tw-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.tw-explorer .tw-tool-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+  min-height: 195px;
+  padding: 20px;
+  border: 1px solid var(--ex-border);
+  border-radius: 21px;
+  background: var(--ex-card);
+  box-shadow: none;
+
+  animation: tw-explorer-enter 450ms ease both;
+
+  transition:
+    transform 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.tw-explorer .tw-tool-card:hover {
+  transform: translateY(-5px);
+  border-color: #e5a9bf;
+  box-shadow: 0 8px 20px rgba(190, 70, 115, .08);
+}
+
+/* LARGER BRAND LOGO CONTAINERS */
+
+.tw-explorer .tw-explorer-logo {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 82px;
+  max-width: 100%;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #f5e8ef;
+}
+
+/* Individual pastel colors */
+
+.tw-explorer .tw-tool-card:nth-child(6n + 1)
+.tw-explorer-logo {
+  background: #e3f3fa;
+}
+
+.tw-explorer .tw-tool-card:nth-child(6n + 2)
+.tw-explorer-logo {
+  background: #ffebe3;
+}
+
+.tw-explorer .tw-tool-card:nth-child(6n + 3)
+.tw-explorer-logo {
+  background: #fce4e8;
+}
+
+.tw-explorer .tw-tool-card:nth-child(6n + 4)
+.tw-explorer-logo {
+  background: #e1f2fa;
+}
+
+.tw-explorer .tw-tool-card:nth-child(6n + 5)
+.tw-explorer-logo {
+  background: #ece4fc;
+}
+
+.tw-explorer .tw-tool-card:nth-child(6n + 6)
+.tw-explorer-logo {
+  background: #e4edf9;
+}
+
+/* Reset existing nested logo containers */
+
+.tw-explorer .tw-explorer-logo > * {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Clean and properly fitted logos */
+
+.tw-explorer .tw-explorer-logo img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+/* TOOL CARD TYPOGRAPHY */
+
+.tw-explorer .tw-tool-info h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+  line-height: 1.4;
+  color: var(--ex-heading);
+  margin: 0 0 6px;
+}
+
+.tw-explorer .tw-tool-info p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ex-muted);
+  margin: 0;
+}
+
+/* STAGGERED ENTRANCE ANIMATION */
+
+@keyframes tw-explorer-enter {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* DARK MODE */
+
+[data-theme="dark"] .tw-explorer {
+  --ex-panel: #392c3b;
+  --ex-nav: #302330;
+  --ex-card: #413043;
+  --ex-border: #61495a;
+  --ex-heading: #fcebf3;
+  --ex-muted: #cbb1c0;
+  --ex-active: #51384b;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .tw-explorer .tw-category-btn {
+    font-size: 11px;
+    flex-wrap: wrap;
+  }
+
+  .tw-explorer .tw-tool-card {
+    padding: 16px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .tw-explorer .tw-category-nav,
+  .tw-explorer .tw-tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tw-explorer .tw-category-content {
+    padding: 24px 6px 8px;
+  }
+
+  .tw-explorer .tw-category-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tw-explorer .tw-tool-card {
+    padding: 14px;
+    min-height: 175px;
+  }
+
+  .tw-explorer .tw-explorer-logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 17px;
+    margin-bottom: 14px;
+  }
+
+  .tw-explorer .tw-tool-info h4 {
+    font-size: 14px;
+  }
+
+  .tw-explorer .tw-section-intro h2 {
+    font-size: 29px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .tw-explorer .tw-tool-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .tw-explorer .tw-tool-card:hover {
+    transform: none;
+  }
+}
