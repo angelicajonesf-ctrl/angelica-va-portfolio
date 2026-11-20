@@ -810,3 +810,78 @@
     align-items: stretch;
   }
 }
+
+/* ==========================================
+   TOOLKIT — GENTLE FLOATING ANIMATION
+   ========================================== */
+
+.tw-board-slot {
+  animation: tw-gentle-float 6s ease-in-out infinite;
+}
+
+/* Different timing for each sticker */
+
+.tw-board-slot:nth-child(1) {
+  animation-delay: -1s;
+}
+
+.tw-board-slot:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 7s;
+}
+
+.tw-board-slot:nth-child(3) {
+  animation-delay: -2s;
+}
+
+.tw-board-slot:nth-child(4) {
+  animation-delay: -4s;
+  animation-duration: 8s;
+}
+
+.tw-board-slot:nth-child(5) {
+  animation-delay: -2.5s;
+  animation-duration: 7s;
+}
+
+.tw-board-slot:nth-child(6) {
+  animation-delay: -5s;
+}
+
+.tw-board-slot:nth-child(7) {
+  animation-delay: -1.5s;
+  animation-duration: 8s;
+}
+
+.tw-board-slot:nth-child(8) {
+  animation-delay: -3.5s;
+}
+
+/* Small upward and downward movement */
+
+@keyframes tw-gentle-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+/* Pause while interacting */
+
+.tw-board-slot:hover,
+.tw-board-slot:focus-within,
+.tw-board-slot:has(.is-held),
+.tw-board-slot:has(.is-returning) {
+  animation-play-state: paused;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .tw-board-slot {
+    animation: none !important;
+  }
+}
