@@ -1365,3 +1365,69 @@
     border-radius: 16px;
   }
 }
+
+/* ==========================================
+   TOOL EXPLORER — FINAL SOFT LOGO HOVER
+   ========================================== */
+
+/* Clean logo container */
+
+.tw-explorer .tw-tool-card .tw-explorer-logo {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 22px;
+
+  box-shadow:
+    0 5px 18px rgba(48, 43, 49, .06),
+    0 1px 4px rgba(48, 43, 49, .02);
+
+  transform: rotate(0deg) scale(1);
+
+  transition:
+    transform 400ms cubic-bezier(.2, .8, .2, 1),
+    box-shadow 350ms ease;
+}
+
+/* Same clockwise tilt for every logo */
+
+.tw-explorer .tw-tool-card:hover .tw-explorer-logo,
+.tw-explorer .tw-tool-card:nth-child(even):hover .tw-explorer-logo {
+  border: none !important;
+  outline: none !important;
+
+  transform:
+    translateY(-2px)
+    rotate(2deg)
+    scale(1.04);
+
+  box-shadow:
+    0 12px 28px rgba(48, 43, 49, .10);
+}
+
+/* Gentle outer card lift */
+
+.tw-explorer .tw-tool-card:hover {
+  transform: translateY(-5px);
+  border-color: #e8a9c2;
+
+  box-shadow:
+    0 12px 26px rgba(217, 70, 115, .08);
+}
+
+/* Dark mode */
+
+[data-theme="dark"] .tw-explorer .tw-tool-card .tw-explorer-logo {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .16);
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .tw-explorer .tw-tool-card:hover,
+  .tw-explorer .tw-tool-card:hover .tw-explorer-logo,
+  .tw-explorer .tw-tool-card:nth-child(even):hover .tw-explorer-logo {
+    transform: none !important;
+    transition: none !important;
+  }
+}
