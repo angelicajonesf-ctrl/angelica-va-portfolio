@@ -1520,7 +1520,7 @@
 /* Keep the existing logo container size */
 
 .tw-explorer .tw-tool-card .tw-explorer-logo {
-  padding: 8px !important;
+ padding: 10px !important;
   overflow: hidden;
   display: grid !important;
   place-items: center;
@@ -1538,7 +1538,7 @@
   object-fit: contain !important;
   object-position: center;
 
-  transform: scale(1.7) !important;
+  transform: scale(0.9) !important;
 }
 
 /* Enlarge text-based fallback logos */
