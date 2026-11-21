@@ -90,3 +90,21 @@
 @media(max-width:800px) { .tw-page { padding: 24px 16px 80px; } .tw-tool-grid,.tw-workflow-grid,.tw-category-nav { grid-template-columns: repeat(2,minmax(0,1fr)); } .tw-category-content { padding: 24px 4px 8px; } .tw-explorer-shell { padding: 10px; } .tw-category-heading { flex-wrap: wrap; align-items: flex-start; } }
 @media(max-width:480px) { .tw-tool-grid,.tw-workflow-grid { grid-template-columns: 1fr; } .tw-hero-actions { gap: 14px; flex-wrap: wrap; } .tw-hero-stat { align-items: flex-start; text-align: left; } .tw-hero-stat strong { font-size: 2.3rem; } .tw-category-btn { font-size: .73rem; gap: 5px; } .tw-tool-card { min-height: 80px; } .tw-workflow-card > p { min-height: 0; } }
 @media(prefers-reduced-motion:reduce) { .tw-page *, .tw-page *::before, .tw-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .tw-tool-card:hover,.tw-tool-card:hover .tw-explorer-logo,.tw-primary-btn:hover { transform: none; } }
+/* ==========================================
+   WORKFLOW — REMOVE EXTRA TEXT
+   ========================================== */
+
+/* Remove the introductory subtitle */
+.tw-workflow .tw-section-intro > p {
+  display: none !important;
+}
+
+/* Remove the illustrative workflow note */
+.tw-workflow-note {
+  display: none !important;
+}
+
+/* Remove the closing statement and sparkle */
+.tw-outro {
+  display: none !important;
+}
