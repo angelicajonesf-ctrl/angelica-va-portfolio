@@ -1513,3 +1513,36 @@
     transition: none !important;
   }
 }
+/* ==========================================
+   TOOL EXPLORER — BIGGER BRAND LOGOS
+   ========================================== */
+
+/* Keep the existing logo container size */
+
+.tw-explorer .tw-tool-card .tw-explorer-logo {
+  padding: 8px !important;
+  overflow: hidden;
+  display: grid !important;
+  place-items: center;
+}
+
+/* Enlarge the actual app logos */
+
+.tw-explorer .tw-tool-card .tw-explorer-logo img,
+.tw-explorer .tw-tool-card .tw-explorer-logo svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+  object-position: center;
+
+  transform: scale(1.7) !important;
+}
+
+/* Enlarge text-based fallback logos */
+
+.tw-explorer .tw-explorer-logo span {
+  font-size: 24px !important;
+}
