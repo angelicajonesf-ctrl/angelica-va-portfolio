@@ -25,7 +25,7 @@ const groups: Group[] = [
       { name: 'HubSpot', file: 'hubspot.svg', use: 'CRM and pipeline tracking' },
       { name: 'Zoho', file: 'zoho.png', use: 'Business and CRM tools' },
       { name: 'Salesforce', file: 'salesforce.png', use: 'Lead and contact management' },
-      { name: 'Realtor.com', file: 'realtor.png.png', use: 'Property information' },
+      { name: 'Realtor.com', file: 'realtor.png', use: 'Property information' },
       { name: 'Zillow', file: 'zillow.png', use: 'Property research' },
       { name: 'PropStream', file: 'propstream.png', use: 'Real estate lead research' },
       { name: 'BatchLeads', file: 'batchleads.png', use: 'Property and lead data' },
