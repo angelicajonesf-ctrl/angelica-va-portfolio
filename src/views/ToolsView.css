@@ -108,3 +108,17 @@
 .tw-outro {
   display: none !important;
 }
+
+/* Individual tool logo adjustments */
+
+img[src*="mojo"] {
+  transform: scale(1.9);
+}
+
+img[src*="dialpad"] {
+  transform: scale(1.6);
+}
+
+img[src*="calltools"] {
+  transform: scale(1.7);
+}
