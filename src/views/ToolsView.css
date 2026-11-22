@@ -19,3 +19,110 @@
 @keyframes tw-workflow-slide{to{transform:translateX(calc(-50% - 8px))}}
 @media(max-width:850px){.tw-workflow-heading{grid-template-columns:1fr auto;gap:10px}.tw-workflow-heading .tw-kicker{grid-column:1/-1}.tw-workflow-heading h2{font-size:clamp(21px,4vw,32px)}}
 @media(prefers-reduced-motion:reduce){.tw-workflow-track{animation:none!important}.tw-workflow-window{overflow-x:auto;mask-image:none}.tw-workflow-track .tw-workflow-card[aria-hidden="true"]{display:none}.tw-pause{display:none}}
+
+/* INDIVIDUAL OUTLINED CATEGORY TABS */
+
+.tw-page .tw-category-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.tw-page .tw-category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tw-page .tw-category-btn small {
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  padding: 2px 5px;
+  font-weight: 600;
+}
+
+/* ACTIVE CATEGORY */
+
+.tw-page .tw-category-btn.is-active {
+  background: #f8dce7;
+  border-color: #df91ad;
+  color: #c83263;
+  font-weight: 600;
+}
+
+.tw-page .tw-category-btn.is-active small {
+  background: transparent;
+  color: #c83263;
+}
+
+/* HOVER EFFECT */
+
+.tw-page .tw-category-btn:not(.is-active):hover {
+  background: #fce8f0;
+  border-color: #df91ad;
+  color: #d94673;
+  transform: translateY(-2px);
+}
+
+/* DARK MODE */
+
+[data-theme="dark"] .tw-page .tw-category-btn.is-active {
+  background: #54303f;
+  border-color: #a85b78;
+  color: #f28bab;
+}
+
+[data-theme="dark"] .tw-page .tw-category-btn.is-active small {
+  color: #f28bab;
+}
+
+[data-theme="dark"] .tw-page .tw-category-btn:not(.is-active):hover {
+  background: #49313f;
+  border-color: #a85b78;
+  color: #f28bab;
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media (max-width: 800px) {
+  .tw-page .tw-category-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .tw-page .tw-category-btn {
+    font-size: 11px;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 380px) {
+  .tw-page .tw-category-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tw-page .tw-category-btn:hover {
+    transform: none;
+  }
+}
