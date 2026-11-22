@@ -171,6 +171,7 @@ const workflow = [
 ]
 
 export default function ToolsView() {
+  const [paused, setPaused] = useState(false)
   const [active, setActive] = useState(groups[0].id)
   const current = groups.find(group => group.id === active) ?? groups[0]
 
@@ -244,21 +245,22 @@ export default function ToolsView() {
       </div>
     </div>
   </div>
-</section>
 
       {/* WORKFLOW */}
       <section className="tw-workflow" id="workflow">
-        <div className="tw-section-intro">
+        <div className="tw-workflow-heading">
           <span className="tw-kicker">HOW I PUT THEM TO WORK</span>
-          <h2>From research to results<span>.</span></h2>
+          <h2>From research to <em>results.</em></h2>
+          <button type="button" className="tw-pause" onClick={() => setPaused(value => !value)} aria-pressed={paused}>{paused ? '▶ Play' : 'Ⅱ Pause'}</button>
         </div>
 
-        <div className="tw-workflow-grid">
-          {workflow.map((step, index) => (
-            <article className="tw-workflow-card" key={step.number}>
+        <div className="tw-workflow-window">
+          <div className={`tw-workflow-track${paused ? ' is-paused' : ''}`}>
+          {[...workflow, ...workflow].map((step, index) => (
+            <article className="tw-workflow-card" key={`${step.number}-${index}`} aria-hidden={index >= workflow.length ? true : undefined}>
               <div className="tw-workflow-top">
                 <span>{step.number}</span>
-                {index < workflow.length - 1 && (
+                {index % workflow.length < workflow.length - 1 && (
                   <span className="tw-workflow-arrow" aria-hidden="true">
                     →
                   </span>
@@ -275,7 +277,9 @@ export default function ToolsView() {
               </div>
             </article>
           ))}
+          </div>
         </div>
+      </section>
       </section>
     </div>
   )
