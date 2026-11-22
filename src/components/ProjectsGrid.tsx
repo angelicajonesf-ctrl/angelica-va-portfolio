@@ -53,8 +53,8 @@ const PLAY = '/icons/ai/googleplay.svg'
 const CHROME = '/icons/ai/googlechrome.svg'
 const EXPO = '/icons/ai/expo.svg'
 
-const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
-  (f) => `/placeholders/${f}`,
+const WF_SHOTS = ['inbox-before.png', 'inbox-after.png'].map(
+  (f) => `${import.meta.env.BASE_URL}projects/${f}`,
 )
 
 const FUNNEL_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0]].filter(Boolean)
@@ -83,10 +83,11 @@ const AI_LEAVES = leaves(aiStack)
 
 function WorkflowsPreview() {
   return (
-    <div className="bento__media bento__reel" aria-hidden="true">
+    <div className="bento__media bento__reel inbox-preview" aria-hidden="true">
       <div className="bento__reel-track">
         {[...WF_SHOTS, ...WF_SHOTS].map((src, i) => (
-          <span key={i} className="bento__shot">
+          <span key={i} className="bento__shot inbox-preview__shot">
+            <span className="inbox-preview__label">{i % 2 === 0 ? 'Before · 241 unread' : 'After · Inbox zero'}</span>
             <img src={src} alt="" loading="lazy" decoding="async" />
           </span>
         ))}
@@ -162,7 +163,7 @@ function AppsPreview() {
 }
 
 const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'Project Title', desc: 'PLACEHOLDER - tell me what to put here: what these screens show.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Screenshots', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
+  { id: 'workflows', cat: 'work', index: '01', title: 'Executive & Business Operations', desc: 'Practical systems for organized communication and streamlined daily operations.', Icon: FlowIcon, logos: [`${import.meta.env.BASE_URL}icons/gmail.png`], eyebrow: 'Executive Assistant', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
   { id: 'plan', cat: 'work', index: '02', title: 'Sample Document', desc: 'PLACEHOLDER - tell me what to put here: the document this opens.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
   { id: 'funnels', cat: 'sites', index: '06', title: 'Pages and sites', desc: 'PLACEHOLDER - the pages in this reel. Spin the reel.', Icon: GlobeIcon, logos: [GHL], eyebrow: 'Pages and sites', Section: BarrelPanel, Preview: FunnelsPreview },
   { id: 'ai', cat: 'ai', index: '07', title: 'Your systems title here', desc: 'PLACEHOLDER - tell me what to put here: the systems you run.', Icon: SparkIcon, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Your systems', Section: AIWindow, Preview: AIPreview },
@@ -300,9 +301,9 @@ export default function ProjectsGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Projects</span>
         <h1 className="pgrid__title" id="projects-title">
-          Your projects headline goes right here.
+          Practical work. Meaningful results.
         </h1>
-        <p className="pgrid__lede">PLACEHOLDER - tell me what to put here: one line on the work below. Open a card to see it full size.</p>
+        <p className="pgrid__lede">Explore my work in executive support, real estate, and social media. Open a card to see the details.</p>
       </header>
 
       {phone && (
@@ -342,6 +343,10 @@ export default function ProjectsGrid() {
                 <Marks p={p} />
                 <span className="bento__title">{p.title}</span>
                 <span className="bento__desc">{p.desc}</span>
+                {p.id === 'workflows' && <span className="inbox-card-metrics">
+                  <span><strong>3,714</strong><small>Emails organized</small></span>
+                  <span><strong>0</strong><small>Unread remaining</small></span>
+                </span>}
                 <ArrowUpRight size={15} weight="bold" aria-hidden="true" className="bento__arrow" />
               </span>
               <p.Preview />
