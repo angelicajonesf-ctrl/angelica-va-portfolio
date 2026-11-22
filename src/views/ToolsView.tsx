@@ -41,7 +41,7 @@ const groups: Group[] = [
       { name: 'Dialpad', file: 'dialpad.png', use: 'Business communication' },
       { name: 'Batch Dialer', file: 'batchdialer.png', use: 'Outbound call campaigns' },
       { name: 'Call Tools', file: 'calltools.png', use: 'Calling and follow-ups' },
-      { name: 'Slack', file: 'slack.svg', use: 'Team communication' },
+      { name: 'Slack', file: 'slack.png', use: 'Team communication' },
       { name: 'Microsoft Teams', file: 'teams.png', use: 'Team meetings and collaboration' },
       { name: 'Zoom', file: 'zoom.png', use: 'Virtual meetings' },
     ],
