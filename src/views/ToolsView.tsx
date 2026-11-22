@@ -173,7 +173,6 @@ const workflow = [
 export default function ToolsView() {
   const [active, setActive] = useState(groups[0].id)
   const current = groups.find(group => group.id === active) ?? groups[0]
-  const total = groups.reduce((sum, group) => sum + group.tools.length, 0)
 
   return (
     <div className="tw-page">
@@ -185,25 +184,18 @@ export default function ToolsView() {
           <span className="tw-kicker">MY DIGITAL WORKSPACE</span>
           <h1>Tools that help me <em>get things done.</em></h1>
           <p>From managing real estate leads to organizing operations and creating content, here's a look at the platforms that support my work.</p>
-          <div className="tw-hero-actions">
-            <a href="#explore-tools" className="tw-primary-btn">Explore My Toolkit ↗</a>
-            <a href="#workflow" className="tw-text-link">See My Workflow →</a>
-          </div>
         </div>
-        <div className="tw-hero-stat"><strong>{total}</strong><span>Platforms<br />across {groups.length} categories</span></div>
       </section>
 
 {/* TOOL EXPLORER */}
 <section className="tw-explorer" id="explore-tools">
-  <div className="tw-section-intro">
-    <h2>One toolkit. Many possibilities<span>.</span></h2>
-    <p>
-      Select a category to see the platforms I've worked with
-      and the tasks they support.
-    </p>
+  <div className="tw-browser-intro">
+    <div><span className="tw-kicker">ONE TOOLKIT</span><h2>Many<br/><em>possibilities.</em></h2></div>
+    <p>Select a category to see the platforms I've worked with and the tasks they support.</p>
+    <a href="#workflow" className="tw-browser-action">See My Workflow <span>→</span></a>
   </div>
-
   <div className="tw-explorer-shell">
+    <div className="tw-browser-bar"><div className="tw-browser-dots" aria-hidden="true"><i/><i/><i/></div><div className="tw-browser-address">my.toolkit <span>/{active === 'real-estate' ? 'crm-real-estate' : active}</span></div></div>
     <div className="tw-category-nav" aria-label="Tool categories">
       {groups.map(group => (
         <button
