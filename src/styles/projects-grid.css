@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
 /* ============================================
    PROJECTS - the fixed viewport
    A head and six cards on one screen, same object language as Home's bento:
@@ -586,3 +588,39 @@
 .inbox-case__footer { display:flex; justify-content:space-between; gap:12px; padding-top:8px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); }
 @media(max-width:700px){ .inbox-case__comparison,.inbox-case__details { grid-template-columns:1fr; } .inbox-case__metrics { gap:6px; } .inbox-case__metrics > div { padding:9px; } .inbox-case__metrics span { font-size:10px; } }
 @media(prefers-reduced-motion:reduce){ .inbox-preview .bento__reel-track { animation:none !important; } }
+
+/* Inbox project: one task card, not separate Before / After cards. */
+.bento--projects [data-id="workflows"],
+.inbox-window .inbox-case {
+  font-family: "Manrope", "Poppins", sans-serif;
+}
+.inbox-task-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  padding: 8px;
+}
+.inbox-task-preview__card {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: min(100%, 310px);
+  padding: 13px;
+  border-radius: 15px;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  box-shadow: 0 12px 28px -22px rgba(70, 35, 55, .45);
+  color: var(--navy);
+  animation: inbox-task-float 6s ease-in-out infinite;
+}
+.inbox-task-preview__eyebrow { font-size: 9px; letter-spacing: .09em; font-weight: 800; color: var(--orange-ink); }
+.inbox-task-preview__card strong { font-size: clamp(13px, 1vw, 17px); line-height: 1.25; }
+.inbox-task-preview__image { display: block; overflow: hidden; border-radius: 8px; background: #fff; border: 1px solid var(--line); }
+.inbox-task-preview__image img { display: block; width: 100%; aspect-ratio: 2.4 / 1; object-fit: cover; object-position: top left; }
+.inbox-task-preview__foot { font-size: 10px; color: var(--muted); font-weight: 600; }
+.inbox-task-preview__foot b { color: var(--orange); padding: 0 3px; }
+@keyframes inbox-task-float { 0%,100% { transform: translateY(2px); } 50% { transform: translateY(-5px); } }
+.inbox-case__header h2 { font-weight: 800; letter-spacing: -.045em; }
+@media (prefers-reduced-motion: reduce) { .inbox-task-preview__card { animation: none; } }
