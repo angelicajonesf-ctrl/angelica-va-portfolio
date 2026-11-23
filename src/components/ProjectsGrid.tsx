@@ -53,10 +53,6 @@ const PLAY = '/icons/ai/googleplay.svg'
 const CHROME = '/icons/ai/googlechrome.svg'
 const EXPO = '/icons/ai/expo.svg'
 
-const WF_SHOTS = ['inbox-before.png', 'inbox-after.png'].map(
-  (f) => `${import.meta.env.BASE_URL}projects/${f}`,
-)
-
 const FUNNEL_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0]].filter(Boolean)
 const thumbSrc = (f: Funnel) => `/${f.dir ?? 'funnels'}/thumbs/${f.file.replace('.html', '.jpeg')}`
 
@@ -83,14 +79,14 @@ const AI_LEAVES = leaves(aiStack)
 
 function WorkflowsPreview() {
   return (
-    <div className="bento__media bento__reel inbox-preview" aria-hidden="true">
-      <div className="bento__reel-track">
-        {[...WF_SHOTS, ...WF_SHOTS].map((src, i) => (
-          <span key={i} className="bento__shot inbox-preview__shot">
-            <span className="inbox-preview__label">{i % 2 === 0 ? 'Before · 241 unread' : 'After · Inbox zero'}</span>
-            <img src={src} alt="" loading="lazy" decoding="async" />
-          </span>
-        ))}
+    <div className="bento__media inbox-task-preview" aria-hidden="true">
+      <div className="inbox-task-preview__card">
+        <span className="inbox-task-preview__eyebrow">01 / EXECUTIVE SUPPORT</span>
+        <strong>Inbox Management</strong>
+        <span className="inbox-task-preview__image">
+          <img src={`${import.meta.env.BASE_URL}projects/inbox-after.png`} alt="" loading="lazy" decoding="async" />
+        </span>
+        <span className="inbox-task-preview__foot">3,714 emails organized <b>·</b> Inbox zero</span>
       </div>
     </div>
   )
