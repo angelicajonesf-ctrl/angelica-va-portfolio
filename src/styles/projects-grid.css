@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
 /* ============================================
@@ -624,3 +625,25 @@
 @keyframes inbox-task-float { 0%,100% { transform: translateY(2px); } 50% { transform: translateY(-5px); } }
 .inbox-case__header h2 { font-weight: 800; letter-spacing: -.045em; }
 @media (prefers-reduced-motion: reduce) { .inbox-task-preview__card { animation: none; } }
+
+/* Montserrat — Projects page */
+
+.pgrid,
+.pgrid button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.pgrid__title,
+.pgrid .bento__title,
+.pgrid .bento__build-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.pgrid__lede,
+.pgrid .bento__desc {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+}
