@@ -23,9 +23,6 @@ export function AutomationsPanel() {
             <h2>3,714 emails, 241 unread — <em>now zero.</em></h2>
             <p>From unstructured correspondence to a priority-driven inbox management system.</p>
           </header>
-          <div className="inbox-case__metrics">
-            { [['3,714', 'Emails organized'], ['241', 'Unread cleared'], ['0', 'Unread remaining']].map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>) }
-          </div>
           <div className="inbox-case__comparison">
             { [
               { name: 'Before', status: '241 unread', file: 'inbox-before.png', desc: 'Unsorted correspondence with no custom labeling system.' },
