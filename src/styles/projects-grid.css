@@ -707,3 +707,72 @@
   font-weight: 600;
   letter-spacing: -0.03em;
 }
+
+/* ============================================
+   EXECUTIVE SUPPORT — MOVING PROJECT GALLERY
+   ============================================ */
+
+.bento__card[data-id="workflows"] .inbox-task-preview {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  padding: 8px 12px;
+}
+
+.inbox-task-preview__track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-shrink: 0;
+  gap: 14px;
+  padding-bottom: 14px;
+  box-sizing: border-box;
+  animation: executive-project-scroll 18s linear infinite;
+  will-change: transform;
+}
+
+.inbox-task-preview__card {
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  animation: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.inbox-task-preview__image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.1 / 1;
+  object-fit: contain;
+  background: #fff;
+}
+
+/* Continuous upward scrolling */
+
+@keyframes executive-project-scroll {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+/* Pause animation when hovered */
+
+.bento__card:hover .inbox-task-preview__track,
+.bento__card:focus-visible .inbox-task-preview__track {
+  animation-play-state: paused;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .inbox-task-preview__track {
+    animation: none;
+  }
+}
