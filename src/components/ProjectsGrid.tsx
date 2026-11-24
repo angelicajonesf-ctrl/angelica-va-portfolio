@@ -81,12 +81,18 @@ function WorkflowsPreview() {
   return (
     <div className="bento__media inbox-task-preview" aria-hidden="true">
       <div className="inbox-task-preview__card">
-        <span className="inbox-task-preview__eyebrow">01 / EXECUTIVE SUPPORT</span>
+        <span className="inbox-task-preview__eyebrow">
+          01 / EXECUTIVE SUPPORT
+        </span>
         <strong>Inbox Management</strong>
         <span className="inbox-task-preview__image">
-          <img src={`${import.meta.env.BASE_URL}projects/inbox-after.png`} alt="" loading="lazy" decoding="async" />
+          <img
+            src={`${import.meta.env.BASE_URL}projects/inbox-after.png`}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
         </span>
-        <span className="inbox-task-preview__foot">3,714 emails organized <b>·</b> Inbox zero</span>
       </div>
     </div>
   )
