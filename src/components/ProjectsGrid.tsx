@@ -78,6 +78,7 @@ const AI_LEAVES = leaves(aiStack)
 /* ---------- Previews ---------- */
 
 
+
 function WorkflowsPreview() {
   const tasks = [
     {
@@ -89,6 +90,11 @@ function WorkflowsPreview() {
       number: '02',
       title: 'Calendar Management',
       image: 'calendar-after.png',
+    },
+    {
+      number: '03',
+      title: 'Meeting Coordination',
+      image: 'meeting-action-tracker-final.png',
     },
   ]
 
