@@ -647,3 +647,16 @@
   font-weight: 400;
   line-height: 1.65;
 }
+
+/* ============================================
+   SUPER CREAMY CUSTOM FONT
+   ============================================ */
+
+@font-face {
+  font-family: 'Super Creamy';
+  src: url('/angelica-va-portfolio/fonts/SuperCreamy-OGAPp.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
