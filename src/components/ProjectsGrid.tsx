@@ -77,26 +77,53 @@ const AI_LEAVES = leaves(aiStack)
 
 /* ---------- Previews ---------- */
 
+
 function WorkflowsPreview() {
+  const tasks = [
+    {
+      number: '01',
+      title: 'Inbox Management',
+      image: 'inbox-after.png',
+    },
+    {
+      number: '02',
+      title: 'Calendar Management',
+      image: 'calendar-after.png',
+    },
+  ]
+
   return (
-    <div className="bento__media inbox-task-preview" aria-hidden="true">
-      <div className="inbox-task-preview__card">
-        <span className="inbox-task-preview__eyebrow">
-          01 / EXECUTIVE SUPPORT
-        </span>
-        <strong>Inbox Management</strong>
-        <span className="inbox-task-preview__image">
-          <img
-            src={`${import.meta.env.BASE_URL}projects/inbox-after.png`}
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
+    <div
+      className="bento__media inbox-task-preview"
+      aria-hidden="true"
+    >
+      <div className="inbox-task-preview__track">
+        {[...tasks, ...tasks].map((task, index) => (
+          <div
+            className="inbox-task-preview__card"
+            key={`${task.number}-${index}`}
+          >
+            <span className="inbox-task-preview__eyebrow">
+              {task.number} / EXECUTIVE SUPPORT
+            </span>
+
+            <strong>{task.title}</strong>
+
+            <span className="inbox-task-preview__image">
+              <img
+                src={`${import.meta.env.BASE_URL}projects/${task.image}`}
+                alt=""
+                loading="eager"
+                decoding="async"
+              />
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   )
 }
+
 
 /** A paper mock of the plan document, the way SamplePlan previews it. */
 function PlanPreview() {
