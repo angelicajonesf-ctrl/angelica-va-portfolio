@@ -345,10 +345,7 @@ export default function ProjectsGrid() {
                 <Marks p={p} />
                 <span className="bento__title">{p.title}</span>
                 <span className="bento__desc">{p.desc}</span>
-                {p.id === 'workflows' && <span className="inbox-card-metrics">
-                  <span><strong>3,714</strong><small>Emails organized</small></span>
-                  <span><strong>0</strong><small>Unread remaining</small></span>
-                </span>}
+               
                 <ArrowUpRight size={15} weight="bold" aria-hidden="true" className="bento__arrow" />
               </span>
               <p.Preview />
