@@ -1,3 +1,4 @@
+
 import { useEffect, useState, type ReactNode } from 'react'
 import { Ticket, Robot, FlowArrow, type Icon } from '@/components/slab'
 import { lazy, Suspense } from 'react'
@@ -7,8 +8,13 @@ import { useFunnelModal } from './FunnelModal'
 import { websiteFunnel } from '@/data/funnels'
 
 const FunnelBarrel = lazy(() => import('./FunnelBarrel'))
-const inboxAsset = (name: string) => `${import.meta.env.BASE_URL}projects/${name}`
 
+const inboxAsset = (name: string) =>
+  `${import.meta.env.BASE_URL}projects/${encodeURIComponent(name)}`
+
+/* ========================================
+   EXECUTIVE SUPPORT PROJECTS
+======================================== */
 
 const executiveCases = [
   {
@@ -73,7 +79,214 @@ const executiveCases = [
     result:
       'A centralized monthly schedule that provides clear visibility into executive priorities, upcoming commitments, and daily responsibilities.',
   },
+  {
+    id: 'meeting',
+    number: '03',
+    title: 'Meeting Coordination',
+    eyebrow: 'Executive Meeting Coordination',
+    headline: 'From preparation to',
+    highlight: 'accountability.',
+    description:
+      'A complete executive meeting management sample covering preparation, documentation, action tracking, and post-meeting communication.',
+    tool: 'Google Docs · Google Sheets · Gmail · Google Calendar',
+    shots: [],
+    challenge:
+      'Without a structured meeting process, important decisions, assigned responsibilities, and deadlines can easily be overlooked.',
+    approach:
+      'Prepared a leadership meeting agenda, documented key discussions and decisions, created an action item tracker with a visual dashboard, and drafted a follow-up email outlining responsibilities and deadlines.',
+    result:
+      'A complete meeting coordination workflow designed to improve communication, provide visibility into outstanding tasks, and maintain accountability.',
+  },
 ]
+
+/* ========================================
+   MEETING DELIVERABLES
+======================================== */
+
+const meetingDeliverables = [
+  {
+    number: '01',
+    phase: 'PREPARE',
+    title: 'Meeting Agenda',
+    description:
+      'A structured leadership meeting agenda outlining objectives, discussion topics, and meeting priorities.',
+    file: 'SAMPLE WORK I Meeting Agenda.pdf',
+    type: 'pdf',
+    tool: 'Google Docs',
+    action: 'View meeting agenda',
+  },
+  {
+    number: '02',
+    phase: 'DOCUMENT',
+    title: 'Meeting Minutes',
+    description:
+      'A professional record of key discussions, decisions, assigned responsibilities, and agreed next steps.',
+    file: 'Sample Work I Meeting Minutes.pdf',
+    type: 'pdf',
+    tool: 'Google Docs',
+    action: 'View meeting minutes',
+  },
+  {
+    number: '03',
+    phase: 'TRACK',
+    title: 'Action Item Tracker',
+    description:
+      'An executive dashboard with task assignments, status monitoring, priorities, deadlines, and progress visualization.',
+    file: 'meeting-action-tracker-final.png',
+    type: 'image',
+    tool: 'Google Sheets',
+    action: 'View action tracker',
+  },
+  {
+    number: '04',
+    phase: 'FOLLOW UP',
+    title: 'Post-Meeting Follow-Up',
+    description:
+      'A professional follow-up email summarizing action items, deadlines, meeting resources, and upcoming commitments.',
+    file: 'meeting-follow-up.png',
+    type: 'image',
+    tool: 'Gmail',
+    action: 'View follow-up email',
+  },
+]
+
+function MeetingDeliverables() {
+  return (
+    <div className="meeting-project">
+
+      <div className="meeting-project__intro">
+        <span className="meeting-project__label">
+          THE DELIVERABLES
+        </span>
+
+        <h3>A complete meeting management workflow.</h3>
+
+        <p>
+          Leadership Strategy Meeting · May 21, 2026
+          · Illustrative portfolio sample
+        </p>
+      </div>
+
+      <div className="meeting-deliverables">
+
+        {meetingDeliverables.map((item) => (
+          <article
+            className="meeting-deliverable"
+            key={item.number}
+          >
+            <div className="meeting-deliverable__top">
+              <span className="meeting-deliverable__number">
+                {item.number}
+              </span>
+
+              <span className="meeting-deliverable__phase">
+                {item.phase}
+              </span>
+            </div>
+
+            <h3>{item.title}</h3>
+
+            <p>{item.description}</p>
+
+            <a
+              className="meeting-deliverable__preview"
+              href={inboxAsset(item.file)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${item.title} in a new tab`}
+            >
+              {item.type === 'image' ? (
+                <img
+                  src={inboxAsset(item.file)}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div className="meeting-deliverable__document">
+
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M10 4H29L39 14V44H10V4Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M29 4V14H39"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
+                    <path
+                      d="M16 22H33M16 28H33M16 34H28"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+
+                  <strong>{item.title}</strong>
+
+                  <span>PDF DOCUMENT</span>
+
+                </div>
+              )}
+            </a>
+
+            <div className="meeting-deliverable__footer">
+              <span>{item.tool}</span>
+
+              <a
+                href={inboxAsset(item.file)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.action} ↗
+              </a>
+            </div>
+
+          </article>
+        ))}
+
+      </div>
+
+      <div className="meeting-workflow">
+
+        <span className="meeting-project__label">
+          MEETING MANAGEMENT PROCESS
+        </span>
+
+        <div className="meeting-workflow__steps">
+
+          {['Prepare', 'Document', 'Track', 'Follow up'].map(
+            (step, index) => (
+              <div
+                className="meeting-workflow__step"
+                key={step}
+              >
+                <span>{`0${index + 1}`}</span>
+                <strong>{step}</strong>
+              </div>
+            )
+          )}
+
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
+
+/* ========================================
+   EXECUTIVE PROJECT PANEL
+======================================== */
 
 export function AutomationsPanel() {
   const [activeCase, setActiveCase] = useState(0)
@@ -140,36 +353,44 @@ export function AutomationsPanel() {
             <p>{project.description}</p>
           </header>
 
-          {/* BEFORE AND AFTER */}
+          {/* PROJECT-SPECIFIC CONTENT */}
 
-          <div className="inbox-case__comparison">
-            {project.shots.map((shot) => (
-              <figure
-                key={shot.name}
-                className="inbox-case__shot"
-                data-state={shot.name.toLowerCase()}
-              >
-                <div className="inbox-case__shot-head">
-                  <strong>{shot.name}</strong>
-                  <span>{shot.status}</span>
-                </div>
+          {project.id === 'meeting' ? (
 
-                <a
-                  href={inboxAsset(shot.file)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open ${shot.name.toLowerCase()} screenshot full size (new tab)`}
+            <MeetingDeliverables />
+
+          ) : (
+
+            <div className="inbox-case__comparison">
+              {project.shots.map((shot) => (
+                <figure
+                  key={shot.name}
+                  className="inbox-case__shot"
+                  data-state={shot.name.toLowerCase()}
                 >
-                  <img
-                    src={inboxAsset(shot.file)}
-                    alt={`${shot.name} — ${project.title}`}
-                  />
-                </a>
+                  <div className="inbox-case__shot-head">
+                    <strong>{shot.name}</strong>
+                    <span>{shot.status}</span>
+                  </div>
 
-                <figcaption>{shot.desc}</figcaption>
-              </figure>
-            ))}
-          </div>
+                  <a
+                    href={inboxAsset(shot.file)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${shot.name.toLowerCase()} screenshot full size (new tab)`}
+                  >
+                    <img
+                      src={inboxAsset(shot.file)}
+                      alt={`${shot.name} — ${project.title}`}
+                    />
+                  </a>
+
+                  <figcaption>{shot.desc}</figcaption>
+                </figure>
+              ))}
+            </div>
+
+          )}
 
           {/* CASE STUDY DETAILS */}
 
@@ -191,7 +412,11 @@ export function AutomationsPanel() {
           </div>
 
           <footer className="inbox-case__footer">
-            <span>Tool: {project.tool}</span>
+            <span>
+              {project.id === 'meeting' ? 'Tools: ' : 'Tool: '}
+              {project.tool}
+            </span>
+
             <span>
               {project.number} / {project.title}
             </span>
@@ -203,63 +428,226 @@ export function AutomationsPanel() {
   )
 }
 
+/* ========================================
+   OTHER PROJECT PANELS
+======================================== */
 
-function SectionWindow({ label, children }: { label: string; children: ReactNode }) {
+function SectionWindow({
+  label,
+  children,
+}: {
+  label: string
+  children: ReactNode
+}) {
   return (
     <div className="ppanel ppanel--window">
       <div className="ppanel__bar">
-        <span className="ppanel__dots" aria-hidden="true"><i /><i /><i /></span>
-        <span className="ppanel__url"><span className="ppanel__url-host">{label}</span></span>
+        <span className="ppanel__dots" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
+
+        <span className="ppanel__url">
+          <span className="ppanel__url-host">
+            {label}
+          </span>
+        </span>
       </div>
-      <div className="ppanel__scroll">{children}</div>
+
+      <div className="ppanel__scroll">
+        {children}
+      </div>
     </div>
   )
 }
+
 export function BarrelPanel() {
   const { openFull, modal } = useFunnelModal()
+
   return (
     <div className="ppanel ppanel--barrel">
-      <Suspense fallback={<div className="funnels__barrel-skeleton" aria-hidden="true" />}>
-        <FunnelBarrel funnels={websiteFunnel} onOpen={openFull} />
+      <Suspense
+        fallback={
+          <div
+            className="funnels__barrel-skeleton"
+            aria-hidden="true"
+          />
+        }
+      >
+        <FunnelBarrel
+          funnels={websiteFunnel}
+          onOpen={openFull}
+        />
       </Suspense>
+
       {modal}
     </div>
   )
 }
+
 export function AIWindow() {
-  return <SectionWindow label="Your systems"><AIStackGrid /></SectionWindow>
+  return (
+    <SectionWindow label="Your systems">
+      <AIStackGrid />
+    </SectionWindow>
+  )
 }
+
 export function AppsWindow() {
-  return <SectionWindow label="Your apps"><AppsSection /></SectionWindow>
+  return (
+    <SectionWindow label="Your apps">
+      <AppsSection />
+    </SectionWindow>
+  )
 }
+
 export function PlanPanel() {
-  return <div className="ppanel ppanel--frame"><FrameBar host="yourdomain.com" path="/sample-plan" /><LiveFrame src="/placeholders/sample-plan.html" title="Sample document" /></div>
+  return (
+    <div className="ppanel ppanel--frame">
+      <FrameBar
+        host="yourdomain.com"
+        path="/sample-plan"
+      />
+
+      <LiveFrame
+        src="/placeholders/sample-plan.html"
+        title="Sample document"
+      />
+    </div>
+  )
 }
-type Build = { id: string; label: string; src: string; path: string; Icon: Icon }
+
+type Build = {
+  id: string
+  label: string
+  src: string
+  path: string
+  Icon: Icon
+}
+
 const BUILDS: Build[] = [
-  { id: 'ticketing', label: 'Featured Project One', src: '/placeholders/sample-plan.html?doc=1', path: '/featured-one', Icon: Ticket },
-  { id: 'framework', label: 'Featured Project Two', src: '/placeholders/sample-plan.html?doc=2', path: '/featured-two', Icon: Robot },
-  { id: 'workflow', label: 'Featured Project Three', src: '/placeholders/sample-plan.html?doc=3', path: '/featured-three', Icon: FlowArrow },
+  {
+    id: 'ticketing',
+    label: 'Featured Project One',
+    src: '/placeholders/sample-plan.html?doc=1',
+    path: '/featured-one',
+    Icon: Ticket,
+  },
+  {
+    id: 'framework',
+    label: 'Featured Project Two',
+    src: '/placeholders/sample-plan.html?doc=2',
+    path: '/featured-two',
+    Icon: Robot,
+  },
+  {
+    id: 'workflow',
+    label: 'Featured Project Three',
+    src: '/placeholders/sample-plan.html?doc=3',
+    path: '/featured-three',
+    Icon: FlowArrow,
+  },
 ]
+
 function BuildPanel({ build }: { build: Build }) {
-  return <div className="ppanel ppanel--frame"><FrameBar host="yourdomain.com" path={build.path} /><LiveFrame src={build.src} title={build.label} /></div>
+  return (
+    <div className="ppanel ppanel--frame">
+      <FrameBar
+        host="yourdomain.com"
+        path={build.path}
+      />
+
+      <LiveFrame
+        src={build.src}
+        title={build.label}
+      />
+    </div>
+  )
 }
-export const TicketingPanel = () => <BuildPanel build={BUILDS[0]} />
-export const FrameworkPanel = () => <BuildPanel build={BUILDS[1]} />
-export const WorkflowPanel = () => <BuildPanel build={BUILDS[2]} />
-function FrameBar({ host, path }: { host: string; path: string }) {
-  return <div className="ppanel__bar"><span className="ppanel__dots" aria-hidden="true"><i /><i /><i /></span><span className="ppanel__url"><span className="ppanel__url-host">{host}</span><span className="ppanel__url-path">{path}</span></span></div>
+
+export const TicketingPanel = () => (
+  <BuildPanel build={BUILDS[0]} />
+)
+
+export const FrameworkPanel = () => (
+  <BuildPanel build={BUILDS[1]} />
+)
+
+export const WorkflowPanel = () => (
+  <BuildPanel build={BUILDS[2]} />
+)
+
+function FrameBar({
+  host,
+  path,
+}: {
+  host: string
+  path: string
+}) {
+  return (
+    <div className="ppanel__bar">
+      <span className="ppanel__dots" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </span>
+
+      <span className="ppanel__url">
+        <span className="ppanel__url-host">
+          {host}
+        </span>
+
+        <span className="ppanel__url-path">
+          {path}
+        </span>
+      </span>
+    </div>
+  )
 }
+
 const FRAME_DELAY_MS = 440
-function LiveFrame({ src, title }: { src: string; title: string }) {
+
+function LiveFrame({
+  src,
+  title,
+}: {
+  src: string
+  title: string
+}) {
   const [ready, setReady] = useState(false)
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
-    const id = window.setTimeout(() => setMounted(true), FRAME_DELAY_MS)
+    const id = window.setTimeout(
+      () => setMounted(true),
+      FRAME_DELAY_MS
+    )
+
     return () => window.clearTimeout(id)
   }, [])
-  return <div className="ppanel__stage">
-    {!ready && <div className="ppanel__skeleton" aria-hidden="true" />}
-    {mounted && <iframe className="ppanel__iframe" src={src} title={title} loading="eager" onLoad={() => setReady(true)} data-ready={ready ? 'true' : 'false'} />}
-  </div>
+
+  return (
+    <div className="ppanel__stage">
+
+      {!ready && (
+        <div
+          className="ppanel__skeleton"
+          aria-hidden="true"
+        />
+      )}
+
+      {mounted && (
+        <iframe
+          className="ppanel__iframe"
+          src={src}
+          title={title}
+          loading="eager"
+          onLoad={() => setReady(true)}
+          data-ready={ready ? 'true' : 'false'}
+        />
+      )}
+
+    </div>
+  )
 }
