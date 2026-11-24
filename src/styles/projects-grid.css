@@ -648,15 +648,62 @@
   line-height: 1.65;
 }
 
+
 /* ============================================
-   SUPER CREAMY CUSTOM FONT
+   PROJECTS — POPPINS TYPOGRAPHY
    ============================================ */
 
-@font-face {
-  font-family: 'Super Creamy';
-  src: url('/angelica-va-portfolio/fonts/SuperCreamy-OGAPp.ttf')
-    format('truetype');
+.pgrid,
+.pgrid button,
+.pmodal {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Main page heading */
+.pgrid__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+/* Project card titles */
+.pgrid .bento__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+/* Featured project titles */
+.pgrid .bento__build-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Descriptions */
+.pgrid__lede,
+.pgrid .bento__desc,
+.pgrid .bento__build-desc {
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  line-height: 1.65;
+}
+
+/* Small uppercase labels */
+.pgrid__eyebrow,
+.pgrid .bento__kicker {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+/* Expanded project headings */
+.pmodal h1,
+.pmodal h2,
+.pmodal h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
