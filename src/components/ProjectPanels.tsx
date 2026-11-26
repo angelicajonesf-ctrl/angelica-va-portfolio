@@ -94,8 +94,26 @@ const executiveCases = [
       'Without a structured meeting process, important decisions, assigned responsibilities, and deadlines can easily be overlooked.',
     approach:
       'Prepared a leadership meeting agenda, documented key discussions and decisions, created an action item tracker with a visual dashboard, and drafted a follow-up email outlining responsibilities and deadlines.',
-    result:
+       result:
       'A complete meeting coordination workflow designed to improve communication, provide visibility into outstanding tasks, and maintain accountability.',
+  },
+  {
+    id: 'dms',
+    number: '04',
+    title: 'Document Management',
+    eyebrow: 'Executive Document Management',
+    headline: 'From scattered documents to',
+    highlight: 'structured control.',
+    description:
+      'A centralized document management system designed for organized file storage, document tracking, version control, and review monitoring.',
+    tool: 'Google Drive · Google Sheets',
+    shots: [],
+    challenge:
+      'Unstructured file storage and inconsistent naming conventions make documents difficult to locate, track, and maintain.',
+    approach:
+      'Designed a color-coded Google Drive folder architecture, established standardized file naming conventions, created a master document register with review tracking, and developed a visual reporting dashboard.',
+    result:
+      'A functional portfolio sample containing 22 registered documents across six business categories, supported by eight main folders, document links, version tracking, and review monitoring.',
   },
 ]
 
@@ -287,7 +305,160 @@ function MeetingDeliverables() {
 /* ========================================
    EXECUTIVE PROJECT PANEL
 ======================================== */
+const dmsDeliverables = [
+  {
+    number: '01',
+    phase: 'ORGANIZE',
+    title: 'Google Drive Architecture',
+    description:
+      'A structured, color-coded folder hierarchy with eight main folders and dedicated subfolders for efficient document retrieval.',
+    file: 'dms-drive.png',
+    tool: 'Google Drive',
+    action: 'View folder architecture',
+  },
+  {
+    number: '02',
+    phase: 'STANDARDIZE',
+    title: 'File Naming Convention',
+    description:
+      'A consistent naming system incorporating document dates, category codes, descriptive filenames, and version numbers.',
+    file: 'dms-naming.svg',
+    tool: 'Document Control',
+    action: 'View naming convention',
+  },
+  {
+    number: '03',
+    phase: 'REGISTER',
+    title: 'Master Document Register',
+    description:
+      'A centralized tracker containing document IDs, categories, ownership, versions, approval statuses, review dates, and direct document links.',
+    file: 'dms-register.png',
+    tool: 'Google Sheets',
+    action: 'View document register',
+  },
+  {
+    number: '04',
+    phase: 'MONITOR',
+    title: 'Document Management Dashboard',
+    description:
+      'A visual reporting dashboard displaying document totals, approval statuses, review deadlines, and category distribution.',
+    file: 'dms-dashboard.png',
+    tool: 'Google Sheets',
+    action: 'View dashboard',
+  },
+  {
+    number: '05',
+    phase: 'MAINTAIN',
+    title: 'Document Control Workflow',
+    description:
+      'A standardized process for organizing, registering, reviewing, updating, and maintaining business documents.',
+    file: 'dms-workflow.svg',
+    tool: 'Process Documentation',
+    action: 'View document workflow',
+  },
+]
 
+function DMSDeliverables() {
+  return (
+    <div className="meeting-project">
+
+      <div className="meeting-project__intro">
+        <span className="meeting-project__label">
+          THE DELIVERABLES
+        </span>
+
+        <h3>A complete document management system.</h3>
+
+        <p>
+          Summit Business Solutions · May 2026
+          · Illustrative portfolio sample
+        </p>
+      </div>
+
+      <div className="meeting-deliverables">
+
+        {dmsDeliverables.map((item) => (
+          <article
+            className="meeting-deliverable"
+            key={item.number}
+          >
+            <div className="meeting-deliverable__top">
+              <span className="meeting-deliverable__number">
+                {item.number}
+              </span>
+
+              <span className="meeting-deliverable__phase">
+                {item.phase}
+              </span>
+            </div>
+
+            <h3>{item.title}</h3>
+
+            <p>{item.description}</p>
+
+            <a
+              className="meeting-deliverable__preview"
+              href={inboxAsset(item.file)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${item.title} in a new tab`}
+            >
+              <img
+                src={inboxAsset(item.file)}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+
+            <div className="meeting-deliverable__footer">
+              <span>{item.tool}</span>
+
+              <a
+                href={inboxAsset(item.file)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.action} ↗
+              </a>
+            </div>
+
+          </article>
+        ))}
+
+      </div>
+
+      <div className="meeting-workflow">
+
+        <span className="meeting-project__label">
+          DOCUMENT MANAGEMENT PROCESS
+        </span>
+
+        <div className="meeting-workflow__steps">
+
+          {[
+            'Organize',
+            'Standardize',
+            'Register',
+            'Monitor',
+            'Maintain',
+          ].map((step, index) => (
+            <div
+              className="meeting-workflow__step"
+              key={step}
+            >
+              <span>{`0${index + 1}`}</span>
+              <strong>{step}</strong>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
 export function AutomationsPanel() {
   const [activeCase, setActiveCase] = useState(0)
   const project = executiveCases[activeCase]
@@ -357,9 +528,13 @@ export function AutomationsPanel() {
 
           {project.id === 'meeting' ? (
 
-            <MeetingDeliverables />
+  <MeetingDeliverables />
 
-          ) : (
+) : project.id === 'dms' ? (
+
+  <DMSDeliverables />
+
+) : (
 
             <div className="inbox-case__comparison">
               {project.shots.map((shot) => (
@@ -413,7 +588,9 @@ export function AutomationsPanel() {
 
           <footer className="inbox-case__footer">
             <span>
-              {project.id === 'meeting' ? 'Tools: ' : 'Tool: '}
+             {project.id === 'meeting' || project.id === 'dms'
+  ? 'Tools: '
+  : 'Tool: '}
               {project.tool}
             </span>
 
