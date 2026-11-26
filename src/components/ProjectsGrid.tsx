@@ -91,11 +91,16 @@ function WorkflowsPreview() {
       title: 'Calendar Management',
       image: 'calendar-after.png',
     },
-    {
-      number: '03',
-      title: 'Meeting Coordination',
-      image: 'meeting-action-tracker-final.png',
-    },
+   {
+  number: '03',
+  title: 'Meeting Coordination',
+  image: 'meeting-action-tracker-final.png',
+},
+{
+  number: '04',
+  title: 'Document Management',
+  image: 'dms-dashboard.png',
+},
   ]
 
   return (
