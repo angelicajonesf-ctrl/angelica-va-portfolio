@@ -360,7 +360,7 @@ const dmsDeliverables = [
 
 function DMSDeliverables() {
   return (
-    <div className="meeting-project">
+    <div className="meeting-project dms-project">
 
       <div className="meeting-project__intro">
         <span className="meeting-project__label">
