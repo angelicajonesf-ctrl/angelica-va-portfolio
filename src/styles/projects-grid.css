@@ -1277,3 +1277,138 @@
     transform: none;
   }
 }
+/* ========================================
+   DOCUMENT MANAGEMENT — CUSTOM GRID
+======================================== */
+
+/* Six-column grid for a balanced 3 + 2 layout */
+
+.dms-project .meeting-deliverables {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* First row — three equal cards */
+
+.dms-project .meeting-deliverable {
+  grid-column: span 2;
+  min-width: 0;
+  padding: 20px;
+}
+
+/* Second row — two wider cards */
+
+.dms-project .meeting-deliverable:nth-child(4),
+.dms-project .meeting-deliverable:nth-child(5) {
+  grid-column: span 3;
+}
+
+/* Balanced typography */
+
+.dms-project .meeting-deliverable h3 {
+  font-size: clamp(16px, 1.5vw, 21px);
+  line-height: 1.35;
+}
+
+.dms-project .meeting-deliverable p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Consistent image previews */
+
+.dms-project .meeting-deliverable__preview {
+  height: clamp(180px, 19vw, 250px);
+  min-height: 180px;
+}
+
+.dms-project .meeting-deliverable__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Fifth card entrance animation */
+
+.dms-project .meeting-deliverable:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+/* DOCUMENT MANAGEMENT PROCESS — FIVE COLUMNS */
+
+.dms-project .meeting-workflow__steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dms-project .meeting-workflow__step {
+  min-width: 0;
+  padding: 20px 8px;
+  text-align: center;
+}
+
+.dms-project .meeting-workflow__step strong {
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* TABLET RESPONSIVENESS */
+
+@media (max-width: 1000px) {
+  .dms-project .meeting-deliverables {
+    gap: 14px;
+  }
+
+  .dms-project .meeting-deliverable {
+    padding: 16px;
+  }
+
+  .dms-project .meeting-workflow__steps {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 850px) {
+  .dms-project .meeting-deliverables {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dms-project .meeting-deliverable,
+  .dms-project .meeting-deliverable:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .dms-project .meeting-deliverable:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+  .dms-project .meeting-deliverables {
+    grid-template-columns: 1fr;
+  }
+
+  .dms-project .meeting-deliverable,
+  .dms-project .meeting-deliverable:nth-child(4),
+  .dms-project .meeting-deliverable:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .dms-project .meeting-deliverable__preview {
+    height: 230px;
+  }
+
+  .dms-project .meeting-workflow__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dms-project .meeting-workflow__step:last-child {
+    grid-column: span 2;
+  }
+}
